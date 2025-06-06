@@ -1,0 +1,111 @@
+.footer {
+    background-color: #ffffff;
+    color: #161616;
+    font-family: 'Poppins', sans-serif;
+    padding: 2rem 1.5rem 1rem; /* ↓ reduced top padding */
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem; /* ↑ increased space between branding and links */
+  }
+  
+  .footer-branding {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .footer-branding h2 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #1d1c1c;
+  }
+  
+  .footer-branding p {
+    color: #1b1b1b;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .footer-columns {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    min-width: 280px;
+  }
+  
+  .footer-column h4 {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    color: #0e0d0d;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-column li {
+    margin-bottom: 0.4rem;
+  }
+  
+  .footer-column a {
+    color: #050505;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-column a:hover {
+    color: rgb(68, 0, 255);
+  }
+  
+  .social-icons a {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: #161616;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: rgb(68, 0, 255);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    /* border-top: 1px solid #202020; */
+    padding-top: 1rem;
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #000000;
+  }
+  
+  /*  Mobile Responsive */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+    }
+  
+    .footer-columns {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+  
+    .footer-column {
+      margin-bottom: 1rem;
+    }
+  }
+  
