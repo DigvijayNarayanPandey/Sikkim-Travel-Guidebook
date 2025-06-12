@@ -1,13 +1,196 @@
-import React from 'react'
-import "./Places.css"
+import React, { useEffect,useState } from 'react';
+import "./Places.css";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
+
+import TravelBg from '../../assets/TravelBg.jpg';
+// North Images
+import North1 from '../../assets/North1.jpg';
+import North2 from '../../assets/North2.jpg';
+
+// East Images
+import East1 from '../../assets/East1.jpg';
+import East2 from '../../assets/East2.jpg';
+
+// West Images
+import West1 from '../../assets/West1.jpg';
+import West2 from '../../assets/West2.jpg';
+
+// South Images
+import South1 from '../../assets/South1.jpg';
+import South2 from '../../assets/South2.jpg';
 
 const Places = () => {
-  return (
-    <div>
-      <h1>This is palces to visit page</h1>
-      <p>Start writing code.....</p>
-    </div>
-  )
-}
+  useEffect(() => {
+    const imageUrls = [North1, North2, East1, East2, West1, West2, South1, South2];
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, []);
 
-export default Places
+  //SCROLL
+  useEffect(() => {
+  const sections = document.querySelectorAll(".section");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const target = entry.target;
+      if (entry.isIntersecting) {
+        target.classList.add("animate-in");
+        target.classList.remove("animate-out");
+      } else {
+        target.classList.remove("animate-in");
+        target.classList.add("animate-out");
+      }
+    });
+  }, {
+    threshold: 0.1,
+  });
+
+  sections.forEach((section) => observer.observe(section));
+
+  return () => sections.forEach((section) => observer.unobserve(section));
+}, []);
+
+
+
+  const [northIndex, setNorthIndex] = useState(0);
+  const [eastIndex, setEastIndex] = useState(0);
+  const [westIndex, setWestIndex] = useState(0);
+  const [southIndex, setSouthIndex] = useState(0);
+
+  const northCaptions = [
+    'Gurudongmar Lake: One of the highest lakes in the world and India, located at an altitude of 17,800ft.',
+    'Yumthang Valley: The "Valley of Flowers", Yumthang is a stunning valley with hot springs and rhododendron forests.'
+  ];
+
+  const eastCaptions = [
+    'Gangtok: The capital city, a major tourist hub with MG Marg and various monasteries. ',
+    'Tsomgo Lake: A high-altitude lake, famous for its stunning views and yak rides. '
+  ];
+
+  const westCaptions = [
+    'Pelling: Known for its views of Mount Kanchenjunga and Pemayangtse Monastery. ',
+    'Pemayangtse Monastery - Historic Buddhist site'
+  ];
+
+  const southCaptions = [
+    'Ravangla: A small, scenic town known for its stunning views and the annual Pang Lhabsol festival with Buddha Park',
+    'Namchi: The district capital, Namchi, is a significant religious center with numerous temples and monasteries.', 
+  ];
+
+  return (
+    <div className='Travel'>
+      <div className="travel-page-top">
+        <h1 className="travel-heading">"Discover the Four Faces of Sikkim"</h1>
+        <div className="regions-container">
+          <div className="region-card">
+              <h2>North Sikkim</h2>
+              <p>Known for Gurudongmar Lake, Yumthang Valley, and rugged beauty. Perfect for adventurous travel.</p>
+          </div>
+          <div className="region-card">
+              <h2>East Sikkim</h2>
+              <p>Home to Gangtok, monasteries, and cable car rides with stunning Himalayan views.</p>
+          </div>
+          <div className="region-card">
+              <h2>West Sikkim</h2>
+              <p>Famous for Pelling, waterfalls, ancient monasteries and views of Kanchenjunga.</p>
+          </div>
+          <div className="region-card">
+              <h2>South Sikkim</h2>
+              <p>Serene landscapes, Buddha Park, and Ravangla - ideal for peaceful retreats.</p>
+          </div>
+        </div>
+      </div>
+
+       {/* Sliders */}
+      <div className="section">
+        <h2 className="section-title">"North Sikkim"</h2>
+        <div className="underline"></div>
+        <p className='section-p'>North Sikkim offers a variety of areas to explore, each with unique natural beauty and attractions. Key areas include Mangan, the district capital, and the villages of Lachen and Lachung, which serve as gateways to Yumthang Valley and Zero Point. Other notable areas include Chungthang, Dzongu (a Lepcha region), and Phodong. </p>
+        <div className="carousel-container">
+          <Carousel
+          autoPlay
+          infiniteLoop
+          showThumbs={false}
+          showStatus={false}
+          interval={3000}
+          onChange={(index) => setNorthIndex(index)}
+        >
+          <div><img src={North1} alt="Gurudongmar Lake" /></div>
+          <div><img src={North2} alt="Yumthang Valley" /></div>
+        </Carousel>
+        </div>
+        
+        <p className="caption-text">{northCaptions[northIndex]}</p>
+      </div>
+
+      <div className="section">
+        <h2 className="section-title">"East Sikkim"</h2>
+        <div className="underline"></div>
+        <p className='section-p'>East Sikkim encompasses the southern and eastern regions of Sikkim, including the state capital, Gangtok. This area is known for its administrative hub, popular tourist attractions, and proximity to the border with China. Key parts of East Sikkim include Gangtok, Tsomgo Lake, Aritar, Zuluk, and Nathula Pass. </p>
+        <div className="carousel-container">
+            <Carousel
+          autoPlay
+          infiniteLoop
+          showThumbs={false}
+          showStatus={false}
+          interval={3000}
+          onChange={(index) => setEastIndex(index)}
+        >
+          <div><img src={TravelBg} alt="Gangtok" /></div>
+          <div><img src={East2} alt="Rumtek Monastery" /></div>
+        </Carousel>
+        </div>
+        
+        <p className="caption-text">{eastCaptions[eastIndex]}</p>
+      </div>
+
+      <div className="section">
+        <h2 className="section-title">"West Sikkim"</h2>
+        <div className="underline"></div>
+        <p className='section-p'>West Sikkim district in Sikkim is now divided into two districts: Gyalshing and Soreng. Important towns and areas within West Sikkim include Yuksom, Gyalshing, Dentam, Kaluk, Soreng, Daramdin, Pelling, Jorethang, and Singtam. The district is known for its monasteries, trekking trails, and scenic beauty. </p>
+         <div className="carousel-container">
+            <Carousel
+          autoPlay
+          infiniteLoop
+          showThumbs={false}
+          showStatus={false}
+          interval={3000}
+          onChange={(index) => setWestIndex(index)}
+        >
+          <div><img src={West1} alt="Pelling" /></div>
+          <div><img src={West2} alt="Pemayangtse Monastery" /></div>
+        </Carousel>
+         </div>
+        
+        <p className="caption-text">{westCaptions[westIndex]}</p>
+      </div>
+
+      <div className="section">
+        <h2 className="section-title">"South Sikkim"</h2>
+        <div className="underline"></div>
+        <p className='section-p'>South Sikkim encompasses several towns and attractions, offering a variety of experiences. Key areas include the district capital of Namchi, the small town of Ravangla, and Jorethang, a flourishing business center. Other notable locations include Temi Tea Garden, Buddha Park, and Tendong Hill. </p>
+        <div className="carousel-container">
+          <Carousel
+          autoPlay
+          infiniteLoop
+          showThumbs={false}
+          showStatus={false}
+          interval={3000}
+          onChange={(index) => setSouthIndex(index)}
+        >
+          <div><img src={South1} alt="Ravangla" /></div>
+          <div><img src={South2} alt="Namchi" /></div>
+        </Carousel>
+        </div>
+        
+        <p className="caption-text">{southCaptions[southIndex]}</p>
+      </div>
+     
+    </div>
+  );
+};
+
+export default Places;

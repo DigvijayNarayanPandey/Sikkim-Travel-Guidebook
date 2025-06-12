@@ -1,0 +1,148 @@
+.travel-page-top {
+  padding: 60px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  background-image: url('../../assets/TravelBg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.travel-heading {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.regions-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.region-card {
+  background: #fffcfc;
+  border-radius: 15px;
+  width: 270px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.region-card:hover {
+  transform: translateY(-10px);
+}
+
+.region-card h2 {
+  font-size: 1.5rem;
+  color: #070f16;
+  margin-bottom: 10px;
+}
+
+.region-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.section {
+  margin: 50px 0;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+  font-style: italic;
+}
+
+.section-p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #444;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.underline {
+  width: 60px;
+  height: 4px;
+  background-color: #009688;
+  margin: 10px auto 30px auto;
+  border-radius: 2px;
+}
+
+.carousel-container {
+  max-width: 1100px;  
+  margin: 0 auto;
+}
+
+.carousel .slide img {
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.caption-text {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  background-color: rgb(255, 255, 255);
+  color: rgb(36, 36, 36);
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+
+    .carousel-container {
+    max-width: 90%;
+  }
+  .carousel .slide img {
+    height: 200px;
+  }
+
+  .travel-heading {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .caption-text {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+
+
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+/* When scrolling in */
+.section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* When scrolling out */
+.section.animate-out {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.section.animate {
+  animation: fadeSlideUp 0.8s ease-out forwards;
+}
