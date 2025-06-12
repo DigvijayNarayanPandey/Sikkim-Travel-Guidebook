@@ -67,7 +67,7 @@ const Home = () => {
           infiniteLoop
           showThumbs={false}
           showStatus={false}
-          interval={4000}
+          interval={3000}
           transitionTime={1000}
           swipeable={true}
           emulateTouch={true}
