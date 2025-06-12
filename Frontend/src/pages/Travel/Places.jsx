@@ -7,22 +7,30 @@ import TravelBg from '../../assets/TravelBg.jpg';
 // North Images
 import North1 from '../../assets/North1.jpg';
 import North2 from '../../assets/North2.jpg';
+import North3 from '../../assets/North3.jpg';
+import North4 from '../../assets/North4.jpg';
 
 // East Images
 import East1 from '../../assets/East1.jpg';
 import East2 from '../../assets/East2.jpg';
+import East3 from '../../assets/East3.jpg';
+import East4 from '../../assets/East4.jpg';
 
 // West Images
 import West1 from '../../assets/West1.jpg';
 import West2 from '../../assets/West2.jpg';
+import West3 from '../../assets/West3.png';
+import West4 from '../../assets/West4.avif';
 
 // South Images
 import South1 from '../../assets/South1.jpg';
 import South2 from '../../assets/South2.jpg';
+import South3 from '../../assets/South3.jpeg';
+import South4 from '../../assets/South4.jpg';
 
 const Places = () => {
   useEffect(() => {
-    const imageUrls = [North1, North2, East1, East2, West1, West2, South1, South2];
+    const imageUrls = [North1, North2, North3, North4,  East1, East2, East3, East4, West1, West2, West3, South1, South2, South3, South4];
     imageUrls.forEach((url) => {
       const img = new Image();
       img.src = url;
@@ -62,22 +70,30 @@ const Places = () => {
 
   const northCaptions = [
     'Gurudongmar Lake: One of the highest lakes in the world and India, located at an altitude of 17,800ft.',
-    'Yumthang Valley: The "Valley of Flowers", Yumthang is a stunning valley with hot springs and rhododendron forests.'
+    'Yumthang Valley: The "Valley of Flowers", Yumthang is a stunning valley with hot springs and rhododendron forests.',
+    'Phodong Monastery: In Sikkim is a significant Buddhist monastery known for its beautiful architecture, intricate paintings.',
+    'Lachung: A picturesque village in North Sikkim, is a serene escape nestled in the Himalayas'
   ];
 
   const eastCaptions = [
     'Gangtok: The capital city, a major tourist hub with MG Marg and various monasteries. ',
-    'Tsomgo Lake: A high-altitude lake, famous for its stunning views and yak rides. '
+    'Tsomgo Lake: A high-altitude lake, famous for its stunning views and yak rides.',
+    'Nathula Pass: A high-altitude pass with panoramic views of snow-capped mountains and a historic trade route.',
+    'Zuluk: A small village on the old Silk Route, offering scenic views and adventure tourism.'
   ];
 
   const westCaptions = [
     'Pelling: Known for its views of Mount Kanchenjunga and Pemayangtse Monastery. ',
-    'Pemayangtse Monastery - Historic Buddhist site'
+    'Pemayangtse Monastery: Historic Buddhist site',
+    'Skywalk: Transparent glass walkway that offers stunning views of the Himalayas and the surrounding landscape',
+    'Dubdi Monastery: Also known as Yuksom Monastery, is the oldest monastery in Sikkim, established in 1701.'
   ];
 
   const southCaptions = [
     'Ravangla: A small, scenic town known for its stunning views and the annual Pang Lhabsol festival with Buddha Park',
-    'Namchi: The district capital, Namchi, is a significant religious center with numerous temples and monasteries.', 
+    'Namchi: The district capital, Namchi, is a significant religious center with numerous temples and monasteries.',
+    'Teami tea Garden: It is the only tea garden in Sikkim and is considered one of the best in India and the world',
+    'Char Dham: Featuring replicas of the four sacred Hindu shrines: Badrinath, Jagannath, Dwarka, and Rameshwar.'
   ];
 
   return (
@@ -120,6 +136,8 @@ const Places = () => {
         >
           <div><img src={North1} alt="Gurudongmar Lake" /></div>
           <div><img src={North2} alt="Yumthang Valley" /></div>
+          <div><img src={North3} alt="Phodong Monastery" /></div>
+          <div><img src={North4} alt="Lachen&Lachung" /></div>
         </Carousel>
         </div>
         
@@ -141,6 +159,8 @@ const Places = () => {
         >
           <div><img src={TravelBg} alt="Gangtok" /></div>
           <div><img src={East2} alt="Rumtek Monastery" /></div>
+          <div><img src={East3} alt="Nathula Pass" /></div>
+          <div><img src={East4} alt="Zuluk" /></div>
         </Carousel>
         </div>
         
@@ -162,6 +182,8 @@ const Places = () => {
         >
           <div><img src={West1} alt="Pelling" /></div>
           <div><img src={West2} alt="Pemayangtse Monastery" /></div>
+          <div><img src={West3} alt="Skywalk" /></div>
+          <div><img src={West4} alt="Dubdi Monastery" /></div>
         </Carousel>
          </div>
         
@@ -183,6 +205,8 @@ const Places = () => {
         >
           <div><img src={South1} alt="Ravangla" /></div>
           <div><img src={South2} alt="Namchi" /></div>
+          <div><img src={South3} alt="Temi Tea Garden" /></div>
+          <div><img src={South4} alt="Char Dham" /></div>
         </Carousel>
         </div>
         
