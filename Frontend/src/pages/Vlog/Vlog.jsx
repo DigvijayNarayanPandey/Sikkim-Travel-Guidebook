@@ -191,7 +191,7 @@ const Vlog = () => {
           <div className="hero-icon">
             <Camera className="camera-icon animated-camera" />
           </div>
-          <h1 className="hero-title">Sikkim Travel Vlogs</h1>
+          <h1 className="hero-title">Sikkim Travel Blogs</h1>
           <p className="hero-description">
             Journey through the mystical lands of Sikkim with our immersive video blogs.
             Experience the breathtaking beauty, rich culture, and serene spirituality of the Himalayas.
@@ -216,7 +216,7 @@ const Vlog = () => {
       {/* Vlog Grid */}
       <div className="vlog-content">
         <div className="section-header">
-          <h2 className="section-title">Latest Vlog Episodes</h2>
+          <h2 className="section-title">Latest Blog Episodes</h2>
           <p className="section-description">
             Explore Sikkim through our curated collection of short video stories,
             each capturing the essence of this magical Himalayan state.
@@ -349,7 +349,7 @@ const Vlog = () => {
           <div className="cta-card">
             <h3 className="cta-title">Ready to Explore Sikkim?</h3>
             <p className="cta-description">
-              Let these vlogs inspire your next adventure to the mystical Himalayas
+              Let these blogs inspire your next adventure to the mystical Himalayas
               {wishlist.length > 0 && ` • ${wishlist.length} destination${wishlist.length > 1 ? 's' : ''} in your wishlist`}
             </p>
             <button className="cta-button" onClick={handlePlanTrip}>

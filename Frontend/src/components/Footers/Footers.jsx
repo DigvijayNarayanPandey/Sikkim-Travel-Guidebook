@@ -20,7 +20,7 @@ const Footers = () => {
               <li><a href="/homestays">Homestays</a></li>
               <li><a href="/bikerentals">Bike Rentals</a></li>
               <li><a href="/places">Places to Visit</a></li>
-              <li><a href="/vlogs">Vlogs</a></li>
+              <li><a href="/vlogs">Blogs</a></li>
             </ul>
           </div>
 
