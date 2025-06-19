@@ -61,8 +61,6 @@ const Places = () => {
   return () => sections.forEach((section) => observer.unobserve(section));
 }, []);
 
-
-
   const [northIndex, setNorthIndex] = useState(0);
   const [eastIndex, setEastIndex] = useState(0);
   const [westIndex, setWestIndex] = useState(0);
@@ -99,118 +97,215 @@ const Places = () => {
   return (
     <div className='Travel'>
       <div className="travel-page-top">
-        <h1 className="travel-heading">"Discover the Four Faces of Sikkim"</h1>
-        <div className="regions-container">
-          <div className="region-card">
-              <h2>North Sikkim</h2>
-              <p>Known for Gurudongmar Lake, Yumthang Valley, and rugged beauty. Perfect for adventurous travel.</p>
+        <div className="hero-overlay"></div>
+        <div className="hero-content">
+          <h1 className="travel-heading">"Discover the Four Faces of Sikkim"</h1>
+          <div className="floating-particles">
+            <div className="particle"></div>
+            <div className="particle"></div>
+            <div className="particle"></div>
+            <div className="particle"></div>
           </div>
-          <div className="region-card">
-              <h2>East Sikkim</h2>
-              <p>Home to Gangtok, monasteries, and cable car rides with stunning Himalayan views.</p>
-          </div>
-          <div className="region-card">
-              <h2>West Sikkim</h2>
-              <p>Famous for Pelling, waterfalls, ancient monasteries and views of Kanchenjunga.</p>
-          </div>
-          <div className="region-card">
-              <h2>South Sikkim</h2>
-              <p>Serene landscapes, Buddha Park, and Ravangla - ideal for peaceful retreats.</p>
+          <div className="regions-container">
+            <div className="region-card north-card">
+                <div className="card-icon">🏔️</div>
+                <h2>North Sikkim</h2>
+                <p>Known for Gurudongmar Lake, Yumthang Valley, and rugged beauty. Perfect for adventurous travel.</p>
+                <div className="card-shine"></div>
+            </div>
+            <div className="region-card east-card">
+                <div className="card-icon">🏛️</div>
+                <h2>East Sikkim</h2>
+                <p>Home to Gangtok, monasteries, and cable car rides with stunning Himalayan views.</p>
+                <div className="card-shine"></div>
+            </div>
+            <div className="region-card west-card">
+                <div className="card-icon">🌊</div>
+                <h2>West Sikkim</h2>
+                <p>Famous for Pelling, waterfalls, ancient monasteries and views of Kanchenjunga.</p>
+                <div className="card-shine"></div>
+            </div>
+            <div className="region-card south-card">
+                <div className="card-icon">🧘</div>
+                <h2>South Sikkim</h2>
+                <p>Serene landscapes, Buddha Park, and Ravangla - ideal for peaceful retreats.</p>
+                <div className="card-shine"></div>
+            </div>
           </div>
         </div>
       </div>
 
        {/* Sliders */}
-      <div className="section">
-        <h2 className="section-title">"North Sikkim"</h2>
-        <div className="underline"></div>
+      <div className="section north-section">
+        <div className="section-header">
+          <h2 className="section-title">"North Sikkim"</h2>
+          <div className="underline"></div>
+          <div className="title-decoration">❄️</div>
+        </div>
         <p className='section-p'>North Sikkim offers a variety of areas to explore, each with unique natural beauty and attractions. Key areas include Mangan, the district capital, and the villages of Lachen and Lachung, which serve as gateways to Yumthang Valley and Zero Point. Other notable areas include Chungthang, Dzongu (a Lepcha region), and Phodong. </p>
-        <div className="carousel-container">
-          <Carousel
-          autoPlay
-          infiniteLoop
-          showThumbs={false}
-          showStatus={false}
-          interval={3000}
-          onChange={(index) => setNorthIndex(index)}
-        >
-          <div><img src={North1} alt="Gurudongmar Lake" /></div>
-          <div><img src={North2} alt="Yumthang Valley" /></div>
-          <div><img src={North3} alt="Phodong Monastery" /></div>
-          <div><img src={North4} alt="Lachen&Lachung" /></div>
-        </Carousel>
+        <div className="carousel-wrapper">
+          <div className="carousel-container">
+            <Carousel
+            autoPlay
+            infiniteLoop
+            showThumbs={false}
+            showStatus={false}
+            interval={3000}
+            onChange={(index) => setNorthIndex(index)}
+            transitionTime={800}
+          >
+            <div className="slide-item">
+              <img src={North1} alt="Gurudongmar Lake" />
+              <div className="image-overlay"></div>
+            </div>
+            <div className="slide-item">
+              <img src={North2} alt="Yumthang Valley" />
+              <div className="image-overlay"></div>
+            </div>
+            <div className="slide-item">
+              <img src={North3} alt="Phodong Monastery" />
+              <div className="image-overlay"></div>
+            </div>
+            <div className="slide-item">
+              <img src={North4} alt="Lachen&Lachung" />
+              <div className="image-overlay"></div>
+            </div>
+          </Carousel>
+          </div>
         </div>
         
-        <p className="caption-text">{northCaptions[northIndex]}</p>
+        <div className="caption-container">
+          <p className="caption-text">{northCaptions[northIndex]}</p>
+        </div>
       </div>
 
-      <div className="section">
-        <h2 className="section-title">"East Sikkim"</h2>
-        <div className="underline"></div>
+      <div className="section east-section">
+        <div className="section-header">
+          <h2 className="section-title">"East Sikkim"</h2>
+          <div className="underline"></div>
+          <div className="title-decoration">🏮</div>
+        </div>
         <p className='section-p'>East Sikkim encompasses the southern and eastern regions of Sikkim, including the state capital, Gangtok. This area is known for its administrative hub, popular tourist attractions, and proximity to the border with China. Key parts of East Sikkim include Gangtok, Tsomgo Lake, Aritar, Zuluk, and Nathula Pass. </p>
-        <div className="carousel-container">
-            <Carousel
-          autoPlay
-          infiniteLoop
-          showThumbs={false}
-          showStatus={false}
-          interval={3000}
-          onChange={(index) => setEastIndex(index)}
-        >
-          <div><img src={TravelBg} alt="Gangtok" /></div>
-          <div><img src={East2} alt="Rumtek Monastery" /></div>
-          <div><img src={East3} alt="Nathula Pass" /></div>
-          <div><img src={East4} alt="Zuluk" /></div>
-        </Carousel>
+        <div className="carousel-wrapper">
+          <div className="carousel-container">
+              <Carousel
+            autoPlay
+            infiniteLoop
+            showThumbs={false}
+            showStatus={false}
+            interval={3000}
+            onChange={(index) => setEastIndex(index)}
+            transitionTime={800}
+          >
+            <div className="slide-item">
+              <img src={TravelBg} alt="Gangtok" />
+              <div className="image-overlay"></div>
+            </div>
+            <div className="slide-item">
+              <img src={East2} alt="Rumtek Monastery" />
+              <div className="image-overlay"></div>
+            </div>
+            <div className="slide-item">
+              <img src={East3} alt="Nathula Pass" />
+              <div className="image-overlay"></div>
+            </div>
+            <div className="slide-item">
+              <img src={East4} alt="Zuluk" />
+              <div className="image-overlay"></div>
+            </div>
+          </Carousel>
+          </div>
         </div>
         
-        <p className="caption-text">{eastCaptions[eastIndex]}</p>
+        <div className="caption-container">
+          <p className="caption-text">{eastCaptions[eastIndex]}</p>
+        </div>
       </div>
 
-      <div className="section">
-        <h2 className="section-title">"West Sikkim"</h2>
-        <div className="underline"></div>
+      <div className="section west-section">
+        <div className="section-header">
+          <h2 className="section-title">"West Sikkim"</h2>
+          <div className="underline"></div>
+          <div className="title-decoration">🌸</div>
+        </div>
         <p className='section-p'>West Sikkim district in Sikkim is now divided into two districts: Gyalshing and Soreng. Important towns and areas within West Sikkim include Yuksom, Gyalshing, Dentam, Kaluk, Soreng, Daramdin, Pelling, Jorethang, and Singtam. The district is known for its monasteries, trekking trails, and scenic beauty. </p>
-         <div className="carousel-container">
-            <Carousel
-          autoPlay
-          infiniteLoop
-          showThumbs={false}
-          showStatus={false}
-          interval={3000}
-          onChange={(index) => setWestIndex(index)}
-        >
-          <div><img src={West1} alt="Pelling" /></div>
-          <div><img src={West2} alt="Pemayangtse Monastery" /></div>
-          <div><img src={West3} alt="Skywalk" /></div>
-          <div><img src={West4} alt="Dubdi Monastery" /></div>
-        </Carousel>
+         <div className="carousel-wrapper">
+          <div className="carousel-container">
+              <Carousel
+            autoPlay
+            infiniteLoop
+            showThumbs={false}
+            showStatus={false}
+            interval={3000}
+            onChange={(index) => setWestIndex(index)}
+            transitionTime={800}
+          >
+            <div className="slide-item">
+              <img src={West1} alt="Pelling" />
+              <div className="image-overlay"></div>
+            </div>
+            <div className="slide-item">
+              <img src={West2} alt="Pemayangtse Monastery" />
+              <div className="image-overlay"></div>
+            </div>
+            <div className="slide-item">
+              <img src={West3} alt="Skywalk" />
+              <div className="image-overlay"></div>
+            </div>
+            <div className="slide-item">
+              <img src={West4} alt="Dubdi Monastery" />
+              <div className="image-overlay"></div>
+            </div>
+          </Carousel>
+           </div>
          </div>
         
-        <p className="caption-text">{westCaptions[westIndex]}</p>
+        <div className="caption-container">
+          <p className="caption-text">{westCaptions[westIndex]}</p>
+        </div>
       </div>
 
-      <div className="section">
-        <h2 className="section-title">"South Sikkim"</h2>
-        <div className="underline"></div>
+      <div className="section south-section">
+        <div className="section-header">
+          <h2 className="section-title">"South Sikkim"</h2>
+          <div className="underline"></div>
+          <div className="title-decoration">🌺</div>
+        </div>
         <p className='section-p'>South Sikkim encompasses several towns and attractions, offering a variety of experiences. Key areas include the district capital of Namchi, the small town of Ravangla, and Jorethang, a flourishing business center. Other notable locations include Temi Tea Garden, Buddha Park, and Tendong Hill. </p>
-        <div className="carousel-container">
-          <Carousel
-          autoPlay
-          infiniteLoop
-          showThumbs={false}
-          showStatus={false}
-          interval={3000}
-          onChange={(index) => setSouthIndex(index)}
-        >
-          <div><img src={South1} alt="Ravangla" /></div>
-          <div><img src={South2} alt="Namchi" /></div>
-          <div><img src={South3} alt="Temi Tea Garden" /></div>
-          <div><img src={South4} alt="Char Dham" /></div>
-        </Carousel>
+        <div className="carousel-wrapper">
+          <div className="carousel-container">
+            <Carousel
+            autoPlay
+            infiniteLoop
+            showThumbs={false}
+            showStatus={false}
+            interval={3000}
+            onChange={(index) => setSouthIndex(index)}
+            transitionTime={800}
+          >
+            <div className="slide-item">
+              <img src={South1} alt="Ravangla" />
+              <div className="image-overlay"></div>
+            </div>
+            <div className="slide-item">
+              <img src={South2} alt="Namchi" />
+              <div className="image-overlay"></div>
+            </div>
+            <div className="slide-item">
+              <img src={South3} alt="Temi Tea Garden" />
+              <div className="image-overlay"></div>
+            </div>
+            <div className="slide-item">
+              <img src={South4} alt="Char Dham" />
+              <div className="image-overlay"></div>
+            </div>
+          </Carousel>
+          </div>
         </div>
         
-        <p className="caption-text">{southCaptions[southIndex]}</p>
+        <div className="caption-container">
+          <p className="caption-text">{southCaptions[southIndex]}</p>
+        </div>
       </div>
      
     </div>
