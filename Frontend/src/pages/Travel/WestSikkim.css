@@ -1,0 +1,686 @@
+/* West Sikkim Component Styles */
+
+.west-sikkim-container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.west-sikkim-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(160deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+}
+
+/* Hero Carousel Section */
+.hero-carousel-section {
+  position: relative;
+  height: 75vh;
+  overflow: hidden;
+  border-radius: 0 0 50px 50px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1.1);
+}
+
+.carousel-slide.slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.carousel-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  padding: 100px 50px 50px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.carousel-title {
+  color: white;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+  animation: slideUpFade 1s ease-out;
+  letter-spacing: 1px;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Carousel Navigation */
+.carousel-navigation {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 200;
+}
+
+.nav-indicator {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-indicator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+
+.nav-indicator:hover {
+  border-color: white;
+  transform: scale(1.3);
+}
+
+.nav-indicator:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-indicator.indicator-active {
+  border-color: white;
+  transform: scale(1.4);
+}
+
+.nav-indicator.indicator-active::before {
+  width: 100%;
+  height: 100%;
+}
+
+/* Hero Title Overlay */
+.hero-title-overlay {
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  transform: translateY(-50%);
+  color: white;
+  z-index: 100;
+}
+
+.hero-title-overlay h1 {
+  font-size: 4.5rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.6);
+  animation: fadeInRight 1.5s ease-out;
+  background: linear-gradient(45deg, #fff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-title-overlay p {
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  animation: fadeInRight 1.5s ease-out 0.4s both;
+  opacity: 0.95;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.content-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+/* Section Styles */
+section {
+  margin-bottom: 100px;
+}
+
+section h2 {
+  font-size: 3.5rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  font-weight: 700;
+}
+
+section h2::before {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 3px;
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #764ba2, #667eea);
+  border-radius: 2px;
+}
+
+/* About West Section */
+.about-west-section p {
+  font-size: 1.3rem;
+  line-height: 2;
+  color: #555;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Destinations Grid */
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 35px;
+  margin-top: 60px;
+}
+
+.destination-card {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  border-top: 6px solid transparent;
+  background-clip: padding-box;
+}
+
+.destination-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+}
+
+.destination-card::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+.destination-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
+}
+
+.destination-card:hover::after {
+  top: -50%;
+  left: -50%;
+}
+
+.destination-card h3 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 2;
+  font-weight: 600;
+}
+
+.destination-card p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  position: relative;
+  z-index: 2;
+  font-size: 1.1rem;
+}
+
+.attractions-list {
+  position: relative;
+  z-index: 2;
+}
+
+.attractions-list h4 {
+  color: #667eea;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.attractions-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.attractions-list li {
+  color: #555;
+  padding: 8px 0;
+  position: relative;
+  padding-left: 25px;
+  font-size: 1rem;
+}
+
+.attractions-list li::before {
+  content: '⭐';
+  position: absolute;
+  left: 0;
+  color: #f39c12;
+}
+
+/* Adventure Experiences Grid */
+.experiences-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.experience-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  color: white;
+  padding: 35px;
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, rgba(255, 255, 255, 0.1), transparent, rgba(255, 255, 255, 0.1));
+  transition: all 0.4s ease;
+  border-radius: 50%;
+}
+
+.experience-card:hover {
+  transform: translateY(-12px) rotateX(5deg);
+  box-shadow: 0 20px 45px rgba(102, 126, 234, 0.4);
+}
+
+.experience-card:hover::before {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.experience-header h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.difficulty-level {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 8px 15px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.experience-location {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  opacity: 0.9;
+  position: relative;
+  z-index: 2;
+}
+
+.experience-info {
+  line-height: 1.7;
+  opacity: 0.95;
+  position: relative;
+  z-index: 2;
+  font-size: 1rem;
+}
+
+/* Travel Information Grid */
+.info-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.info-card {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  border-left: 6px solid #667eea;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -100px;
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.05));
+  transition: all 0.4s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+  border-left-color: #764ba2;
+}
+
+.info-card:hover::before {
+  right: 0;
+}
+
+.info-card h3 {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.info-card p {
+  color: #666;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* Responsive Design - Large Tablets */
+@media (max-width: 1200px) {
+  .hero-carousel-section {
+    height: 70vh;
+  }
+  
+  .hero-title-overlay h1 {
+    font-size: 4rem;
+  }
+  
+  .hero-title-overlay p {
+    font-size: 1.6rem;
+  }
+  
+  .carousel-title {
+    font-size: 2.5rem;
+  }
+  
+  .destinations-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+/* Responsive Design - Tablets */
+@media (max-width: 768px) {
+  .hero-title-overlay {
+    left: 30px;
+  }
+  
+  .hero-title-overlay h1 {
+    font-size: 3rem;
+  }
+  
+  .hero-title-overlay p {
+    font-size: 1.4rem;
+  }
+  
+  .carousel-title {
+    font-size: 2rem;
+  }
+  
+  .carousel-overlay {
+    padding: 80px 30px 40px;
+  }
+  
+  .carousel-navigation {
+    gap: 15px;
+  }
+  
+  section h2 {
+    font-size: 2.8rem;
+  }
+  
+  .destinations-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .experiences-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .info-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .experience-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .content-container {
+    padding: 0 20px;
+  }
+  
+  .destination-card,
+  .experience-card,
+  .info-card {
+    padding: 25px;
+  }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 480px) {
+  .hero-carousel-section {
+    height: 60vh;
+    border-radius: 0 0 30px 30px;
+  }
+  
+  .hero-title-overlay {
+    left: 20px;
+    right: 20px;
+    text-align: center;
+  }
+  
+  .hero-title-overlay h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero-title-overlay p {
+    font-size: 1.1rem;
+  }
+  
+  .carousel-title {
+    font-size: 1.6rem;
+  }
+  
+  .carousel-overlay {
+    padding: 60px 20px 30px;
+  }
+  
+  section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .about-west-section p {
+    font-size: 1.1rem;
+  }
+  
+  .destination-card,
+  .experience-card,
+  .info-card {
+    padding: 20px;
+  }
+  
+  .nav-indicator {
+    width: 12px;
+    height: 12px;
+  }
+  
+  .content-container {
+    padding: 0 15px;
+  }
+  
+  .destinations-grid,
+  .experiences-grid,
+  .info-cards-grid {
+    gap: 20px;
+  }
+}
+
+/* Ultra Small Screens */
+@media (max-width: 360px) {
+  .hero-title-overlay h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-title-overlay p {
+    font-size: 1rem;
+  }
+  
+  .carousel-title {
+    font-size: 1.4rem;
+  }
+  
+  section h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Smooth Loading Animation */
+.carousel-slide[style*="background-image"] {
+  animation: smoothLoad 1.5s ease-in-out;
+}
+
+@keyframes smoothLoad {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Global Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus States for Accessibility */
+.nav-indicator:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 3px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .destination-card,
+  .experience-card,
+  .info-card {
+    border: 2px solid #333;
+  }
+  
+  .nav-indicator {
+    border-width: 4px;
+  }
+}

@@ -96,7 +96,7 @@ const PlanTrip = () => {
     // Here you would typically send data to your backend
     alert('Trip planned successfully! You will receive a confirmation email shortly.');
     setShowConfirmation(false);
-    navigate('/');
+    navigate('/vlog');
   };
 
   const getTodayDate = () => {

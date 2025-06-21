@@ -1,0 +1,691 @@
+/* South Sikkim Component Styles */
+
+.south-sikkim-container * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.south-sikkim-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(165deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+  position: relative;
+}
+
+/* Hero Vertical Image Slider */
+.hero-vertical-slider {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  border-radius: 0 0 60px 60px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.vertical-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.vertical-slide.active-slide {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+  padding: 120px 60px 60px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.slide-caption {
+  color: white;
+  font-size: 3.2rem;
+  font-weight: 800;
+  text-align: center;
+  text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8);
+  animation: verticalSlideUp 1.2s ease-out;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
+}
+
+@keyframes verticalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Vertical Navigation Indicators */
+.vertical-navigation {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  z-index: 300;
+}
+
+.vertical-indicator {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.vertical-indicator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: linear-gradient(45deg, #ff9a9e, #fecfef);
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+
+.vertical-indicator:hover {
+  border-color: white;
+  transform: scale(1.4);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.vertical-indicator:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.vertical-indicator.active-indicator {
+  border-color: white;
+  transform: scale(1.5);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
+}
+
+.vertical-indicator.active-indicator::before {
+  width: 100%;
+  height: 100%;
+}
+
+/* Main Title Overlay */
+.main-title-overlay {
+  position: absolute;
+  top: 50%;
+  left: 80px;
+  transform: translateY(-50%);
+  color: white;
+  z-index: 200;
+}
+
+.main-title-overlay h1 {
+  font-size: 5rem;
+  font-weight: 900;
+  margin-bottom: 30px;
+  text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.7);
+  animation: fadeInLeft 1.8s ease-out;
+  background: linear-gradient(45deg, #fff, #fecfef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.main-title-overlay p {
+  font-size: 2rem;
+  font-weight: 500;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+  animation: fadeInLeft 1.8s ease-out 0.5s both;
+  opacity: 0.98;
+  letter-spacing: 0.5px;
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Main Content Area */
+.main-content-area {
+  padding: 120px 0;
+  background: linear-gradient(180deg, #fafafa 0%, #f0f0f0 100%);
+}
+
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* Section Styles */
+section {
+  margin-bottom: 120px;
+}
+
+section h2 {
+  font-size: 3.8rem;
+  color: #34495e;
+  text-align: center;
+  margin-bottom: 70px;
+  position: relative;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+section h2::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 6px;
+  background: linear-gradient(90deg, #ff9a9e, #fecfef, #ff9a9e);
+  border-radius: 4px;
+}
+
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #fecfef, #ff9a9e);
+  border-radius: 3px;
+}
+
+/* About South Section */
+.south-about-section p {
+  font-size: 1.4rem;
+  line-height: 2.1;
+  color: #555;
+  text-align: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 25px;
+  font-weight: 400;
+}
+
+/* Attractions Layout */
+.attractions-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 40px;
+  margin-top: 70px;
+}
+
+.attraction-panel {
+  background: white;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  border-top: 8px solid transparent;
+  background-clip: padding-box;
+}
+
+.attraction-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, #ff9a9e, #fecfef, #ff9a9e, #fad0c4);
+}
+
+.attraction-panel::after {
+  content: '';
+  position: absolute;
+  top: -120%;
+  left: -120%;
+  width: 340%;
+  height: 340%;
+  background: radial-gradient(circle, rgba(255, 154, 158, 0.06) 0%, transparent 75%);
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.attraction-panel:hover {
+  transform: translateY(-18px) scale(1.03);
+  box-shadow: 0 30px 60px rgba(255, 154, 158, 0.25);
+}
+
+.attraction-panel:hover::after {
+  top: -60%;
+  left: -60%;
+}
+
+.attraction-panel h3 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+  font-weight: 700;
+}
+
+.attraction-panel p {
+  color: #666;
+  line-height: 1.9;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+  font-size: 1.15rem;
+}
+
+.highlights-section {
+  position: relative;
+  z-index: 2;
+}
+
+.highlights-section h4 {
+  color: #ff9a9e;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.highlights-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.highlights-section li {
+  color: #555;
+  padding: 10px 0;
+  position: relative;
+  padding-left: 30px;
+  font-size: 1.05rem;
+}
+
+.highlights-section li::before {
+  content: '🌸';
+  position: absolute;
+  left: 0;
+  font-size: 1.1rem;
+}
+
+/* Activities Layout */
+.activities-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 35px;
+  margin-top: 70px;
+}
+
+.activity-panel {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fad0c4 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 25px;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.activity-panel::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  right: -60%;
+  width: 220%;
+  height: 220%;
+  background: conic-gradient(from 45deg, rgba(255, 255, 255, 0.12), transparent, rgba(255, 255, 255, 0.12));
+  transition: all 0.5s ease;
+  border-radius: 50%;
+}
+
+.activity-panel:hover {
+  transform: translateY(-15px) rotateX(8deg);
+  box-shadow: 0 25px 55px rgba(255, 154, 158, 0.45);
+}
+
+.activity-panel:hover::before {
+  animation: rotateGradient 2.5s linear infinite;
+}
+
+@keyframes rotateGradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 22px;
+  position: relative;
+  z-index: 2;
+}
+
+.activity-header h3 {
+  font-size: 1.7rem;
+  margin-bottom: 0;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.difficulty-badge {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.activity-location {
+  font-size: 1.15rem;
+  margin-bottom: 15px;
+  opacity: 0.95;
+  position: relative;
+  z-index: 2;
+  font-weight: 500;
+}
+
+.activity-description {
+  line-height: 1.8;
+  opacity: 0.98;
+  position: relative;
+  z-index: 2;
+  font-size: 1.05rem;
+}
+
+/* Travel Guidelines Layout */
+.guidelines-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 35px;
+  margin-top: 70px;
+}
+
+.guideline-card {
+  background: white;
+  padding: 35px;
+  border-radius: 22px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+  border-left: 8px solid #ff9a9e;
+  position: relative;
+  overflow: hidden;
+}
+
+.guideline-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -120px;
+  width: 120px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 154, 158, 0.06));
+  transition: all 0.5s ease;
+}
+
+.guideline-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(255, 154, 158, 0.18);
+  border-left-color: #fecfef;
+}
+
+.guideline-card:hover::before {
+  right: 0;
+}
+
+.guideline-card h3 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 700;
+}
+
+.guideline-card p {
+  color: #666;
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+/* Responsive Design - Large Tablets */
+@media (max-width: 1200px) {
+  .hero-vertical-slider {
+    height: 75vh;
+  }
+  
+  .main-title-overlay h1 {
+    font-size: 4.2rem;
+  }
+  
+  .main-title-overlay p {
+    font-size: 1.8rem;
+  }
+  
+  .slide-caption {
+    font-size: 2.8rem;
+  }
+  
+  .attractions-layout {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  }
+}
+
+/* Responsive Design - Tablets */
+@media (max-width: 768px) {
+  .main-title-overlay {
+    left: 40px;
+  }
+  
+  .main-title-overlay h1 {
+    font-size: 3.5rem;
+  }
+  
+  .main-title-overlay p {
+    font-size: 1.5rem;
+  }
+  
+  .slide-caption {
+    font-size: 2.2rem;
+  }
+  
+  .slide-gradient-overlay {
+    padding: 100px 40px 50px;
+  }
+  
+  .vertical-navigation {
+    right: 25px;
+    gap: 20px;
+  }
+  
+  section h2 {
+    font-size: 3rem;
+  }
+  
+  .attractions-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .activities-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .guidelines-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .activity-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .section-container {
+    padding: 0 25px;
+  }
+  
+  .attraction-panel,
+  .activity-panel,
+  .guideline-card {
+    padding: 30px;
+  }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 480px) {
+  .hero-vertical-slider {
+    height: 65vh;
+    border-radius: 0 0 40px 40px;
+  }
+  
+  .main-title-overlay {
+    left: 25px;
+    right: 25px;
+    text-align: center;
+  }
+  
+  .main-title-overlay h1 {
+    font-size: 2.5rem;
+  }
+  
+  .main-title-overlay p {
+    font-size: 1.2rem;
+  }
+  
+  .slide-caption {
+    font-size: 1.8rem;
+  }
+  
+  .slide-gradient-overlay {
+    padding: 80px 25px 40px;
+  }
+  
+  section h2 {
+    font-size: 2.5rem;
+  }
+  
+  .south-about-section p {
+    font-size: 1.2rem;
+  }
+  
+  .attraction-panel,
+  .activity-panel,
+  .guideline-card {
+    padding: 25px;
+  }
+  
+  .vertical-indicator {
+    width: 15px;
+    height: 15px;
+  }
+  
+  .section-container {
+    padding: 0 20px;
+  }
+  
+  .attractions-layout,
+  .activities-layout,
+  .guidelines-layout {
+    gap: 25px;
+  }
+
+  .vertical-navigation {
+    right: 20px;
+    gap: 18px;
+  }
+}
+
+/* Ultra Small Screens */
+@media (max-width: 360px) {
+  .main-title-overlay h1 {
+    font-size: 2rem;
+  }
+  
+  .main-title-overlay p {
+    font-size: 1rem;
+  }
+  
+  .slide-caption {
+    font-size: 1.5rem;
+  }
+  
+  section h2 {
+    font-size: 2rem;
+  }
+
+  .section-container {
+    padding: 0 15px;
+  }
+}
+
+/* Smooth Loading Animation for Vertical Slides */
+.vertical-slide[style*="background-image"] {
+  animation: verticalLoad 2s ease-in-out;
+}
+
+@keyframes verticalLoad {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/*
