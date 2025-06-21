@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './EastSikkim.css';
+import styles from './EastSikkim.module.css';
 
 // Import your images - you'll need to add these to your assets folder
 import East1 from '../../assets/East1.jpg';
@@ -104,46 +104,46 @@ const EastSikkim = () => {
   ];
 
   return (
-    <div className="east-sikkim">
+    <div className={styles.eastSikkim}>
       {/* Vertical Image Slider */}
-      <div className="hero-slider">
-        <div className="slider-container">
+      <div className={styles.heroSlider}>
+        <div className={styles.sliderContainer}>
           {sliderImages.map((image, index) => (
             <div
               key={index}
-              className={`slide ${index === currentSlide ? 'active' : ''}`}
+              className={`${styles.slide} ${index === currentSlide ? styles.active : ''}`}
               style={{ backgroundImage: `url(${image.src})` }}
             >
-              <div className="slide-overlay">
-                <h2 className="slide-caption">{image.caption}</h2>
+              <div className={styles.slideOverlay}>
+                <h2 className={styles.slideCaption}>{image.caption}</h2>
               </div>
             </div>
           ))}
         </div>
         
         {/* Slider Controls */}
-        <div className="slider-controls">
+        <div className={styles.sliderControls}>
           {sliderImages.map((_, index) => (
             <button
               key={index}
-              className={`control-dot ${index === currentSlide ? 'active' : ''}`}
+              className={`${styles.controlDot} ${index === currentSlide ? styles.active : ''}`}
               onClick={() => setCurrentSlide(index)}
             />
           ))}
         </div>
 
         {/* Header Overlay */}
-        <div className="hero-header">
+        <div className={styles.heroHeader}>
           <h1>East Sikkim</h1>
           <p>Discover the Heart of Himalayan Beauty</p>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="main-content">
+      <div className={styles.mainContent}>
         {/* Introduction Section */}
-        <section className="intro-section">
-          <div className="container">
+        <section className={styles.introSection}>
+          <div className={styles.container}>
             <h2>Welcome to East Sikkim</h2>
             <p>
               East Sikkim is the most developed and accessible region of the state, home to the capital city Gangtok. 
@@ -156,15 +156,15 @@ const EastSikkim = () => {
         </section>
 
         {/* Tourist Spots Section */}
-        <section className="tourist-spots">
-          <div className="container">
+        <section className={styles.touristSpots}>
+          <div className={styles.container}>
             <h2>Must-Visit Places</h2>
-            <div className="spots-grid">
+            <div className={styles.spotsGrid}>
               {touristSpots.map((spot, index) => (
-                <div key={index} className="spot-card">
+                <div key={index} className={styles.spotCard}>
                   <h3>{spot.name}</h3>
                   <p>{spot.description}</p>
-                  <div className="highlights">
+                  <div className={styles.highlights}>
                     <h4>Highlights:</h4>
                     <ul>
                       {spot.highlights.map((highlight, idx) => (
@@ -179,18 +179,18 @@ const EastSikkim = () => {
         </section>
 
         {/* Adventure Activities Section */}
-        <section className="adventure-section">
-          <div className="container">
+        <section className={styles.adventureSection}>
+          <div className={styles.container}>
             <h2>Adventure Activities</h2>
-            <div className="activities-grid">
+            <div className={styles.activitiesGrid}>
               {adventureActivities.map((activity, index) => (
-                <div key={index} className="activity-card">
-                  <div className="activity-header">
+                <div key={index} className={styles.activityCard}>
+                  <div className={styles.activityHeader}>
                     <h3>{activity.activity}</h3>
-                    <span className="difficulty-badge">{activity.difficulty}</span>
+                    <span className={styles.difficultyBadge}>{activity.difficulty}</span>
                   </div>
-                  <p className="location">📍 {activity.location}</p>
-                  <p className="description">{activity.description}</p>
+                  <p className={styles.location}>📍 {activity.location}</p>
+                  <p className={styles.description}>{activity.description}</p>
                 </div>
               ))}
             </div>
@@ -198,31 +198,31 @@ const EastSikkim = () => {
         </section>
 
         {/* Travel Tips Section */}
-        <section className="travel-tips">
-          <div className="container">
+        <section className={styles.travelTips}>
+          <div className={styles.container}>
             <h2>Travel Tips & Information</h2>
-            <div className="tips-grid">
-              <div className="tip-card">
+            <div className={styles.tipsGrid}>
+              <div className={styles.tipCard}>
                 <h3>🎫 Permits Required</h3>
                 <p>Indian tourists need Inner Line Permit for Nathula Pass. Foreign tourists require Protected Area Permit.</p>
               </div>
-              <div className="tip-card">
+              <div className={styles.tipCard}>
                 <h3>🌡️ Best Time to Visit</h3>
                 <p>March to June and September to December. Avoid monsoon season (July-August) due to landslides.</p>
               </div>
-              <div className="tip-card">
+              <div className={styles.tipCard}>
                 <h3>🚗 Getting Around</h3>
                 <p>Shared taxis, private vehicles, and local buses. Book permits and vehicles in advance for Nathula Pass.</p>
               </div>
-              <div className="tip-card">
+              <div className={styles.tipCard}>
                 <h3>🏠 Accommodation</h3>
                 <p>Wide range from budget homestays to luxury hotels. Gangtok offers the most options for all budgets.</p>
               </div>
-              <div className="tip-card">
+              <div className={styles.tipCard}>
                 <h3>🍽️ Local Cuisine</h3>
                 <p>Try momos, thukpa, gundruk, and local Sikkimese dishes. Gangtok has diverse dining options.</p>
               </div>
-              <div className="tip-card">
+              <div className={styles.tipCard}>
                 <h3>📱 Connectivity</h3>
                 <p>Good mobile network in Gangtok and main towns. Limited connectivity at high altitude areas.</p>
               </div>

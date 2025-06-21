@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './NorthSikkim.css';
+import styles from './NorthSikkim.module.css';
 
 // Import your images - you'll need to add these to your assets folder
 import North1 from '../../assets/North1.jpg';
@@ -143,46 +143,46 @@ const NorthSikkim = () => {
   ];
 
   return (
-    <div className="north-sikkim">
+    <div className={styles.northSikkim}>
       {/* Vertical Image Slider */}
-      <div className="hero-slider">
-        <div className="slider-container">
+      <div className={styles.heroSlider}>
+        <div className={styles.sliderContainer}>
           {sliderImages.map((image, index) => (
             <div
               key={index}
-              className={`slide ${index === currentSlide ? 'active' : ''}`}
+              className={`${styles.slide} ${index === currentSlide ? styles.active : ''}`}
               style={{ backgroundImage: `url(${image.src})` }}
             >
-              <div className="slide-overlay">
-                <h2 className="slide-caption">{image.caption}</h2>
+              <div className={styles.slideOverlay}>
+                <h2 className={styles.slideCaption}>{image.caption}</h2>
               </div>
             </div>
           ))}
         </div>
         
         {/* Slider Controls */}
-        <div className="slider-controls">
+        <div className={styles.sliderControls}>
           {sliderImages.map((_, index) => (
             <button
               key={index}
-              className={`control-dot ${index === currentSlide ? 'active' : ''}`}
+              className={`${styles.controlDot} ${index === currentSlide ? styles.active : ''}`}
               onClick={() => setCurrentSlide(index)}
             />
           ))}
         </div>
 
         {/* Header Overlay */}
-        <div className="hero-header">
+        <div className={styles.heroHeader}>
           <h1>North Sikkim</h1>
           <p>Journey to the Roof of the World</p>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="main-content">
+      <div className={styles.mainContent}>
         {/* Introduction Section */}
-        <section className="intro-section">
-          <div className="container">
+        <section className={`${styles.section} ${styles.introSection}`}>
+          <div className={styles.container}>
             <h2>Explore North Sikkim</h2>
             <p>
               North Sikkim is the most pristine and least populated district of Sikkim, offering some of the most 
@@ -196,15 +196,15 @@ const NorthSikkim = () => {
         </section>
 
         {/* Tourist Spots Section */}
-        <section className="tourist-spots">
-          <div className="container">
+        <section className={styles.section}>
+          <div className={styles.container}>
             <h2>Sacred Destinations</h2>
-            <div className="spots-grid">
+            <div className={styles.spotsGrid}>
               {touristSpots.map((spot, index) => (
-                <div key={index} className="spot-card">
+                <div key={index} className={styles.spotCard}>
                   <h3>{spot.name}</h3>
                   <p>{spot.description}</p>
-                  <div className="highlights">
+                  <div className={styles.highlights}>
                     <h4>Highlights:</h4>
                     <ul>
                       {spot.highlights.map((highlight, idx) => (
@@ -219,18 +219,18 @@ const NorthSikkim = () => {
         </section>
 
         {/* Adventure Activities Section */}
-        <section className="adventure-section">
-          <div className="container">
+        <section className={styles.section}>
+          <div className={styles.container}>
             <h2>High Altitude Adventures</h2>
-            <div className="activities-grid">
+            <div className={styles.activitiesGrid}>
               {adventureActivities.map((activity, index) => (
-                <div key={index} className="activity-card">
-                  <div className="activity-header">
+                <div key={index} className={styles.activityCard}>
+                  <div className={styles.activityHeader}>
                     <h3>{activity.activity}</h3>
-                    <span className="difficulty-badge">{activity.difficulty}</span>
+                    <span className={styles.difficultyBadge}>{activity.difficulty}</span>
                   </div>
-                  <p className="location">📍 {activity.location}</p>
-                  <p className="description">{activity.description}</p>
+                  <p className={styles.location}>📍 {activity.location}</p>
+                  <p className={styles.description}>{activity.description}</p>
                 </div>
               ))}
             </div>
@@ -238,18 +238,18 @@ const NorthSikkim = () => {
         </section>
 
         {/* Weather & Seasons Section */}
-        <section className="weather-section">
-          <div className="container">
+        <section className={`${styles.section} ${styles.weatherSection}`}>
+          <div className={styles.container}>
             <h2>Seasonal Guide</h2>
-            <div className="weather-grid">
+            <div className={styles.weatherGrid}>
               {weatherSeasons.map((season, index) => (
-                <div key={index} className="weather-card">
-                  <div className="season-header">
+                <div key={index} className={styles.weatherCard}>
+                  <div className={styles.seasonHeader}>
                     <h3>{season.season}</h3>
-                    <span className="temperature-badge">{season.temperature}</span>
+                    <span className={styles.temperatureBadge}>{season.temperature}</span>
                   </div>
-                  <p className="season-description">{season.description}</p>
-                  <div className="season-highlights">
+                  <p className={styles.seasonDescription}>{season.description}</p>
+                  <div className={styles.seasonHighlights}>
                     <h4>Key Features:</h4>
                     <ul>
                       {season.highlights.map((highlight, idx) => (
@@ -264,39 +264,39 @@ const NorthSikkim = () => {
         </section>
 
         {/* Travel Tips Section */}
-        <section className="travel-tips">
-          <div className="container">
+        <section className={styles.section}>
+          <div className={styles.container}>
             <h2>Essential Travel Information</h2>
-            <div className="tips-grid">
-              <div className="tip-card">
+            <div className={styles.tipsGrid}>
+              <div className={styles.tipCard}>
                 <h3>🎫 Special Permits</h3>
                 <p>Protected Area Permit (PAP) required for all tourists. Inner Line Permit needed for certain areas. Book through registered tour operators only.</p>
               </div>
-              <div className="tip-card">
+              <div className={styles.tipCard}>
                 <h3>🏔️ Altitude Sickness</h3>
                 <p>Acclimatization essential. Areas above 14,000 ft. Carry oxygen cylinders, avoid alcohol, and consult doctors for pre-existing conditions.</p>
               </div>
-              <div className="tip-card">
+              <div className={styles.tipCard}>
                 <h3>🚗 Transportation</h3>
                 <p>Only shared taxis and tourist vehicles allowed. Book through tour operators. Roads may close due to weather conditions.</p>
               </div>
-              <div className="tip-card">
+              <div className={styles.tipCard}>
                 <h3>🏠 Accommodation</h3>
                 <p>Limited homestays and guesthouses. Book in advance. Basic facilities available. Carry sleeping bags for comfort.</p>
               </div>
-              <div className="tip-card">
+              <div className={styles.tipCard}>
                 <h3>🎒 Essential Items</h3>
                 <p>Warm clothing, sunscreen, sunglasses, first aid kit, energy bars, and water bottles. Weather can change rapidly.</p>
               </div>
-              <div className="tip-card">
+              <div className={styles.tipCard}>
                 <h3>📱 Connectivity</h3>
                 <p>Limited mobile network. BSNL works best. Inform family about communication gaps. Carry power banks.</p>
               </div>
-              <div className="tip-card">
+              <div className={styles.tipCard}>
                 <h3>💊 Health Precautions</h3>
                 <p>Carry medicines for altitude sickness, cold, and stomach issues. Stay hydrated and avoid heavy meals.</p>
               </div>
-              <div className="tip-card">
+              <div className={styles.tipCard}>
                 <h3>🌿 Environmental Care</h3>
                 <p>Maintain cleanliness, don't litter, respect local customs, and preserve the pristine environment for future generations.</p>
               </div>

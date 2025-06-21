@@ -1,18 +1,18 @@
-/* North Sikkim Component Styles */
-.north-sikkim {
+/* North Sikkim Component Styles - CSS Modules Version */
+.northSikkim {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #e8f4fd 0%, #bde3ff 100%);
 }
 
 /* Hero Slider Styles */
-.hero-slider {
+.heroSlider {
   position: relative;
   height: 75vh;
   overflow: hidden;
 }
 
-.slider-container {
+.sliderContainer {
   position: relative;
   width: 100%;
   height: 100%;
@@ -37,7 +37,7 @@
   transform: translateX(0);
 }
 
-.slide-overlay {
+.slideOverlay {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -48,7 +48,7 @@
   align-items: flex-end;
 }
 
-.slide-caption {
+.slideCaption {
   color: white;
   font-size: 2.8rem;
   font-weight: 700;
@@ -69,7 +69,7 @@
 }
 
 /* Slider Controls */
-.slider-controls {
+.sliderControls {
   position: absolute;
   right: 40px;
   top: 50%;
@@ -80,7 +80,7 @@
   z-index: 100;
 }
 
-.control-dot {
+.controlDot {
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -91,20 +91,20 @@
   backdrop-filter: blur(10px);
 }
 
-.control-dot:hover {
+.controlDot:hover {
   background: rgba(255, 255, 255, 0.6);
   transform: scale(1.3);
   border-color: white;
 }
 
-.control-dot.active {
+.controlDot.active {
   background: white;
   transform: scale(1.4);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
 /* Hero Header */
-.hero-header {
+.heroHeader {
   position: absolute;
   top: 45%;
   left: 60px;
@@ -113,7 +113,7 @@
   z-index: 50;
 }
 
-.hero-header h1 {
+.heroHeader h1 {
   font-size: 4.5rem;
   font-weight: 800;
   margin-bottom: 25px;
@@ -125,7 +125,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.hero-header p {
+.heroHeader p {
   font-size: 1.6rem;
   font-weight: 400;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
@@ -145,7 +145,7 @@
 }
 
 /* Main Content */
-.main-content {
+.mainContent {
   padding: 90px 0;
 }
 
@@ -156,11 +156,11 @@
 }
 
 /* Section Styles */
-section {
+.section {
   margin-bottom: 90px;
 }
 
-section h2 {
+.section h2 {
   font-size: 3.2rem;
   color: #1a365d;
   text-align: center;
@@ -169,7 +169,7 @@ section h2 {
   font-weight: 700;
 }
 
-section h2::after {
+.section h2::after {
   content: '';
   position: absolute;
   bottom: -15px;
@@ -182,7 +182,7 @@ section h2::after {
 }
 
 /* Introduction Section */
-.intro-section p {
+.introSection p {
   font-size: 1.3rem;
   line-height: 1.9;
   color: #4a5568;
@@ -193,14 +193,14 @@ section h2::after {
 }
 
 /* Tourist Spots Grid */
-.spots-grid {
+.spotsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 35px;
   margin-top: 60px;
 }
 
-.spot-card {
+.spotCard {
   background: white;
   padding: 35px;
   border-radius: 20px;
@@ -211,7 +211,7 @@ section h2::after {
   border: 1px solid rgba(33, 150, 243, 0.1);
 }
 
-.spot-card::before {
+.spotCard::before {
   content: '';
   position: absolute;
   top: 0;
@@ -221,19 +221,19 @@ section h2::after {
   background: linear-gradient(90deg, #2196f3, #00bcd4);
 }
 
-.spot-card:hover {
+.spotCard:hover {
   transform: translateY(-12px);
   box-shadow: 0 25px 50px rgba(33, 150, 243, 0.15);
 }
 
-.spot-card h3 {
+.spotCard h3 {
   font-size: 2rem;
   color: #1a365d;
   margin-bottom: 18px;
   font-weight: 600;
 }
 
-.spot-card p {
+.spotCard p {
   color: #4a5568;
   line-height: 1.7;
   margin-bottom: 25px;
@@ -267,14 +267,14 @@ section h2::after {
 }
 
 /* Adventure Activities Grid */
-.activities-grid {
+.activitiesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   margin-top: 60px;
 }
 
-.activity-card {
+.activityCard {
   background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   color: white;
   padding: 35px;
@@ -285,7 +285,7 @@ section h2::after {
   box-shadow: 0 10px 30px rgba(30, 60, 114, 0.3);
 }
 
-.activity-card::before {
+.activityCard::before {
   content: '';
   position: absolute;
   top: -60%;
@@ -297,30 +297,30 @@ section h2::after {
   transition: all 0.4s ease;
 }
 
-.activity-card:hover::before {
+.activityCard:hover::before {
   top: -20%;
   right: -20%;
 }
 
-.activity-card:hover {
+.activityCard:hover {
   transform: scale(1.08);
   box-shadow: 0 20px 45px rgba(30, 60, 114, 0.4);
 }
 
-.activity-header {
+.activityHeader {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 18px;
 }
 
-.activity-header h3 {
+.activityHeader h3 {
   font-size: 1.6rem;
   margin-bottom: 0;
   font-weight: 600;
 }
 
-.difficulty-badge {
+.difficultyBadge {
   background: rgba(255, 255, 255, 0.25);
   padding: 8px 15px;
   border-radius: 25px;
@@ -343,21 +343,21 @@ section h2::after {
 }
 
 /* Weather Section Styles */
-.weather-section {
+.weatherSection {
   background: linear-gradient(135deg, #f8fbff 0%, #e3f2fd 100%);
   padding: 60px 0;
   border-radius: 30px;
   margin: 60px 0;
 }
 
-.weather-grid {
+.weatherGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 25px;
   margin-top: 50px;
 }
 
-.weather-card {
+.weatherCard {
   background: white;
   padding: 30px;
   border-radius: 18px;
@@ -366,27 +366,27 @@ section h2::after {
   border: 2px solid transparent;
 }
 
-.weather-card:hover {
+.weatherCard:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(33, 150, 243, 0.15);
   border-color: rgba(33, 150, 243, 0.2);
 }
 
-.season-header {
+.seasonHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
 }
 
-.season-header h3 {
+.seasonHeader h3 {
   font-size: 1.4rem;
   color: #1a365d;
   margin-bottom: 0;
   font-weight: 600;
 }
 
-.temperature-badge {
+.temperatureBadge {
   background: linear-gradient(135deg, #2196f3, #00bcd4);
   color: white;
   padding: 6px 12px;
@@ -395,47 +395,47 @@ section h2::after {
   font-weight: 600;
 }
 
-.season-description {
+.seasonDescription {
   color: #4a5568;
   line-height: 1.6;
   margin-bottom: 20px;
   font-size: 1.05rem;
 }
 
-.season-highlights h4 {
+.seasonHighlights h4 {
   color: #2196f3;
   font-size: 1.1rem;
   margin-bottom: 10px;
   font-weight: 600;
 }
 
-.season-highlights ul {
+.seasonHighlights ul {
   list-style: none;
   padding: 0;
 }
 
-.season-highlights li {
+.seasonHighlights li {
   color: #4a5568;
   padding: 5px 0;
   position: relative;
   padding-left: 20px;
 }
 
-.season-highlights li::before {
+.seasonHighlights li::before {
   content: '🌨️';
   position: absolute;
   left: 0;
 }
 
 /* Travel Tips Grid */
-.tips-grid {
+.tipsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 28px;
   margin-top: 60px;
 }
 
-.tip-card {
+.tipCard {
   background: white;
   padding: 30px;
   border-radius: 18px;
@@ -445,12 +445,12 @@ section h2::after {
   position: relative;
 }
 
-.tip-card:hover {
+.tipCard:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
-.tip-card h3 {
+.tipCard h3 {
   font-size: 1.4rem;
   color: #1a365d;
   margin-bottom: 18px;
@@ -460,7 +460,7 @@ section h2::after {
   font-weight: 600;
 }
 
-.tip-card p {
+.tipCard p {
   color: #4a5568;
   line-height: 1.7;
   font-size: 1.05rem;
@@ -468,93 +468,93 @@ section h2::after {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .hero-slider {
+  .heroSlider {
     height: 70vh;
   }
   
-  .hero-header h1 {
+  .heroHeader h1 {
     font-size: 3.8rem;
   }
   
-  .hero-header p {
+  .heroHeader p {
     font-size: 1.4rem;
   }
   
-  .slide-caption {
+  .slideCaption {
     font-size: 2.4rem;
   }
   
-  .hero-header {
+  .heroHeader {
     left: 40px;
   }
   
-  .slider-controls {
+  .sliderControls {
     right: 30px;
   }
 }
 
 @media (max-width: 768px) {
-  .hero-header h1 {
+  .heroHeader h1 {
     font-size: 2.8rem;
   }
   
-  .hero-header p {
+  .heroHeader p {
     font-size: 1.3rem;
   }
   
-  .hero-header {
+  .heroHeader {
     left: 25px;
   }
   
-  .slide-caption {
+  .slideCaption {
     font-size: 2rem;
   }
   
-  .slide-overlay {
+  .slideOverlay {
     padding: 70px 25px 35px;
   }
   
-  .slider-controls {
+  .sliderControls {
     right: 25px;
     gap: 15px;
   }
   
-  .control-dot {
+  .controlDot {
     width: 12px;
     height: 12px;
   }
   
-  section h2 {
+  .section h2 {
     font-size: 2.5rem;
   }
   
-  .spots-grid {
+  .spotsGrid {
     grid-template-columns: 1fr;
     gap: 25px;
   }
   
-  .activities-grid {
+  .activitiesGrid {
     grid-template-columns: 1fr;
     gap: 25px;
   }
   
-  .weather-grid {
+  .weatherGrid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
   
-  .tips-grid {
+  .tipsGrid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
   
-  .activity-header {
+  .activityHeader {
     flex-direction: column;
     gap: 12px;
     align-items: flex-start;
   }
   
-  .season-header {
+  .seasonHeader {
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
@@ -564,55 +564,55 @@ section h2::after {
     padding: 0 15px;
   }
   
-  .main-content {
+  .mainContent {
     padding: 70px 0;
   }
   
-  section {
+  .section {
     margin-bottom: 70px;
   }
 }
 
 @media (max-width: 480px) {
-  .hero-header h1 {
+  .heroHeader h1 {
     font-size: 2.2rem;
   }
   
-  .hero-header p {
+  .heroHeader p {
     font-size: 1.1rem;
   }
   
-  .slide-caption {
+  .slideCaption {
     font-size: 1.6rem;
   }
   
-  .slide-overlay {
+  .slideOverlay {
     padding: 50px 20px 25px;
   }
   
-  section h2 {
+  .section h2 {
     font-size: 2rem;
   }
   
-  .intro-section p {
+  .introSection p {
     font-size: 1.1rem;
   }
   
-  .spot-card,
-  .activity-card,
-  .weather-card,
-  .tip-card {
+  .spotCard,
+  .activityCard,
+  .weatherCard,
+  .tipCard {
     padding: 25px;
   }
   
-  .spots-grid,
-  .activities-grid,
-  .weather-grid,
-  .tips-grid {
+  .spotsGrid,
+  .activitiesGrid,
+  .weatherGrid,
+  .tipsGrid {
     margin-top: 40px;
   }
   
-  .weather-section {
+  .weatherSection {
     padding: 40px 0;
     margin: 40px 0;
   }
@@ -632,13 +632,8 @@ section h2::after {
   }
 }
 
-/* Smooth Scroll Behavior */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Additional hover effects for better interactivity */
-.spot-card:hover h3 {
+.spotCard:hover h3 {
   color: #2196f3;
   transition: color 0.3s ease;
 }

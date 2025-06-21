@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './WestSikkim.css';
+import styles from './WestSikkim.module.css';
 
 // Import your images - you'll need to add these to your assets folder
 import West1 from '../../assets/West1.jpg';
@@ -114,29 +114,29 @@ const WestSikkim = () => {
   };
 
   return (
-    <div className="west-sikkim-container">
+    <div className={styles.westSikkimContainer}>
       {/* Hero Image Carousel */}
-      <div className="hero-carousel-section">
-        <div className="carousel-wrapper">
+      <div className={styles.heroCarouselSection}>
+        <div className={styles.carouselWrapper}>
           {carouselImages.map((image, index) => (
             <div
               key={index}
-              className={`carousel-slide ${index === activeSlideIndex ? 'slide-active' : ''}`}
+              className={`${styles.carouselSlide} ${index === activeSlideIndex ? styles.slideActive : ''}`}
               style={{ backgroundImage: `url(${image.src})` }}
             >
-              <div className="carousel-overlay">
-                <h2 className="carousel-title">{image.caption}</h2>
+              <div className={styles.carouselOverlay}>
+                <h2 className={styles.carouselTitle}>{image.caption}</h2>
               </div>
             </div>
           ))}
         </div>
         
         {/* Carousel Navigation */}
-        <div className="carousel-navigation">
+        <div className={styles.carouselNavigation}>
           {carouselImages.map((_, index) => (
             <button
               key={index}
-              className={`nav-indicator ${index === activeSlideIndex ? 'indicator-active' : ''}`}
+              className={`${styles.navIndicator} ${index === activeSlideIndex ? styles.indicatorActive : ''}`}
               onClick={() => handleSlideNavigation(index)}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -144,18 +144,18 @@ const WestSikkim = () => {
         </div>
 
         {/* Main Header Overlay */}
-        <div className="hero-title-overlay">
+        <div className={styles.heroTitleOverlay}>
           <h1>West Sikkim</h1>
           <p>Explore Ancient Heritage & Majestic Peaks</p>
         </div>
       </div>
 
       {/* Content Wrapper */}
-      <div className="content-wrapper">
+      <div className={styles.contentWrapper}>
         {/* About West Sikkim Section */}
-        <section className="about-west-section">
-          <div className="content-container">
-            <h2>Discover West Sikkim</h2>
+        <section className={`${styles.section} ${styles.aboutWestSection}`}>
+          <div className={styles.contentContainer}>
+            <h2 className={styles.sectionTitle}>Discover West Sikkim</h2>
             <p>
               West Sikkim is a treasure trove of ancient monasteries, sacred lakes, and breathtaking mountain vistas. 
               This region serves as the spiritual heart of Sikkim, where centuries-old Buddhist traditions thrive 
@@ -169,15 +169,15 @@ const WestSikkim = () => {
         </section>
 
         {/* Destinations Grid Section */}
-        <section className="destinations-showcase">
-          <div className="content-container">
-            <h2>Premier Destinations</h2>
-            <div className="destinations-grid">
+        <section className={styles.section}>
+          <div className={styles.contentContainer}>
+            <h2 className={styles.sectionTitle}>Premier Destinations</h2>
+            <div className={styles.destinationsGrid}>
               {westSikkimDestinations.map((destination, index) => (
-                <div key={index} className="destination-card">
+                <div key={index} className={styles.destinationCard}>
                   <h3>{destination.place}</h3>
                   <p>{destination.description}</p>
-                  <div className="attractions-list">
+                  <div className={styles.attractionsList}>
                     <h4>Key Attractions:</h4>
                     <ul>
                       {destination.attractions.map((attraction, idx) => (
@@ -192,18 +192,18 @@ const WestSikkim = () => {
         </section>
 
         {/* Adventure Experiences Section */}
-        <section className="adventure-experiences">
-          <div className="content-container">
-            <h2>Adventure Experiences</h2>
-            <div className="experiences-grid">
+        <section className={styles.section}>
+          <div className={styles.contentContainer}>
+            <h2 className={styles.sectionTitle}>Adventure Experiences</h2>
+            <div className={styles.experiencesGrid}>
               {adventureExperiences.map((adventure, index) => (
-                <div key={index} className="experience-card">
-                  <div className="experience-header">
+                <div key={index} className={styles.experienceCard}>
+                  <div className={styles.experienceHeader}>
                     <h3>{adventure.experience}</h3>
-                    <span className="difficulty-level">{adventure.level}</span>
+                    <span className={styles.difficultyLevel}>{adventure.level}</span>
                   </div>
-                  <p className="experience-location">🏔️ {adventure.region}</p>
-                  <p className="experience-info">{adventure.description}</p>
+                  <p className={styles.experienceLocation}>🏔️ {adventure.region}</p>
+                  <p className={styles.experienceInfo}>{adventure.description}</p>
                 </div>
               ))}
             </div>
@@ -211,31 +211,31 @@ const WestSikkim = () => {
         </section>
 
         {/* Travel Information Section */}
-        <section className="travel-information">
-          <div className="content-container">
-            <h2>Essential Travel Information</h2>
-            <div className="info-cards-grid">
-              <div className="info-card">
+        <section className={styles.section}>
+          <div className={styles.contentContainer}>
+            <h2 className={styles.sectionTitle}>Essential Travel Information</h2>
+            <div className={styles.infoCardsGrid}>
+              <div className={styles.infoCard}>
                 <h3>🎯 Planning Your Visit</h3>
                 <p>Plan 3-5 days minimum to explore major attractions. Book accommodations in advance, especially during peak seasons (March-May, October-December).</p>
               </div>
-              <div className="info-card">
+              <div className={styles.infoCard}>
                 <h3>🌤️ Weather & Seasons</h3>
                 <p>Best visited March-June and September-December. Winter brings snow to higher altitudes. Monsoon (July-August) can cause travel disruptions.</p>
               </div>
-              <div className="info-card">
+              <div className={styles.infoCard}>
                 <h3>🚌 Transportation</h3>
                 <p>Shared taxis and private vehicles from Gangtok. Road conditions vary; book reliable transport. Some areas require 4WD vehicles.</p>
               </div>
-              <div className="info-card">
+              <div className={styles.infoCard}>
                 <h3>🏨 Where to Stay</h3>
                 <p>Pelling offers hotels and resorts with mountain views. Yuksom has guesthouses and homestays. Advance booking recommended for trekkers.</p>
               </div>
-              <div className="info-card">
+              <div className={styles.infoCard}>
                 <h3>🍜 Food & Culture</h3>
                 <p>Try traditional Sikkimese cuisine including momos, thukpa, and chhurpi. Experience Buddhist culture through monastery visits and local festivals.</p>
               </div>
-              <div className="info-card">
+              <div className={styles.infoCard}>
                 <h3>📋 Important Notes</h3>
                 <p>Carry cash as ATMs are limited. Respect local customs at religious sites. Pack warm clothes for higher altitudes and weather changes.</p>
               </div>

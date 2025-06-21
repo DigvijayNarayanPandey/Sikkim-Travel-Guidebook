@@ -1,12 +1,12 @@
-/* West Sikkim Component Styles */
+/* West Sikkim Component Styles - CSS Module */
 
-.west-sikkim-container * {
+.westSikkimContainer * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.west-sikkim-container {
+.westSikkimContainer {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(160deg, #667eea 0%, #764ba2 100%);
@@ -14,20 +14,20 @@
 }
 
 /* Hero Carousel Section */
-.hero-carousel-section {
+.heroCarouselSection {
   position: relative;
   height: 75vh;
   overflow: hidden;
   border-radius: 0 0 50px 50px;
 }
 
-.carousel-wrapper {
+.carouselWrapper {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.carousel-slide {
+.carouselSlide {
   position: absolute;
   top: 0;
   left: 0;
@@ -41,12 +41,12 @@
   transform: scale(1.1);
 }
 
-.carousel-slide.slide-active {
+.slideActive {
   opacity: 1;
   transform: scale(1);
 }
 
-.carousel-overlay {
+.carouselOverlay {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -58,7 +58,7 @@
   justify-content: center;
 }
 
-.carousel-title {
+.carouselTitle {
   color: white;
   font-size: 3rem;
   font-weight: 700;
@@ -80,7 +80,7 @@
 }
 
 /* Carousel Navigation */
-.carousel-navigation {
+.carouselNavigation {
   position: absolute;
   bottom: 30px;
   left: 50%;
@@ -90,7 +90,7 @@
   z-index: 200;
 }
 
-.nav-indicator {
+.navIndicator {
   width: 15px;
   height: 15px;
   border-radius: 50%;
@@ -102,7 +102,7 @@
   overflow: hidden;
 }
 
-.nav-indicator::before {
+.navIndicator::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -115,28 +115,28 @@
   transition: all 0.4s ease;
 }
 
-.nav-indicator:hover {
+.navIndicator:hover {
   border-color: white;
   transform: scale(1.3);
 }
 
-.nav-indicator:hover::before {
+.navIndicator:hover::before {
   width: 100%;
   height: 100%;
 }
 
-.nav-indicator.indicator-active {
+.indicatorActive {
   border-color: white;
   transform: scale(1.4);
 }
 
-.nav-indicator.indicator-active::before {
+.indicatorActive::before {
   width: 100%;
   height: 100%;
 }
 
 /* Hero Title Overlay */
-.hero-title-overlay {
+.heroTitleOverlay {
   position: absolute;
   top: 50%;
   left: 60px;
@@ -145,7 +145,7 @@
   z-index: 100;
 }
 
-.hero-title-overlay h1 {
+.heroTitleOverlay h1 {
   font-size: 4.5rem;
   font-weight: 800;
   margin-bottom: 25px;
@@ -157,7 +157,7 @@
   background-clip: text;
 }
 
-.hero-title-overlay p {
+.heroTitleOverlay p {
   font-size: 1.8rem;
   font-weight: 400;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
@@ -177,23 +177,23 @@
 }
 
 /* Content Wrapper */
-.content-wrapper {
+.contentWrapper {
   padding: 100px 0;
   background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
 }
 
-.content-container {
+.contentContainer {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 25px;
 }
 
 /* Section Styles */
-section {
+.section {
   margin-bottom: 100px;
 }
 
-section h2 {
+.sectionTitle {
   font-size: 3.5rem;
   color: #2c3e50;
   text-align: center;
@@ -202,7 +202,7 @@ section h2 {
   font-weight: 700;
 }
 
-section h2::before {
+.sectionTitle::before {
   content: '';
   position: absolute;
   bottom: -15px;
@@ -214,7 +214,7 @@ section h2::before {
   border-radius: 3px;
 }
 
-section h2::after {
+.sectionTitle::after {
   content: '';
   position: absolute;
   bottom: -25px;
@@ -227,7 +227,7 @@ section h2::after {
 }
 
 /* About West Section */
-.about-west-section p {
+.aboutWestSection p {
   font-size: 1.3rem;
   line-height: 2;
   color: #555;
@@ -238,14 +238,14 @@ section h2::after {
 }
 
 /* Destinations Grid */
-.destinations-grid {
+.destinationsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 35px;
   margin-top: 60px;
 }
 
-.destination-card {
+.destinationCard {
   background: white;
   padding: 35px;
   border-radius: 20px;
@@ -257,17 +257,17 @@ section h2::after {
   background-clip: padding-box;
 }
 
-.destination-card::before {
+.destinationCard::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  background: linear-gradient(90deg, #40519d, #422e56, #e7afed);
 }
 
-.destination-card::after {
+.destinationCard::after {
   content: '';
   position: absolute;
   top: -100%;
@@ -279,17 +279,17 @@ section h2::after {
   z-index: 1;
 }
 
-.destination-card:hover {
+.destinationCard:hover {
   transform: translateY(-15px) scale(1.02);
   box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
 }
 
-.destination-card:hover::after {
+.destinationCard:hover::after {
   top: -50%;
   left: -50%;
 }
 
-.destination-card h3 {
+.destinationCard h3 {
   font-size: 2rem;
   color: #2c3e50;
   margin-bottom: 18px;
@@ -298,7 +298,7 @@ section h2::after {
   font-weight: 600;
 }
 
-.destination-card p {
+.destinationCard p {
   color: #666;
   line-height: 1.8;
   margin-bottom: 25px;
@@ -307,24 +307,24 @@ section h2::after {
   font-size: 1.1rem;
 }
 
-.attractions-list {
+.attractionsList {
   position: relative;
   z-index: 2;
 }
 
-.attractions-list h4 {
+.attractionsList h4 {
   color: #667eea;
   font-size: 1.2rem;
   margin-bottom: 12px;
   font-weight: 600;
 }
 
-.attractions-list ul {
+.attractionsList ul {
   list-style: none;
   padding: 0;
 }
 
-.attractions-list li {
+.attractionsList li {
   color: #555;
   padding: 8px 0;
   position: relative;
@@ -332,7 +332,7 @@ section h2::after {
   font-size: 1rem;
 }
 
-.attractions-list li::before {
+.attractionsList li::before {
   content: '⭐';
   position: absolute;
   left: 0;
@@ -340,14 +340,14 @@ section h2::after {
 }
 
 /* Adventure Experiences Grid */
-.experiences-grid {
+.experiencesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   margin-top: 60px;
 }
 
-.experience-card {
+.experienceCard {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   color: white;
   padding: 35px;
@@ -357,7 +357,7 @@ section h2::after {
   overflow: hidden;
 }
 
-.experience-card::before {
+.experienceCard::before {
   content: '';
   position: absolute;
   top: -50%;
@@ -369,12 +369,12 @@ section h2::after {
   border-radius: 50%;
 }
 
-.experience-card:hover {
+.experienceCard:hover {
   transform: translateY(-12px) rotateX(5deg);
   box-shadow: 0 20px 45px rgba(102, 126, 234, 0.4);
 }
 
-.experience-card:hover::before {
+.experienceCard:hover::before {
   animation: rotate 2s linear infinite;
 }
 
@@ -387,7 +387,7 @@ section h2::after {
   }
 }
 
-.experience-header {
+.experienceHeader {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -396,13 +396,13 @@ section h2::after {
   z-index: 2;
 }
 
-.experience-header h3 {
+.experienceHeader h3 {
   font-size: 1.6rem;
   margin-bottom: 0;
   font-weight: 600;
 }
 
-.difficulty-level {
+.difficultyLevel {
   background: rgba(255, 255, 255, 0.25);
   padding: 8px 15px;
   border-radius: 25px;
@@ -411,7 +411,7 @@ section h2::after {
   backdrop-filter: blur(10px);
 }
 
-.experience-location {
+.experienceLocation {
   font-size: 1.1rem;
   margin-bottom: 12px;
   opacity: 0.9;
@@ -419,7 +419,7 @@ section h2::after {
   z-index: 2;
 }
 
-.experience-info {
+.experienceInfo {
   line-height: 1.7;
   opacity: 0.95;
   position: relative;
@@ -428,14 +428,14 @@ section h2::after {
 }
 
 /* Travel Information Grid */
-.info-cards-grid {
+.infoCardsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 30px;
   margin-top: 60px;
 }
 
-.info-card {
+.infoCard {
   background: white;
   padding: 30px;
   border-radius: 18px;
@@ -446,7 +446,7 @@ section h2::after {
   overflow: hidden;
 }
 
-.info-card::before {
+.infoCard::before {
   content: '';
   position: absolute;
   top: 0;
@@ -457,17 +457,17 @@ section h2::after {
   transition: all 0.4s ease;
 }
 
-.info-card:hover {
+.infoCard:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
   border-left-color: #764ba2;
 }
 
-.info-card:hover::before {
+.infoCard:hover::before {
   right: 0;
 }
 
-.info-card h3 {
+.infoCard h3 {
   font-size: 1.4rem;
   color: #2c3e50;
   margin-bottom: 18px;
@@ -477,7 +477,7 @@ section h2::after {
   font-weight: 600;
 }
 
-.info-card p {
+.infoCard p {
   color: #666;
   line-height: 1.8;
   font-size: 1rem;
@@ -485,168 +485,168 @@ section h2::after {
 
 /* Responsive Design - Large Tablets */
 @media (max-width: 1200px) {
-  .hero-carousel-section {
+  .heroCarouselSection {
     height: 70vh;
   }
   
-  .hero-title-overlay h1 {
+  .heroTitleOverlay h1 {
     font-size: 4rem;
   }
   
-  .hero-title-overlay p {
+  .heroTitleOverlay p {
     font-size: 1.6rem;
   }
   
-  .carousel-title {
+  .carouselTitle {
     font-size: 2.5rem;
   }
   
-  .destinations-grid {
+  .destinationsGrid {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }
 
 /* Responsive Design - Tablets */
 @media (max-width: 768px) {
-  .hero-title-overlay {
+  .heroTitleOverlay {
     left: 30px;
   }
   
-  .hero-title-overlay h1 {
+  .heroTitleOverlay h1 {
     font-size: 3rem;
   }
   
-  .hero-title-overlay p {
+  .heroTitleOverlay p {
     font-size: 1.4rem;
   }
   
-  .carousel-title {
+  .carouselTitle {
     font-size: 2rem;
   }
   
-  .carousel-overlay {
+  .carouselOverlay {
     padding: 80px 30px 40px;
   }
   
-  .carousel-navigation {
+  .carouselNavigation {
     gap: 15px;
   }
   
-  section h2 {
+  .sectionTitle {
     font-size: 2.8rem;
   }
   
-  .destinations-grid {
+  .destinationsGrid {
     grid-template-columns: 1fr;
     gap: 25px;
   }
   
-  .experiences-grid {
+  .experiencesGrid {
     grid-template-columns: 1fr;
     gap: 25px;
   }
   
-  .info-cards-grid {
+  .infoCardsGrid {
     grid-template-columns: 1fr;
     gap: 25px;
   }
   
-  .experience-header {
+  .experienceHeader {
     flex-direction: column;
     gap: 12px;
   }
   
-  .content-container {
+  .contentContainer {
     padding: 0 20px;
   }
   
-  .destination-card,
-  .experience-card,
-  .info-card {
+  .destinationCard,
+  .experienceCard,
+  .infoCard {
     padding: 25px;
   }
 }
 
 /* Responsive Design - Mobile */
 @media (max-width: 480px) {
-  .hero-carousel-section {
+  .heroCarouselSection {
     height: 60vh;
     border-radius: 0 0 30px 30px;
   }
   
-  .hero-title-overlay {
+  .heroTitleOverlay {
     left: 20px;
     right: 20px;
     text-align: center;
   }
   
-  .hero-title-overlay h1 {
+  .heroTitleOverlay h1 {
     font-size: 2.2rem;
   }
   
-  .hero-title-overlay p {
+  .heroTitleOverlay p {
     font-size: 1.1rem;
   }
   
-  .carousel-title {
+  .carouselTitle {
     font-size: 1.6rem;
   }
   
-  .carousel-overlay {
+  .carouselOverlay {
     padding: 60px 20px 30px;
   }
   
-  section h2 {
+  .sectionTitle {
     font-size: 2.2rem;
   }
   
-  .about-west-section p {
+  .aboutWestSection p {
     font-size: 1.1rem;
   }
   
-  .destination-card,
-  .experience-card,
-  .info-card {
+  .destinationCard,
+  .experienceCard,
+  .infoCard {
     padding: 20px;
   }
   
-  .nav-indicator {
+  .navIndicator {
     width: 12px;
     height: 12px;
   }
   
-  .content-container {
+  .contentContainer {
     padding: 0 15px;
   }
   
-  .destinations-grid,
-  .experiences-grid,
-  .info-cards-grid {
+  .destinationsGrid,
+  .experiencesGrid,
+  .infoCardsGrid {
     gap: 20px;
   }
 }
 
 /* Ultra Small Screens */
 @media (max-width: 360px) {
-  .hero-title-overlay h1 {
+  .heroTitleOverlay h1 {
     font-size: 1.8rem;
   }
   
-  .hero-title-overlay p {
+  .heroTitleOverlay p {
     font-size: 1rem;
   }
   
-  .carousel-title {
+  .carouselTitle {
     font-size: 1.4rem;
   }
   
-  section h2 {
+  .sectionTitle {
     font-size: 1.8rem;
   }
 }
 
 /* Smooth Loading Animation */
-.carousel-slide[style*="background-image"] {
+.carouselSlide[style*="background-image"] {
   animation: smoothLoad 1.5s ease-in-out;
 }
 
@@ -661,26 +661,21 @@ section h2::after {
   }
 }
 
-/* Global Smooth Scroll */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Focus States for Accessibility */
-.nav-indicator:focus {
+.navIndicator:focus {
   outline: 3px solid rgba(255, 255, 255, 0.8);
   outline-offset: 3px;
 }
 
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
-  .destination-card,
-  .experience-card,
-  .info-card {
+  .destinationCard,
+  .experienceCard,
+  .infoCard {
     border: 2px solid #333;
   }
   
-  .nav-indicator {
+  .navIndicator {
     border-width: 4px;
   }
 }

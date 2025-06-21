@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './SouthSikkim.css';
+import styles from './SouthSikkim.module.css';
 
 // Import your images - you'll need to add these to your assets folder
 import South1 from '../../assets/South1.jpg';
@@ -114,29 +114,29 @@ const SouthSikkim = () => {
   };
 
   return (
-    <div className="south-sikkim-wrapper">
+    <div className={styles.southSikkimWrapper}>
       {/* Hero Vertical Image Slider */}
-      <div className="hero-vertical-slider">
-        <div className="slider-container">
+      <div className={styles.heroVerticalSlider}>
+        <div className={styles.sliderContainer}>
           {verticalSliderImages.map((image, index) => (
             <div
               key={index}
-              className={`vertical-slide ${index === currentImageIndex ? 'active-slide' : ''}`}
+              className={`${styles.verticalSlide} ${index === currentImageIndex ? styles.activeSlide : ''}`}
               style={{ backgroundImage: `url(${image.src})` }}
             >
-              <div className="slide-gradient-overlay">
-                <h2 className="slide-caption">{image.caption}</h2>
+              <div className={styles.slideGradientOverlay}>
+                <h2 className={styles.slideCaption}>{image.caption}</h2>
               </div>
             </div>
           ))}
         </div>
         
         {/* Vertical Navigation Indicators */}
-        <div className="vertical-navigation">
+        <div className={styles.verticalNavigation}>
           {verticalSliderImages.map((_, index) => (
             <button
               key={index}
-              className={`vertical-indicator ${index === currentImageIndex ? 'active-indicator' : ''}`}
+              className={`${styles.verticalIndicator} ${index === currentImageIndex ? styles.activeIndicator : ''}`}
               onClick={() => handleVerticalNavigation(index)}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -144,17 +144,17 @@ const SouthSikkim = () => {
         </div>
 
         {/* Main Title Overlay */}
-        <div className="main-title-overlay">
+        <div className={styles.mainTitleOverlay}>
           <h1>South Sikkim</h1>
           <p>Spiritual Sanctuaries & Cultural Heritage</p>
         </div>
       </div>
 
       {/* Main Content Area */}
-      <div className="main-content-area">
+      <div className={styles.mainContentArea}>
         {/* About South Sikkim Section */}
-        <section className="south-about-section">
-          <div className="section-container">
+        <section className={styles.southAboutSection}>
+          <div className={styles.sectionContainer}>
             <h2>Experience South Sikkim</h2>
             <p>
               South Sikkim stands as the spiritual and cultural heart of the state, where ancient traditions 
@@ -170,15 +170,15 @@ const SouthSikkim = () => {
         </section>
 
         {/* Attractions Showcase */}
-        <section className="attractions-display">
-          <div className="section-container">
+        <section className={styles.attractionsDisplay}>
+          <div className={styles.sectionContainer}>
             <h2>Major Attractions</h2>
-            <div className="attractions-layout">
+            <div className={styles.attractionsLayout}>
               {southSikkimAttractions.map((attraction, index) => (
-                <div key={index} className="attraction-panel">
+                <div key={index} className={styles.attractionPanel}>
                   <h3>{attraction.location}</h3>
                   <p>{attraction.description}</p>
-                  <div className="highlights-section">
+                  <div className={styles.highlightsSection}>
                     <h4>Key Highlights:</h4>
                     <ul>
                       {attraction.highlights.map((highlight, idx) => (
@@ -193,18 +193,18 @@ const SouthSikkim = () => {
         </section>
 
         {/* Adventure Activities Section */}
-        <section className="activities-showcase">
-          <div className="section-container">
+        <section className={styles.activitiesShowcase}>
+          <div className={styles.sectionContainer}>
             <h2>Adventure Activities</h2>
-            <div className="activities-layout">
+            <div className={styles.activitiesLayout}>
               {adventureActivities.map((adventure, index) => (
-                <div key={index} className="activity-panel">
-                  <div className="activity-header">
+                <div key={index} className={styles.activityPanel}>
+                  <div className={styles.activityHeader}>
                     <h3>{adventure.activity}</h3>
-                    <span className="difficulty-badge">{adventure.difficulty}</span>
+                    <span className={styles.difficultyBadge}>{adventure.difficulty}</span>
                   </div>
-                  <p className="activity-location">📍 {adventure.location}</p>
-                  <p className="activity-description">{adventure.description}</p>
+                  <p className={styles.activityLocation}>📍 {adventure.location}</p>
+                  <p className={styles.activityDescription}>{adventure.description}</p>
                 </div>
               ))}
             </div>
@@ -212,31 +212,31 @@ const SouthSikkim = () => {
         </section>
 
         {/* Travel Guidelines Section */}
-        <section className="travel-guidelines">
-          <div className="section-container">
+        <section className={styles.travelGuidelines}>
+          <div className={styles.sectionContainer}>
             <h2>Travel Guidelines</h2>
-            <div className="guidelines-layout">
-              <div className="guideline-card">
+            <div className={styles.guidelinesLayout}>
+              <div className={styles.guidelineCard}>
                 <h3>🗓️ Best Time to Visit</h3>
                 <p>March to June and September to December offer the best weather conditions. Avoid monsoon season (July-August) for better road accessibility and clear mountain views.</p>
               </div>
-              <div className="guideline-card">
+              <div className={styles.guidelineCard}>
                 <h3>🚗 Getting Around</h3>
                 <p>Well-connected by road from Gangtok and Siliguri. Local taxis and shared vehicles available. Most attractions accessible by road with good connectivity.</p>
               </div>
-              <div className="guideline-card">
+              <div className={styles.guidelineCard}>
                 <h3>🏠 Accommodation</h3>
                 <p>Range from budget guesthouses to luxury resorts in Namchi and Ravangla. Homestays available in villages for authentic cultural experiences.</p>
               </div>
-              <div className="guideline-card">
+              <div className={styles.guidelineCard}>
                 <h3>🍽️ Local Cuisine</h3>
                 <p>Experience authentic Sikkimese cuisine including gundruk, sinki, and traditional beverages. Tea tasting available at Temi Tea Garden.</p>
               </div>
-              <div className="guideline-card">
+              <div className={styles.guidelineCard}>
                 <h3>📸 Photography Tips</h3>
                 <p>Best shots during golden hours at Buddha Park and Char Dham. Tea gardens offer excellent landscape photography opportunities throughout the day.</p>
               </div>
-              <div className="guideline-card">
+              <div className={styles.guidelineCard}>
                 <h3>⚠️ Travel Tips</h3>
                 <p>Respect religious customs at monasteries and temples. Carry sufficient cash as ATM facilities are limited in remote areas. Pack layers for changing weather conditions.</p>
               </div>

@@ -1,12 +1,12 @@
-/* South Sikkim Component Styles */
+/* South Sikkim Component Styles - CSS Modules Version */
 
-.south-sikkim-container * {
+.southSikkimContainer * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.south-sikkim-wrapper {
+.southSikkimWrapper {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(165deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
@@ -14,7 +14,7 @@
 }
 
 /* Hero Vertical Image Slider */
-.hero-vertical-slider {
+.heroVerticalSlider {
   position: relative;
   height: 80vh;
   overflow: hidden;
@@ -22,13 +22,13 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.slider-container {
+.sliderContainer {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.vertical-slide {
+.verticalSlide {
   position: absolute;
   top: 0;
   left: 0;
@@ -37,17 +37,20 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: transparent;
   opacity: 0;
   transform: translateY(50px);
   transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
 }
 
-.vertical-slide.active-slide {
+.verticalSlide.activeSlide {
   opacity: 1;
   transform: translateY(0);
+  z-index: 2;
 }
 
-.slide-gradient-overlay {
+.slideGradientOverlay {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -59,7 +62,7 @@
   justify-content: center;
 }
 
-.slide-caption {
+.slideCaption {
   color: white;
   font-size: 3.2rem;
   font-weight: 800;
@@ -82,7 +85,7 @@
 }
 
 /* Vertical Navigation Indicators */
-.vertical-navigation {
+.verticalNavigation {
   position: absolute;
   right: 40px;
   top: 50%;
@@ -93,7 +96,7 @@
   z-index: 300;
 }
 
-.vertical-indicator {
+.verticalIndicator {
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -105,7 +108,7 @@
   overflow: hidden;
 }
 
-.vertical-indicator::before {
+.verticalIndicator::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -118,30 +121,30 @@
   transition: all 0.5s ease;
 }
 
-.vertical-indicator:hover {
+.verticalIndicator:hover {
   border-color: white;
   transform: scale(1.4);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 
-.vertical-indicator:hover::before {
+.verticalIndicator:hover::before {
   width: 100%;
   height: 100%;
 }
 
-.vertical-indicator.active-indicator {
+.verticalIndicator.activeIndicator {
   border-color: white;
   transform: scale(1.5);
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
 }
 
-.vertical-indicator.active-indicator::before {
+.verticalIndicator.activeIndicator::before {
   width: 100%;
   height: 100%;
 }
 
 /* Main Title Overlay */
-.main-title-overlay {
+.mainTitleOverlay {
   position: absolute;
   top: 50%;
   left: 80px;
@@ -150,7 +153,7 @@
   z-index: 200;
 }
 
-.main-title-overlay h1 {
+.mainTitleOverlay h1 {
   font-size: 5rem;
   font-weight: 900;
   margin-bottom: 30px;
@@ -163,7 +166,7 @@
   line-height: 1.1;
 }
 
-.main-title-overlay p {
+.mainTitleOverlay p {
   font-size: 2rem;
   font-weight: 500;
   text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
@@ -184,24 +187,27 @@
 }
 
 /* Main Content Area */
-.main-content-area {
+.mainContentArea {
   padding: 120px 0;
   background: linear-gradient(180deg, #fafafa 0%, #f0f0f0 100%);
 }
 
-.section-container {
+.sectionContainer {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 30px;
+  position: relative;
+  margin-bottom: 60px;
+
 }
 
 /* Section Styles */
-section {
+.section {
   margin-bottom: 120px;
 }
 
-section h2 {
-  font-size: 3.8rem;
+.section h2 {
+  font-size: 4.2rem;
   color: #34495e;
   text-align: center;
   margin-bottom: 70px;
@@ -210,7 +216,7 @@ section h2 {
   letter-spacing: 1px;
 }
 
-section h2::before {
+.section h2::before {
   content: '';
   position: absolute;
   bottom: -20px;
@@ -222,7 +228,7 @@ section h2::before {
   border-radius: 4px;
 }
 
-section h2::after {
+.section h2::after {
   content: '';
   position: absolute;
   bottom: -32px;
@@ -234,8 +240,118 @@ section h2::after {
   border-radius: 3px;
 }
 
+/* Individual Section Headings */
+.southAboutSection h2,
+.attractionsDisplay h2,
+.activitiesShowcase h2,
+.travelGuidelines h2 {
+  font-size: 4.2rem;
+  color: #34495e;
+  text-align: center;
+  margin-bottom: 70px;
+  position: relative;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.southAboutSection h2::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 6px;
+  background: linear-gradient(90deg, #ff9a9e, #fecfef, #ff9a9e);
+  border-radius: 4px;
+}
+
+.southAboutSection h2::after {
+  content: '';
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(90deg, #fecfef, #ff9a9e);
+  border-radius: 3px;
+}
+
+.attractionsDisplay h2::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 6px;
+  background: linear-gradient(90deg, #ff9a9e, #fecfef, #ff9a9e);
+  border-radius: 4px;
+}
+
+.attractionsDisplay h2::after {
+  content: '';
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #fecfef, #ff9a9e);
+  border-radius: 3px;
+}
+
+.activitiesShowcase h2::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 6px;
+  background: linear-gradient(90deg, #ff9a9e, #fecfef, #ff9a9e);
+  border-radius: 4px;
+}
+
+.activitiesShowcase h2::after {
+  content: '';
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 110px;
+  height: 4px;
+  background: linear-gradient(90deg, #fecfef, #ff9a9e);
+  border-radius: 3px;
+}
+
+.travelGuidelines h2::before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 170px;
+  height: 6px;
+  background: linear-gradient(90deg, #ff9a9e, #fecfef, #ff9a9e);
+  border-radius: 4px;
+}
+
+.travelGuidelines h2::after {
+  content: '';
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95px;
+  height: 4px;
+  background: linear-gradient(90deg, #fecfef, #ff9a9e);
+  border-radius: 3px;
+}
+
 /* About South Section */
-.south-about-section p {
+.southAboutSection p {
   font-size: 1.4rem;
   line-height: 2.1;
   color: #555;
@@ -247,14 +363,14 @@ section h2::after {
 }
 
 /* Attractions Layout */
-.attractions-layout {
+.attractionsLayout {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
   gap: 40px;
   margin-top: 70px;
 }
 
-.attraction-panel {
+.attractionPanel {
   background: white;
   padding: 40px;
   border-radius: 25px;
@@ -266,7 +382,7 @@ section h2::after {
   background-clip: padding-box;
 }
 
-.attraction-panel::before {
+.attractionPanel::before {
   content: '';
   position: absolute;
   top: 0;
@@ -276,7 +392,7 @@ section h2::after {
   background: linear-gradient(90deg, #ff9a9e, #fecfef, #ff9a9e, #fad0c4);
 }
 
-.attraction-panel::after {
+.attractionPanel::after {
   content: '';
   position: absolute;
   top: -120%;
@@ -288,17 +404,17 @@ section h2::after {
   z-index: 1;
 }
 
-.attraction-panel:hover {
+.attractionPanel:hover {
   transform: translateY(-18px) scale(1.03);
   box-shadow: 0 30px 60px rgba(255, 154, 158, 0.25);
 }
 
-.attraction-panel:hover::after {
+.attractionPanel:hover::after {
   top: -60%;
   left: -60%;
 }
 
-.attraction-panel h3 {
+.attractionPanel h3 {
   font-size: 2.2rem;
   color: #2c3e50;
   margin-bottom: 20px;
@@ -307,7 +423,7 @@ section h2::after {
   font-weight: 700;
 }
 
-.attraction-panel p {
+.attractionPanel p {
   color: #666;
   line-height: 1.9;
   margin-bottom: 28px;
@@ -316,24 +432,24 @@ section h2::after {
   font-size: 1.15rem;
 }
 
-.highlights-section {
+.highlightsSection {
   position: relative;
   z-index: 2;
 }
 
-.highlights-section h4 {
+.highlightsSection h4 {
   color: #ff9a9e;
   font-size: 1.3rem;
   margin-bottom: 15px;
   font-weight: 700;
 }
 
-.highlights-section ul {
+.highlightsSection ul {
   list-style: none;
   padding: 0;
 }
 
-.highlights-section li {
+.highlightsSection li {
   color: #555;
   padding: 10px 0;
   position: relative;
@@ -341,7 +457,7 @@ section h2::after {
   font-size: 1.05rem;
 }
 
-.highlights-section li::before {
+.highlightsSection li::before {
   content: '🌸';
   position: absolute;
   left: 0;
@@ -349,15 +465,15 @@ section h2::after {
 }
 
 /* Activities Layout */
-.activities-layout {
+.activitiesLayout {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 35px;
   margin-top: 70px;
 }
 
-.activity-panel {
-  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fad0c4 100%);
+.activityPanel {
+  background: linear-gradient(135deg, #995053 0%, #594051 50%, #d08f7d 100%);
   color: white;
   padding: 40px;
   border-radius: 25px;
@@ -366,7 +482,7 @@ section h2::after {
   overflow: hidden;
 }
 
-.activity-panel::before {
+.activityPanel::before {
   content: '';
   position: absolute;
   top: -60%;
@@ -378,12 +494,12 @@ section h2::after {
   border-radius: 50%;
 }
 
-.activity-panel:hover {
+.activityPanel:hover {
   transform: translateY(-15px) rotateX(8deg);
   box-shadow: 0 25px 55px rgba(255, 154, 158, 0.45);
 }
 
-.activity-panel:hover::before {
+.activityPanel:hover::before {
   animation: rotateGradient 2.5s linear infinite;
 }
 
@@ -396,7 +512,7 @@ section h2::after {
   }
 }
 
-.activity-header {
+.activityHeader {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -405,14 +521,14 @@ section h2::after {
   z-index: 2;
 }
 
-.activity-header h3 {
+.activityHeader h3 {
   font-size: 1.7rem;
   margin-bottom: 0;
   font-weight: 700;
   line-height: 1.3;
 }
 
-.difficulty-badge {
+.difficultyBadge {
   background: rgba(255, 255, 255, 0.3);
   padding: 10px 18px;
   border-radius: 30px;
@@ -422,7 +538,7 @@ section h2::after {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.activity-location {
+.activityLocation {
   font-size: 1.15rem;
   margin-bottom: 15px;
   opacity: 0.95;
@@ -431,7 +547,7 @@ section h2::after {
   font-weight: 500;
 }
 
-.activity-description {
+.activityDescription {
   line-height: 1.8;
   opacity: 0.98;
   position: relative;
@@ -440,14 +556,14 @@ section h2::after {
 }
 
 /* Travel Guidelines Layout */
-.guidelines-layout {
+.guidelinesLayout {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 35px;
   margin-top: 70px;
 }
 
-.guideline-card {
+.guidelineCard {
   background: white;
   padding: 35px;
   border-radius: 22px;
@@ -458,7 +574,7 @@ section h2::after {
   overflow: hidden;
 }
 
-.guideline-card::before {
+.guidelineCard::before {
   content: '';
   position: absolute;
   top: 0;
@@ -469,17 +585,17 @@ section h2::after {
   transition: all 0.5s ease;
 }
 
-.guideline-card:hover {
+.guidelineCard:hover {
   transform: translateY(-10px);
   box-shadow: 0 25px 50px rgba(255, 154, 158, 0.18);
   border-left-color: #fecfef;
 }
 
-.guideline-card:hover::before {
+.guidelineCard:hover::before {
   right: 0;
 }
 
-.guideline-card h3 {
+.guidelineCard h3 {
   font-size: 1.5rem;
   color: #2c3e50;
   margin-bottom: 20px;
@@ -489,7 +605,7 @@ section h2::after {
   font-weight: 700;
 }
 
-.guideline-card p {
+.guidelineCard p {
   color: #666;
   line-height: 1.9;
   font-size: 1.05rem;
@@ -497,195 +613,69 @@ section h2::after {
 
 /* Responsive Design - Large Tablets */
 @media (max-width: 1200px) {
-  .hero-vertical-slider {
+  .heroVerticalSlider {
     height: 75vh;
   }
   
-  .main-title-overlay h1 {
+  .mainTitleOverlay h1 {
     font-size: 4.2rem;
   }
   
-  .main-title-overlay p {
+  .mainTitleOverlay p {
     font-size: 1.8rem;
   }
   
-  .slide-caption {
+  .slideCaption {
     font-size: 2.8rem;
   }
   
-  .attractions-layout {
+  .attractionsLayout {
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   }
 }
 
 /* Responsive Design - Tablets */
 @media (max-width: 768px) {
-  .main-title-overlay {
+  .mainTitleOverlay {
     left: 40px;
   }
   
-  .main-title-overlay h1 {
+  .mainTitleOverlay h1 {
     font-size: 3.5rem;
   }
   
-  .main-title-overlay p {
+  .mainTitleOverlay p {
     font-size: 1.5rem;
   }
   
-  .slide-caption {
+  .slideCaption {
     font-size: 2.2rem;
   }
   
-  .slide-gradient-overlay {
+  .slideGradientOverlay {
     padding: 100px 40px 50px;
   }
   
-  .vertical-navigation {
+  .verticalNavigation {
     right: 25px;
     gap: 20px;
   }
   
-  section h2 {
-    font-size: 3rem;
+  .section h2,
+  .southAboutSection h2,
+  .attractionsDisplay h2,
+  .activitiesShowcase h2,
+  .travelGuidelines h2 {
+    font-size: 3.2rem;
   }
   
-  .attractions-layout {
+  .attractionsLayout {
     grid-template-columns: 1fr;
     gap: 30px;
   }
   
-  .activities-layout {
+  .activitiesLayout {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-  
-  .guidelines-layout {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .activity-header {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .section-container {
-    padding: 0 25px;
-  }
-  
-  .attraction-panel,
-  .activity-panel,
-  .guideline-card {
-    padding: 30px;
-  }
 }
-
-/* Responsive Design - Mobile */
-@media (max-width: 480px) {
-  .hero-vertical-slider {
-    height: 65vh;
-    border-radius: 0 0 40px 40px;
-  }
-  
-  .main-title-overlay {
-    left: 25px;
-    right: 25px;
-    text-align: center;
-  }
-  
-  .main-title-overlay h1 {
-    font-size: 2.5rem;
-  }
-  
-  .main-title-overlay p {
-    font-size: 1.2rem;
-  }
-  
-  .slide-caption {
-    font-size: 1.8rem;
-  }
-  
-  .slide-gradient-overlay {
-    padding: 80px 25px 40px;
-  }
-  
-  section h2 {
-    font-size: 2.5rem;
-  }
-  
-  .south-about-section p {
-    font-size: 1.2rem;
-  }
-  
-  .attraction-panel,
-  .activity-panel,
-  .guideline-card {
-    padding: 25px;
-  }
-  
-  .vertical-indicator {
-    width: 15px;
-    height: 15px;
-  }
-  
-  .section-container {
-    padding: 0 20px;
-  }
-  
-  .attractions-layout,
-  .activities-layout,
-  .guidelines-layout {
-    gap: 25px;
-  }
-
-  .vertical-navigation {
-    right: 20px;
-    gap: 18px;
-  }
-}
-
-/* Ultra Small Screens */
-@media (max-width: 360px) {
-  .main-title-overlay h1 {
-    font-size: 2rem;
-  }
-  
-  .main-title-overlay p {
-    font-size: 1rem;
-  }
-  
-  .slide-caption {
-    font-size: 1.5rem;
-  }
-  
-  section h2 {
-    font-size: 2rem;
-  }
-
-  .section-container {
-    padding: 0 15px;
-  }
-}
-
-/* Smooth Loading Animation for Vertical Slides */
-.vertical-slide[style*="background-image"] {
-  animation: verticalLoad 2s ease-in-out;
-}
-
-@keyframes verticalLoad {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Enhanced Smooth Scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/*
