@@ -10,9 +10,11 @@ import EastSikkim from "./pages/Travel/EastSikkim";
 import NorthSikkim from "./pages/Travel/NorthSikkim";
 import WestSikkim from "./pages/Travel/WestSikkim";
 import SouthSikkim from "./pages/Travel/SouthSikkim";
+import Adventure from "./pages/Adventure Zone/Adventure"
 import Vlog from "./pages/Vlog/Vlog";
 import PlanTravel from "./pages/Vlog/PlanTrip";
 import ContactUs from "./pages/Contact Us/ContactUs";
+import Login from "./pages/Login/Login"
 
 function App() {
   return (
@@ -27,9 +29,11 @@ function App() {
           <Route path="/east-sikkim" element={<EastSikkim />} />
           <Route path="/west-sikkim" element={<WestSikkim />} />
           <Route path="/south-sikkim" element={<SouthSikkim />} />
+          <Route path="/adventure-zone" element={<Adventure />} />
           <Route path="/vlog" element={<Vlog />} />
           <Route path="/plan-trip" element={<PlanTravel />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footers />
       </div>
