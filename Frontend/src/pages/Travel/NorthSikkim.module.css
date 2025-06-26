@@ -1,4 +1,125 @@
 /* North Sikkim Component Styles - CSS Modules Version */
+.tipCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+  cursor: pointer;
+  border: 2.5px solid transparent;
+  background: linear-gradient(135deg, #fff 60%, #e3f2fd 100%);
+  box-shadow: 0 4px 24px rgba(33,150,243,0.10);
+  border-radius: 20px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s, border 0.3s, background 0.3s;
+  position: relative;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+.tipCard.flipped {
+  transform: rotateY(180deg);
+}
+
+.tipCardFront,
+.tipCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.08);
+  border: 1px solid rgba(33, 150, 243, 0.08);
+  background: #fff;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tipCardBack {
+  background: #e3f2fd;
+  transform: rotateY(180deg);
+  color: #1a365d;
+}
+
+.tipCardFront h4,
+.tipCardBack h4 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.tipCardFront p,
+.tipCardBack p {
+  font-size: 1.05rem;
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .heroSlider {
+    height: 55vh;
+  }
+  .mainContent {
+    padding: 50px 0;
+  }
+  .section h2 {
+    font-size: 2.2rem;
+  }
+  .spotsGrid,
+  .activitiesGrid,
+  .weatherGrid,
+  .tipsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroHeader {
+    left: 20px;
+    top: 38%;
+  }
+  .heroHeader h1 {
+    font-size: 2.2rem;
+  }
+  .slideCaption {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+  .slideOverlay {
+    padding: 40px 10px 20px;
+  }
+  .mainContent {
+    padding: 20px 0;
+  }
+  .container {
+    padding: 0 8px;
+  }
+  .section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+  }
+  .spotCardFront,
+  .spotCardBack,
+  .activityCard,
+  .weatherCard,
+  .tipCardFront,
+  .tipCardBack {
+    padding: 14px;
+    border-radius: 10px;
+  }
+}
+
 .northSikkim {
   width: 100%;
   min-height: 100vh;
@@ -170,7 +291,7 @@
 }
 
 .section h2::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -15px;
   left: 50%;
@@ -192,7 +313,7 @@
   font-weight: 400;
 }
 
-/* Tourist Spots Grid */
+/* Tourist Spots Grid with Flip Effect */
 .spotsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
@@ -200,19 +321,46 @@
   margin-top: 60px;
 }
 
+.spotCardContainer {
+  perspective: 1000px;
+  height: 400px;
+}
+
 .spotCard {
-  background: white;
-  padding: 35px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  cursor: pointer;
+  transform-origin: center center;
+}
+
+.spotCard.flipped {
+  transform: rotateY(180deg);
+}
+
+.spotCardFront,
+.spotCardBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
   border-radius: 20px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s ease;
-  position: relative;
+}
+
+.spotCardFront {
+  background: white;
+  padding: 35px;
   overflow: hidden;
   border: 1px solid rgba(33, 150, 243, 0.1);
 }
 
-.spotCard::before {
-  content: '';
+.spotCardFront::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -221,19 +369,47 @@
   background: linear-gradient(90deg, #2196f3, #00bcd4);
 }
 
-.spotCard:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 25px 50px rgba(33, 150, 243, 0.15);
+.spotCardBack {
+  background: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
 }
 
-.spotCard h3 {
+.spotCardBack::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  font-size: 1.8rem;
+  padding: 15px 0;
+  font-weight: 600;
+  text-align: center;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  z-index: 2;
+}
+
+.spotCardBack img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.spotCardFront h3 {
   font-size: 2rem;
   color: #1a365d;
   margin-bottom: 18px;
   font-weight: 600;
 }
 
-.spotCard p {
+.spotCardFront p {
   color: #4a5568;
   line-height: 1.7;
   margin-bottom: 25px;
@@ -260,7 +436,7 @@
 }
 
 .highlights li::before {
-  content: '❄️';
+  content: "❄️";
   position: absolute;
   left: 0;
   font-size: 1.1rem;
@@ -286,7 +462,7 @@
 }
 
 .activityCard::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -60%;
   right: -60%;
@@ -422,7 +598,7 @@
 }
 
 .seasonHighlights li::before {
-  content: '🌨️';
+  content: "🌨️";
   position: absolute;
   left: 0;
 }
@@ -431,209 +607,55 @@
 .tipsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 28px;
-  margin-top: 60px;
+  gap: 30px;
+  margin-top: 50px;
 }
 
-.tipCard {
-  background: white;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s ease;
-  border-left: 6px solid #2196f3;
-  position: relative;
+.tipCardContainer {
+  perspective: 900px;
+  height: auto;
 }
 
-.tipCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-}
-
-.tipCard h3 {
-  font-size: 1.4rem;
-  color: #1a365d;
-  margin-bottom: 18px;
+.iconCircle {
+  width: 54px;
+  height: 54px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-weight: 600;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 22px;
+  margin-top: 2px;
+  font-size: 2rem;
+  box-shadow: 0 2px 12px rgba(33,150,243,0.10);
+  background: linear-gradient(135deg, #e3f2fd 0%, #90caf9 100%);
+  color: #1565c0;
+  transition: background 0.4s, box-shadow 0.4s;
 }
+.iconCircle.permit { background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%); color: #b28704; }
+.iconCircle.altitude { background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%); color: #2e7d32; }
+.iconCircle.transport { background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); color: #b26500; }
+.iconCircle.accommodation { background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); color: #512da8; }
+.iconCircle.essentials { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: #ad1457; }
+.iconCircle.connectivity { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: #00897b; }
+.iconCircle.health { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #d84315; }
+.iconCircle.environment { background: linear-gradient(135deg, #c2e59c 0%, #64b3f4 100%); color: #388e3c; }
 
+.tipCard:hover {
+  transform: scale(1.06) translateY(-6px);
+  box-shadow: 0 8px 36px 0 rgba(33,150,243,0.18), 0 0 16px 2px #90caf9;
+  border: 2.5px solid #2196f3;
+  background: linear-gradient(135deg, #e3f2fd 60%, #fff 100%);
+}
+.tipCard h3 {
+  margin-top: 8px;
+  margin-bottom: 14px;
+  font-size: 1.25rem;
+  color: #1565c0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
 .tipCard p {
+  font-size: 1.05rem;
   color: #4a5568;
   line-height: 1.7;
-  font-size: 1.05rem;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .heroSlider {
-    height: 70vh;
-  }
-  
-  .heroHeader h1 {
-    font-size: 3.8rem;
-  }
-  
-  .heroHeader p {
-    font-size: 1.4rem;
-  }
-  
-  .slideCaption {
-    font-size: 2.4rem;
-  }
-  
-  .heroHeader {
-    left: 40px;
-  }
-  
-  .sliderControls {
-    right: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .heroHeader h1 {
-    font-size: 2.8rem;
-  }
-  
-  .heroHeader p {
-    font-size: 1.3rem;
-  }
-  
-  .heroHeader {
-    left: 25px;
-  }
-  
-  .slideCaption {
-    font-size: 2rem;
-  }
-  
-  .slideOverlay {
-    padding: 70px 25px 35px;
-  }
-  
-  .sliderControls {
-    right: 25px;
-    gap: 15px;
-  }
-  
-  .controlDot {
-    width: 12px;
-    height: 12px;
-  }
-  
-  .section h2 {
-    font-size: 2.5rem;
-  }
-  
-  .spotsGrid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-  
-  .activitiesGrid {
-    grid-template-columns: 1fr;
-    gap: 25px;
-  }
-  
-  .weatherGrid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .tipsGrid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .activityHeader {
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-  }
-  
-  .seasonHeader {
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-start;
-  }
-  
-  .container {
-    padding: 0 15px;
-  }
-  
-  .mainContent {
-    padding: 70px 0;
-  }
-  
-  .section {
-    margin-bottom: 70px;
-  }
-}
-
-@media (max-width: 480px) {
-  .heroHeader h1 {
-    font-size: 2.2rem;
-  }
-  
-  .heroHeader p {
-    font-size: 1.1rem;
-  }
-  
-  .slideCaption {
-    font-size: 1.6rem;
-  }
-  
-  .slideOverlay {
-    padding: 50px 20px 25px;
-  }
-  
-  .section h2 {
-    font-size: 2rem;
-  }
-  
-  .introSection p {
-    font-size: 1.1rem;
-  }
-  
-  .spotCard,
-  .activityCard,
-  .weatherCard,
-  .tipCard {
-    padding: 25px;
-  }
-  
-  .spotsGrid,
-  .activitiesGrid,
-  .weatherGrid,
-  .tipsGrid {
-    margin-top: 40px;
-  }
-  
-  .weatherSection {
-    padding: 40px 0;
-    margin: 40px 0;
-  }
-}
-
-/* Loading Animation for Images */
-.slide[style*="background-image"] {
-  animation: fadeIn 1.2s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Additional hover effects for better interactivity */
-.spotCard:hover h3 {
-  color: #2196f3;
-  transition: color 0.3s ease;
 }

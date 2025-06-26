@@ -245,16 +245,26 @@
   margin-top: 60px;
 }
 
+/* Flip Card Container */
+.destinationCardContainer {
+  perspective: 1000px;
+  height: 500px;
+  width: 100%;
+}
+
 .destinationCard {
-  background: white;
-  padding: 35px;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: 100%;
   position: relative;
-  overflow: hidden;
-  border-top: 6px solid transparent;
-  background-clip: padding-box;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+}
+
+.destinationCard.flipped {
+  transform: rotateY(180deg);
 }
 
 .destinationCard::before {
@@ -264,47 +274,59 @@
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, #40519d, #422e56, #e7afed);
-}
-
-.destinationCard::after {
-  content: '';
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 300%;
-  height: 300%;
-  background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 0%, transparent 70%);
-  transition: all 0.4s ease;
-  z-index: 1;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  border-radius: 20px 20px 0 0;
+  z-index: 10;
 }
 
 .destinationCard:hover {
-  transform: translateY(-15px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
+  box-shadow: 0 20px 50px rgba(102, 126, 234, 0.25);
+  transform: translateY(-5px);
 }
 
-.destinationCard:hover::after {
-  top: -50%;
-  left: -50%;
+.destinationCard.flipped:hover {
+  transform: translateY(-5px) rotateY(180deg);
 }
 
-.destinationCard h3 {
+/* Card Front */
+.cardFront {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0; 
+  left: 0;
+  backface-visibility: hidden;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 20px;
+  z-index: 2;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.cardFront h3 {
   font-size: 2rem;
   color: #2c3e50;
   margin-bottom: 18px;
   position: relative;
   z-index: 2;
-  font-weight: 600;
+  font-weight: 700;
+  background: linear-gradient(45deg, #2c3e50, #667eea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.destinationCard p {
+.cardFront p {
   color: #666;
   line-height: 1.8;
   margin-bottom: 25px;
   position: relative;
   z-index: 2;
   font-size: 1.1rem;
+  font-weight: 400;
 }
 
 .attractionsList {
@@ -337,6 +359,67 @@
   position: absolute;
   left: 0;
   color: #f39c12;
+}
+
+/* Card Back - Improved Styles */
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0; 
+  left: 0;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 2;
+  box-shadow: 0 15px 40px rgba(31, 38, 135, 0.2);
+  border: 2px solid rgba(102, 126, 234, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: all 0.4s ease;
+}
+
+.destinationCard.flipped .cardBack {
+  box-shadow: 0 25px 60px rgba(31, 38, 135, 0.3);
+  border: none;
+}
+
+.cardBackImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 20px;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.destinationCard.flipped .cardBackImg {
+  transform: scale(1.02);
+}
+
+/* Card Back Title */
+.cardBackTitle {
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  right: 0;
+  background: transparent;
+  text-align: center;
+  padding: 25px 20px 15px;
+  z-index: 3;
+  border-radius: 0 0 20px 20px;
+}
+
+.cardBackTitle h3 {
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Adventure Experiences Grid */
@@ -436,14 +519,15 @@
 }
 
 .infoCard {
-  background: white;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(102, 126, 234, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-left: 6px solid #667eea;
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(102, 126, 234, 0.1);
 }
 
 .infoCard::before {
@@ -457,30 +541,68 @@
   transition: all 0.4s ease;
 }
 
+.infoCard::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(102, 126, 234, 0.03) 0%, transparent 70%);
+  transition: all 0.4s ease;
+  opacity: 0;
+}
+
 .infoCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
   border-left-color: #764ba2;
+  border-color: rgba(102, 126, 234, 0.2);
 }
 
 .infoCard:hover::before {
   right: 0;
 }
 
+.infoCard:hover::after {
+  opacity: 1;
+}
+
 .infoCard h3 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: #2c3e50;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-weight: 600;
+  gap: 15px;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+.infoCard h3::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.infoCard:hover h3::before {
+  width: 60px;
 }
 
 .infoCard p {
-  color: #666;
+  color: #555;
   line-height: 1.8;
-  font-size: 1rem;
+  font-size: 1.05rem;
+  position: relative;
+  z-index: 2;
+  font-weight: 400;
 }
 
 /* Responsive Design - Large Tablets */
@@ -560,7 +682,7 @@
     padding: 0 20px;
   }
   
-  .destinationCard,
+  .cardFront,
   .experienceCard,
   .infoCard {
     padding: 25px;
@@ -585,7 +707,7 @@
   }
   
   .heroTitleOverlay p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   
   .carouselTitle {
@@ -596,38 +718,76 @@
     padding: 60px 20px 30px;
   }
   
-  .sectionTitle {
-    font-size: 2.2rem;
-  }
-  
-  .aboutWestSection p {
-    font-size: 1.1rem;
-  }
-  
-  .destinationCard,
-  .experienceCard,
-  .infoCard {
-    padding: 20px;
+  .carouselNavigation {
+    bottom: 20px;
+    gap: 12px;
   }
   
   .navIndicator {
     width: 12px;
     height: 12px;
+    border-width: 2px;
+  }
+  
+  .sectionTitle {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+  
+  .aboutWestSection p {
+    font-size: 1.1rem;
+    padding: 0 15px;
+  }
+  
+  .destinationsGrid {
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  .experiencesGrid {
+    gap: 20px;
+    margin-top: 40px;
+  }
+  
+  .infoCardsGrid {
+    gap: 20px;
+    margin-top: 40px;
   }
   
   .contentContainer {
     padding: 0 15px;
   }
   
-  .destinationsGrid,
-  .experiencesGrid,
-  .infoCardsGrid {
-    gap: 20px;
+  .cardFront,
+  .experienceCard,
+  .infoCard {
+    padding: 20px;
+  }
+  
+  .cardFront h3,
+  .experienceHeader h3 {
+    font-size: 1.6rem;
+  }
+  
+  .infoCard h3 {
+    font-size: 1.2rem;
+  }
+  
+  .contentWrapper {
+    padding: 60px 0;
+  }
+  
+  .section {
+    margin-bottom: 60px;
   }
 }
 
-/* Ultra Small Screens */
+/* Responsive Design - Small Mobile */
 @media (max-width: 360px) {
+  .heroCarouselSection {
+    height: 55vh;
+  }
+  
   .heroTitleOverlay h1 {
     font-size: 1.8rem;
   }
@@ -643,39 +803,79 @@
   .sectionTitle {
     font-size: 1.8rem;
   }
-}
-
-/* Smooth Loading Animation */
-.carouselSlide[style*="background-image"] {
-  animation: smoothLoad 1.5s ease-in-out;
-}
-
-@keyframes smoothLoad {
-  from {
-    opacity: 0;
-    transform: scale(1.1);
+  
+  .destinationsGrid {
+    grid-template-columns: 1fr;
   }
-  to {
+  
+  .experiencesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .infoCardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation Enhancements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
     opacity: 1;
-    transform: scale(1);
   }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Loading States */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 /* Focus States for Accessibility */
-.navIndicator:focus {
-  outline: 3px solid rgba(255, 255, 255, 0.8);
-  outline-offset: 3px;
+.destinationCard:focus {
+  outline: none;
 }
 
-/* High Contrast Mode Support */
-@media (prefers-contrast: high) {
-  .destinationCard,
-  .experienceCard,
-  .infoCard {
-    border: 2px solid #333;
+.experienceCard:focus,
+.infoCard:focus {
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
+.navIndicator:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .heroCarouselSection {
+    height: auto;
+    min-height: 300px;
   }
   
-  .navIndicator {
-    border-width: 4px;
+  .carouselNavigation,
+  .heroTitleOverlay {
+    display: none;
+  }
+  
+  .destinationCardContainer:hover .destinationCard {
+    transform: none;
+  }
+  
+  .experienceCard:hover,
+  .infoCard:hover {
+    transform: none;
   }
 }

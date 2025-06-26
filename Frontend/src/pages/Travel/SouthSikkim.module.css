@@ -370,19 +370,42 @@
   margin-top: 70px;
 }
 
+/* Flip Container for Attractions */
+.attractionFlipContainer {
+  perspective: 1000px;
+  height: 500px; /* Fixed height to prevent layout shifts */
+}
+
 .attractionPanel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.attractionPanel.flipped {
+  transform: rotateY(180deg);
+}
+
+.attractionFront,
+.attractionBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
   background: white;
   padding: 40px;
   border-radius: 25px;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  position: relative;
-  overflow: hidden;
   border-top: 8px solid transparent;
   background-clip: padding-box;
+  overflow: hidden;
 }
 
-.attractionPanel::before {
+.attractionFront::before,
+.attractionBack::before {
   content: '';
   position: absolute;
   top: 0;
@@ -392,7 +415,8 @@
   background: linear-gradient(90deg, #ff9a9e, #fecfef, #ff9a9e, #fad0c4);
 }
 
-.attractionPanel::after {
+.attractionFront::after,
+.attractionBack::after {
   content: '';
   position: absolute;
   top: -120%;
@@ -404,17 +428,10 @@
   z-index: 1;
 }
 
-.attractionPanel:hover {
-  transform: translateY(-18px) scale(1.03);
-  box-shadow: 0 30px 60px rgba(255, 154, 158, 0.25);
-}
+/* Remove all hover effects that cause conflicts */
+/* The cards will only flip on click/hover without additional transforms */
 
-.attractionPanel:hover::after {
-  top: -60%;
-  left: -60%;
-}
-
-.attractionPanel h3 {
+.attractionFront h3 {
   font-size: 2.2rem;
   color: #2c3e50;
   margin-bottom: 20px;
@@ -423,7 +440,7 @@
   font-weight: 700;
 }
 
-.attractionPanel p {
+.attractionFront p {
   color: #666;
   line-height: 1.9;
   margin-bottom: 28px;
@@ -462,6 +479,45 @@
   position: absolute;
   left: 0;
   font-size: 1.1rem;
+}
+
+/* Back Side Styles */
+.attractionBack {
+  transform: rotateY(180deg);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.attractionImage {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.imageCaption {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 60px 30px 30px;
+  width: 100%;
+  text-align: center;
+  border-radius: 0 0 25px 25px;
+}
+
+.imageCaption h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  position: relative;
+  z-index: 2;
 }
 
 /* Activities Layout */
@@ -512,64 +568,21 @@
   }
 }
 
-.activityHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 22px;
-  position: relative;
-  z-index: 2;
-}
-
-.activityHeader h3 {
-  font-size: 1.7rem;
-  margin-bottom: 0;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.difficultyBadge {
-  background: rgba(255, 255, 255, 0.3);
-  padding: 10px 18px;
-  border-radius: 30px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.activityLocation {
-  font-size: 1.15rem;
-  margin-bottom: 15px;
-  opacity: 0.95;
-  position: relative;
-  z-index: 2;
-  font-weight: 500;
-}
-
-.activityDescription {
-  line-height: 1.8;
-  opacity: 0.98;
-  position: relative;
-  z-index: 2;
-  font-size: 1.05rem;
-}
-
-/* Travel Guidelines Layout */
+/* Travel Guidelines Section */
 .guidelinesLayout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 35px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
   margin-top: 70px;
 }
 
 .guidelineCard {
   background: white;
   padding: 35px;
-  border-radius: 22px;
+  border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-  transition: all 0.5s ease;
-  border-left: 8px solid #ff9a9e;
+  border-left: 6px solid #ff9a9e;
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
@@ -578,104 +591,62 @@
   content: '';
   position: absolute;
   top: 0;
-  right: -120px;
-  width: 120px;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 154, 158, 0.06));
-  transition: all 0.5s ease;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff9a9e, #fecfef);
 }
 
 .guidelineCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 50px rgba(255, 154, 158, 0.18);
-  border-left-color: #fecfef;
-}
-
-.guidelineCard:hover::before {
-  right: 0;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255, 154, 158, 0.15);
 }
 
 .guidelineCard h3 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: #2c3e50;
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
+  margin-bottom: 15px;
   font-weight: 700;
 }
 
 .guidelineCard p {
   color: #666;
-  line-height: 1.9;
+  line-height: 1.7;
   font-size: 1.05rem;
 }
 
-/* Responsive Design - Large Tablets */
-@media (max-width: 1200px) {
-  .heroVerticalSlider {
-    height: 75vh;
-  }
-  
-  .mainTitleOverlay h1 {
-    font-size: 4.2rem;
-  }
-  
-  .mainTitleOverlay p {
-    font-size: 1.8rem;
-  }
-  
-  .slideCaption {
-    font-size: 2.8rem;
-  }
-  
-  .attractionsLayout {
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  }
+/* Activity Panel Styles */
+.activityHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-/* Responsive Design - Tablets */
-@media (max-width: 768px) {
-  .mainTitleOverlay {
-    left: 40px;
-  }
-  
-  .mainTitleOverlay h1 {
-    font-size: 3.5rem;
-  }
-  
-  .mainTitleOverlay p {
-    font-size: 1.5rem;
-  }
-  
-  .slideCaption {
-    font-size: 2.2rem;
-  }
-  
-  .slideGradientOverlay {
-    padding: 100px 40px 50px;
-  }
-  
-  .verticalNavigation {
-    right: 25px;
-    gap: 20px;
-  }
-  
-  .section h2,
-  .southAboutSection h2,
-  .attractionsDisplay h2,
-  .activitiesShowcase h2,
-  .travelGuidelines h2 {
-    font-size: 3.2rem;
-  }
-  
-  .attractionsLayout {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .activitiesLayout {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
+.activityHeader h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.difficultyBadge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.activityLocation {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.activityDescription {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.95;
 }

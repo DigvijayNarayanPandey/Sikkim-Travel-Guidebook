@@ -7,10 +7,19 @@ import South2 from '../../assets/South2.jpg';
 import South3 from '../../assets/South3.jpeg';
 import South4 from '../../assets/South4.jpg';
 
+// Import attraction images
+import Jorethang from '../../assets/South Sikkim/Jorethang.jpg';
+import Namchi from '../../assets/South Sikkim/Namchi.jpg';
+import MaenamHill from '../../assets/South Sikkim/MaenamHill.jpg';
+import TemiTeaGarden from '../../assets/South Sikkim/TemiTeaGarden.jpg';
+import TendongHill from '../../assets/South Sikkim/TendongHill.jpg';
+import Ravangla from '../../assets/South Sikkim/Ravangla.webp';
+
 const SouthSikkim = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
-  // Image carousel data for South Sikkim
+  const [flippedCards, setFlippedCards] = useState({});
+
+
   const verticalSliderImages = [
     {
       src: South1,
@@ -43,36 +52,47 @@ const SouthSikkim = () => {
     return () => clearInterval(verticalSliderTimer);
   }, [verticalSliderImages.length]);
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const southSikkimAttractions = [
     {
       location: "Namchi",
       description: "The cultural and religious hub of South Sikkim, famous for its massive statues and spiritual significance.",
-      highlights: ["Char Dham", "Samdruptse Hill", "Statue of Guru Padmasambhava", "Rock Garden"]
+      highlights: ["Char Dham", "Samdruptse Hill", "Statue of Guru Padmasambhava", "Rock Garden"],
+      image: Namchi
     },
     {
       location: "Ravangla",
       description: "A serene hill station known for its Buddha Park and stunning views of Mount Kanchenjunga.",
-      highlights: ["Buddha Park", "Rayong Sunrise Point", "Tathagata Tsal", "Bon Monastery"]
+      highlights: ["Buddha Park", "Rayong Sunrise Point", "Tathagata Tsal", "Bon Monastery"],
+      image: Ravangla
     },
     {
       location: "Temi Tea Garden",
       description: "Sikkim's only tea estate offering organic tea cultivation amidst scenic mountain landscapes.",
-      highlights: ["Tea plantation tours", "Organic tea tasting", "Scenic photography", "Tea processing unit"]
+      highlights: ["Tea plantation tours", "Organic tea tasting", "Scenic photography", "Tea processing unit"],
+      image: TemiTeaGarden
     },
     {
       location: "Jorethang",
       description: "Commercial hub and gateway to South Sikkim with vibrant local markets and cultural diversity.",
-      highlights: ["Local markets", "River confluence", "Cultural diversity", "Trade center"]
+      highlights: ["Local markets", "River confluence", "Cultural diversity", "Trade center"],
+      image: Jorethang
     },
     {
       location: "Maenam Hill",
       description: "Wildlife sanctuary and trekking destination offering rich biodiversity and panoramic views.",
-      highlights: ["Wildlife sanctuary", "Trekking trails", "Bird watching", "Rhododendron forests"]
+      highlights: ["Wildlife sanctuary", "Trekking trails", "Bird watching", "Rhododendron forests"],
+      image: MaenamHill
     },
     {
       location: "Tendong Hill",
       description: "Sacred hill with mythological significance and excellent trekking opportunities for nature lovers.",
-      highlights: ["Mythological significance", "Trekking routes", "Panoramic views", "Sacred forests"]
+      highlights: ["Mythological significance", "Trekking routes", "Panoramic views", "Sacred forests"],
+      image: TendongHill
     }
   ];
 
@@ -113,6 +133,13 @@ const SouthSikkim = () => {
     setCurrentImageIndex(index);
   };
 
+  const handleCardFlip = (index) => {
+    setFlippedCards(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
   return (
     <div className={styles.southSikkimWrapper}>
       {/* Hero Vertical Image Slider */}
@@ -130,7 +157,7 @@ const SouthSikkim = () => {
             </div>
           ))}
         </div>
-        
+
         {/* Vertical Navigation Indicators */}
         <div className={styles.verticalNavigation}>
           {verticalSliderImages.map((_, index) => (
@@ -157,13 +184,13 @@ const SouthSikkim = () => {
           <div className={styles.sectionContainer}>
             <h2>Experience South Sikkim</h2>
             <p>
-              South Sikkim stands as the spiritual and cultural heart of the state, where ancient traditions 
-              blend seamlessly with natural beauty. This region is home to magnificent religious monuments, 
-              including the towering statue of Guru Padmasambhava and the serene Buddha Park in Ravangla. 
-              The only tea garden of Sikkim, Temi, spreads across the rolling hills offering visitors a 
-              unique tea cultivation experience. From the sacred peaks of Tendong Hill to the biodiversity 
-              of Maenam Wildlife Sanctuary, South Sikkim presents a perfect harmony of spiritual enlightenment, 
-              cultural richness, and natural splendor that attracts pilgrims, nature enthusiasts, and 
+              South Sikkim stands as the spiritual and cultural heart of the state, where ancient traditions
+              blend seamlessly with natural beauty. This region is home to magnificent religious monuments,
+              including the towering statue of Guru Padmasambhava and the serene Buddha Park in Ravangla.
+              The only tea garden of Sikkim, Temi, spreads across the rolling hills offering visitors a
+              unique tea cultivation experience. From the sacred peaks of Tendong Hill to the biodiversity
+              of Maenam Wildlife Sanctuary, South Sikkim presents a perfect harmony of spiritual enlightenment,
+              cultural richness, and natural splendor that attracts pilgrims, nature enthusiasts, and
               cultural explorers from around the world.
             </p>
           </div>
@@ -175,16 +202,36 @@ const SouthSikkim = () => {
             <h2>Major Attractions</h2>
             <div className={styles.attractionsLayout}>
               {southSikkimAttractions.map((attraction, index) => (
-                <div key={index} className={styles.attractionPanel}>
-                  <h3>{attraction.location}</h3>
-                  <p>{attraction.description}</p>
-                  <div className={styles.highlightsSection}>
-                    <h4>Key Highlights:</h4>
-                    <ul>
-                      {attraction.highlights.map((highlight, idx) => (
-                        <li key={idx}>{highlight}</li>
-                      ))}
-                    </ul>
+                <div key={index} className={styles.attractionFlipContainer}>
+                  <div
+                    className={`${styles.attractionPanel} ${flippedCards[index] ? styles.flipped : ''}`}
+                    onClick={() => handleCardFlip(index)}
+                  >
+                    {/* Front Side */}
+                    <div className={styles.attractionFront}>
+                      <h3>{attraction.location}</h3>
+                      <p>{attraction.description}</p>
+                      <div className={styles.highlightsSection}>
+                        <h4>Key Highlights:</h4>
+                        <ul>
+                          {attraction.highlights.map((highlight, idx) => (
+                            <li key={idx}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Back Side */}
+                    <div className={styles.attractionBack}>
+                      <div
+                        className={styles.attractionImage}
+                        style={{ backgroundImage: `url(${attraction.image})` }}
+                      >
+                        <div className={styles.imageCaption}>
+                          <h3>{attraction.location}</h3>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
