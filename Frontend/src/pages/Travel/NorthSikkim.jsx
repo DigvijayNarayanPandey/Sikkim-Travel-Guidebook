@@ -1,436 +1,172 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "./NorthSikkim.module.css";
-
-import North1 from "../../assets/North1.jpg";
-import North2 from "../../assets/North2.jpg";
-import North3 from "../../assets/North3.jpg";
-import North4 from "../../assets/North4.jpg";
-
-import GurudongmarLake from "../../assets/North Sikkim/Gurudongmar Lake.jpg";
-import YumthangValley from "../../assets/North Sikkim/Yumthang Valley.jpg";
-import ZeroPoint from "../../assets/North Sikkim/Zero Point.jpg";
-import Lachung from "../../assets/North Sikkim/Lachung.jpg";
-import Lachen from "../../assets/North Sikkim/Lachen.jpg";
-import ThanguValley from "../../assets/North Sikkim/Thangu Valley.jpg";
+import NorthImg from "../../assets/North Sikkim/Gurudongmar Lake.jpg";
 
 const NorthSikkim = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [flippedCards, setFlippedCards] = useState({});
-
-  const sliderImages = [
+  const destinations = [
     {
-      src: North1,
-      alt: "Gurudongmar Lake",
-      caption: "Gurudongmar Lake - Sacred Waters at 17,800 ft",
-    },
-    {
-      src: North4,
-      alt: "Lachung Valley",
-      caption: "Lachung - Land of Small Passes",
-    },
-    {
-      src: North3,
-      alt: "Phodong Monastery",
-      caption:
-        "Phodong Monastery - Monastery known for its beautiful architecture",
-    },
-    {
-      src: North2,
-      alt: "Yumthang Valley",
-      caption: "Yumthang Valley - Nature's Own Paradise",
-    },
-  ];
-
-  // Auto-slide functionality
-  useEffect(() => {
-    const slideInterval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
-    }, 4500);
-
-    return () => clearInterval(slideInterval);
-  }, [sliderImages.length]);
-
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const handleCardFlip = (index) => {
-    setFlippedCards((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
-
-  const touristSpots = [
-    {
-      name: "Gurudongmar Lake",
-      description:
-        "One of the highest lakes in the world at 17,800 ft, considered sacred by Buddhists, Sikhs, and Hindus.",
-      highlights: [
-        "Sacred high-altitude lake",
-        "Crystal clear waters",
-        "Spectacular mountain views",
-        "Religious significance",
-      ],
-      image: GurudongmarLake,
-    },
-    {
-      name: "Yumthang Valley",
-      description:
-        "Known as the 'Valley of Flowers', this picturesque valley blooms with rhododendrons and primulas.",
-      highlights: [
-        "Rhododendron sanctuary",
-        "Hot springs",
-        "Alpine meadows",
-        "Shingba Rhododendron Sanctuary",
-      ],
-      image: YumthangValley,
-    },
-    {
-      name: "Zero Point",
-      description:
-        "The last motorable point towards the Indo-China border, offering breathtaking views of snow-capped peaks.",
-      highlights: [
-        "Border area views",
-        "Snow playground",
-        "Mountain photography",
-        "Adventure destination",
-      ],
-      image: ZeroPoint,
-    },
-    {
-      name: "Lachung",
-      description:
-        "A beautiful mountain village known for its apple orchards and traditional Lepcha architecture.",
-      highlights: [
-        "Apple orchards",
-        "Traditional architecture",
-        "Monastery visits",
-        "Mountain village life",
-      ],
-      image: Lachung,
-    },
-    {
+      id: 1,
       name: "Lachen",
       description:
-        "Gateway to Gurudongmar Lake and Chopta Valley, offering pristine mountain beauty.",
-      highlights: [
-        "Base for Gurudongmar",
-        "Lachen Monastery",
-        "Chopta Valley access",
-        "High altitude acclimatization",
-      ],
-      image: Lachen,
+        "Lachen is a beautiful village in North Sikkim, known for its peaceful and natural surroundings. It is surrounded by tall mountains, green forests, and clear lakes. The calm and quiet atmosphere makes it a perfect place for people who love nature or want to relax away from busy city life.",
+      image1: "	https://glacialtravels.com/Travel/northsikkim/Lachen2.png",
+      image2: "		https://glacialtravels.com/Travel/northsikkim/Lachen.png",
     },
     {
+      id: 2,
+      name: "Lachung",
+      description:
+        "Lachung is a lovely village in North Sikkim, surrounded by colorful flowers, waterfalls, and tall mountains. It is known for its beautiful nature, friendly people, and rich culture. With its peaceful environment and stunning views, Lachung is a great place to visit and enjoy the beauty of the Himalayas.-",
+      image1: "https://glacialtravels.com/Travel/northsikkim/2.png",
+      image2: "https://glacialtravels.com/Travel/northsikkim/lachung.png",
+    },
+    {
+      id: 3,
+      name: "Gurudongmar Lake",
+      description:
+        "Gurudongmar Lake, located in North Sikkim at a height of 17,800 feet, is a stunning and peaceful place. Surrounded by tall mountains, the lake is one of the highest in the world. Its clear blue water and beautiful views make it a truly magical spot that amazes everyone who visits.",
+      image1: "https://glacialtravels.com/Travel/eastsikkim/ReshiKhola.jpg",
+      image2: "https://glacialtravels.com/Travel/eastsikkim/Reshikhola.png",
+    },
+    {
+      id: 4,
+      name: "Yumthang Valley",
+      description:
+        "Yumthang Valley, located in North Sikkim, is a beautiful place known as the Valley of Flowers. It is surrounded by tall mountains, green forests, and colorful flowers, especially rhododendrons. With its peaceful nature, clear streams, and stunning views, Yumthang Valley is a great place for both relaxation and adventure.",
+      image1:
+        "https://glacialtravels.com/Travel/northsikkim/YumthangValley.png",
+      image2:
+        "https://glacialtravels.com/Travel/northsikkim/YumthangValley2.png",
+    },
+    {
+      id: 5,
+      name: "Zero Point",
+      description:
+        "Kupup Lake, also known as Elephant Lake due to its shape, is a pristine high-altitude lake located at about 13,000 feet above sea level. This beautiful lake is surrounded by barren mountains and offers stunning reflections of the sky. The lake is often frozen during winter months and presents a mesmerizing landscape for photographers and nature enthusiasts.",
+      image1: "	https://glacialtravels.com/Travel/northsikkim/ZeroPoint.png",
+      image2: "	https://glacialtravels.com/Travel/northsikkim/ZeroPoint2.png",
+    },
+    {
+      id: 6,
+      name: "Chopta Valley",
+      description:
+        " Chopta Valley, in North Sikkim, is a beautiful high-altitude valley known for its snowy mountains, flowing rivers, and colorful rhododendron forests. It offers amazing views and is also a starting point for treks to places like Gurudongmar Lake.",
+      image1: "	https://glacialtravels.com/Travel/northsikkim/Chopta2.png",
+      image2: "https://glacialtravels.com/Travel/northsikkim/ZeroPoint.png",
+    },
+    {
+      id: 7,
+      name: "Mangan ",
+      description:
+        "Mangan, the main town of North Sikkim, is a peaceful and beautiful place. Surrounded by big mountains and green forests, it offers lovely views and a calm atmosphere. Mangan is perfect for people who want to relax and enjoy nature while also experiencing local culture and adventure.",
+      image1: "	https://glacialtravels.com/Travel/northsikkim/Mangan1.png",
+      image2: "https://glacialtravels.com/images/places/Chungthang.jpg",
+    },
+    {
+      id: 8,
       name: "Thangu Valley",
       description:
-        "A high-altitude valley known for its yak herders and stunning landscape views.",
-      highlights: [
-        "Yak herding community",
-        "High altitude plains",
-        "Traditional lifestyle",
-        "Mountain vistas",
-      ],
-      image: ThanguValley,
+        "Thangu Valley, in North Sikkim, is a peaceful and beautiful place often called the Hidden Valley. It is surrounded by tall mountains, green forests, and colorful wildflowers. With its quiet surroundings, clear streams, and scenic views, Thangu Valley is a great spot for nature lovers and adventurers.",
+      image1: "https://glacialtravels.com/Travel/northsikkim/Thangu1.png",
+      image2: "https://glacialtravels.com/Travel/northsikkim/Thangu2.png",
     },
-  ];
-
-  const adventureActivities = [
     {
-      activity: "High Altitude Trekking",
-      location: "Various trails",
-      difficulty: "Challenging",
+      id: 9,
+      name: "Mangshila View Point",
       description:
-        "Experience trekking at extreme altitudes with breathtaking Himalayan views.",
+        "Mangshila View Point, located in North Sikkim, is a beautiful spot that offers wide views of the mountains and valleys. Surrounded by green forests and tall peaks, it is known for its amazing sunrises, sunsets, and colorful wildflowers. It’s a peaceful and scenic place, perfect for nature lovers and photographers.",
+      image1: "	https://glacialtravels.com/Travel/northsikkim/mangshila.png",
+      image2: "https://glacialtravels.com/Travel/northsikkim/mangshila2.png",
     },
     {
-      activity: "Photography Tours",
-      location: "Gurudongmar & Yumthang",
-      difficulty: "Easy to Moderate",
+      id: 10,
+      name: "Phodong Monastery",
       description:
-        "Capture the pristine beauty of high-altitude landscapes and unique flora.",
+        "Phodong Monastery, in North Sikkim, is a peaceful and holy place that reflects the rich culture of the region. Surrounded by mountains and green forests, it is known for its beautiful buildings, colorful paintings, and detailed carvings. The monastery offers a calm and spiritual experience, making it a special place to visit in Sikkim.",
+      image1: "	https://glacialtravels.com/Travel/northsikkim/10.png",
+      image2: "	https://glacialtravels.com/Travel/northsikkim/9.png",
     },
     {
-      activity: "Yak Safari",
-      location: "Thangu Valley",
-      difficulty: "Easy",
+      id: 11,
+      name: "Hot Springs",
       description:
-        "Experience traditional yak rides through high-altitude meadows.",
-    },
-    {
-      activity: "Monastery Visits",
-      location: "Lachen & Lachung",
-      difficulty: "Easy",
-      description:
-        "Explore ancient Buddhist monasteries and experience local spiritual culture.",
-    },
-    {
-      activity: "Hot Springs Therapy",
-      location: "Yumthang Valley",
-      difficulty: "Easy",
-      description:
-        "Relax in natural hot springs surrounded by stunning mountain scenery.",
-    },
-    {
-      activity: "Flora Exploration",
-      location: "Rhododendron Sanctuary",
-      difficulty: "Easy to Moderate",
-      description:
-        "Discover rare Himalayan flowers and medicinal plants in their natural habitat.",
-    },
-  ];
-
-  const weatherSeasons = [
-    {
-      season: "Spring (March-May)",
-      description: "Best time for rhododendron blooms and pleasant weather",
-      temperature: "5°C to 15°C",
-      highlights: ["Flower blooms", "Clear skies", "Moderate temperatures"],
-    },
-    {
-      season: "Summer (June-August)",
-      description: "Warm days but roads may close due to monsoon",
-      temperature: "10°C to 20°C",
-      highlights: ["Warmest period", "Green landscapes", "Monsoon risks"],
-    },
-    {
-      season: "Autumn (September-November)",
-      description: "Clear mountain views and stable weather",
-      temperature: "0°C to 10°C",
-      highlights: [
-        "Crystal clear views",
-        "Stable weather",
-        "Post-monsoon clarity",
-      ],
-    },
-    {
-      season: "Winter (December-February)",
-      description: "Extreme cold, many areas inaccessible due to snow",
-      temperature: "-15°C to 5°C",
-      highlights: ["Snow landscapes", "Limited accessibility", "Extreme cold"],
+        "The hot springs in Sikkim, located in the Himalayas, are perfect for relaxing and refreshing the body. These natural springs are full of minerals and are believed to help heal and calm the mind. With green forests and tall mountains around, the hot springs offer a peaceful and soothing place to unwind.",
+      image1: "	https://glacialtravels.com/Travel/northsikkim/HotSpring1.png",
+      image2: "	https://glacialtravels.com/Travel/northsikkim/HotSpring2.png",
     },
   ];
 
   return (
-    <div className={styles.northSikkim}>
-      {/* Vertical Image Slider */}
-      <div className={styles.heroSlider}>
-        <div className={styles.sliderContainer}>
-          {sliderImages.map((image, index) => (
-            <div
-              key={index}
-              className={`${styles.slide} ${index === currentSlide ? styles.active : ""
-                }`}
-              style={{ backgroundImage: `url(${image.src})` }}
-            >
-              <div className={styles.slideOverlay}>
-                <h2 className={styles.slideCaption}>{image.caption}</h2>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Slider Controls */}
-        <div className={styles.sliderControls}>
-          {sliderImages.map((_, index) => (
-            <button
-              key={index}
-              className={`${styles.controlDot} ${index === currentSlide ? styles.active : ""
-                }`}
-              onClick={() => setCurrentSlide(index)}
+    <div className={styles.container}>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
+        <div className={styles.videoContainer}>
+          <video className={styles.heroVideo} autoPlay muted loop playsInline>
+            <source
+              src="https://videos.pexels.com/video-files/15983714/15983714-hd_1920_1080_30fps.mp4"
+              type="video/mp4"
             />
-          ))}
-        </div>
+            Your browser does not support the video tag.
+          </video>
 
-        {/* Header Overlay */}
-        <div className={styles.heroHeader}>
-          <h1>North Sikkim</h1>
-          <p>Journey to the Roof of the World</p>
+          <div className={styles.videoOverlay}></div>
         </div>
-      </div>
+        <div className={styles.heroContent}>
+          <h1 className={styles.heroTitle}>North Sikkim</h1>
+          <p className={styles.heroCaption}>
+            Discover the breathtaking beauty of Eastern Himalayas
+          </p>
+        </div>
+      </section>
 
-      {/* Main Content */}
-      <div className={styles.mainContent}>
-        {/* Introduction Section */}
-        <section className={`${styles.section} ${styles.introSection}`}>
-          <div className={styles.container}>
-            <h2>Explore North Sikkim</h2>
-            <p>
-              North Sikkim is the most pristine and least populated district of
-              Sikkim, offering some of the most spectacular high-altitude
-              landscapes in the world. Home to sacred lakes at breathtaking
-              elevations, the famous Valley of Flowers, and traditional mountain
-              communities, this region provides an unforgettable journey into
-              the heart of the Himalayas. From the sacred waters of Gurudongmar
-              Lake to the colorful blooms of Yumthang Valley, North Sikkim is a
-              paradise for nature lovers, adventure seekers, and spiritual
-              travelers.
+      {/* Overview Section */}
+      <section className={styles.overviewSection}>
+        <h2 className={styles.overviewTitle}>North Sikkim Overview</h2>
+        <p className={styles.overviewText}>
+          East Sikkim, home to the vibrant capital Gangtok, offers a captivating
+          blend of natural beauty, cultural richness, and adventure. Explore the
+          majestic Kanchenjunga, the third-highest peak in the world, and
+          witness breathtaking sunrises over the snow-capped Himalayas. Immerse
+          yourself in the spiritual ambiance of ancient monasteries like Rumtek
+          and Enchey, and delve into the local culture at vibrant markets and
+          handicraft centers. For adventure seekers, East Sikkim offers
+          thrilling opportunities for trekking, hiking, and exploring the scenic
+          landscapes.
+        </p>
+      </section>
+
+      {/* Destinations Section */}
+      <section className={styles.destinationsSection}>
+        {destinations.map((destination) => (
+          <div key={destination.id} className={styles.destinationCard}>
+            <h3 className={styles.destinationTitle}>{destination.name}</h3>
+            <p className={styles.destinationDescription}>
+              {destination.description}
             </p>
-          </div>
-        </section>
-
-        {/* Tourist Spots Section */}
-        <section className={styles.section}>
-          <div className={styles.container}>
-            <h2>Sacred Destinations</h2>
-            <div className={styles.spotsGrid}>
-              {touristSpots.map((spot, index) => (
-                <div key={index} className={styles.spotCardContainer}>
-                  <div
-                    className={`${styles.spotCard} ${flippedCards[index] ? styles.flipped : ""
-                      }`}
-                    onClick={() => handleCardFlip(index)}
-                  >
-                    <div className={styles.spotCardFront}>
-                      <h3>{spot.name}</h3>
-                      <p>{spot.description}</p>
-                      <div className={styles.highlights}>
-                        <h4>Highlights:</h4>
-                        <ul>
-                          {spot.highlights.map((highlight, idx) => (
-                            <li key={idx}>{highlight}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                    <div className={styles.spotCardBack}
-                      data-name={spot.name}>
-                      <img src={spot.image} alt={spot.name} />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Adventure Activities Section */}
-        <section className={styles.section}>
-          <div className={styles.container}>
-            <h2>High Altitude Adventures</h2>
-            <div className={styles.activitiesGrid}>
-              {adventureActivities.map((activity, index) => (
-                <div key={index} className={styles.activityCard}>
-                  <div className={styles.activityHeader}>
-                    <h3>{activity.activity}</h3>
-                    <span className={styles.difficultyBadge}>
-                      {activity.difficulty}
-                    </span>
-                  </div>
-                  <p className={styles.location}>📍 {activity.location}</p>
-                  <p className={styles.description}>{activity.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Weather & Seasons Section */}
-        <section className={`${styles.section} ${styles.weatherSection}`}>
-          <div className={styles.container}>
-            <h2>Seasonal Guide</h2>
-            <div className={styles.weatherGrid}>
-              {weatherSeasons.map((season, index) => (
-                <div key={index} className={styles.weatherCard}>
-                  <div className={styles.seasonHeader}>
-                    <h3>{season.season}</h3>
-                    <span className={styles.temperatureBadge}>
-                      {season.temperature}
-                    </span>
-                  </div>
-                  <p className={styles.seasonDescription}>
-                    {season.description}
-                  </p>
-                  <div className={styles.seasonHighlights}>
-                    <h4>Key Features:</h4>
-                    <ul>
-                      {season.highlights.map((highlight, idx) => (
-                        <li key={idx}>{highlight}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Travel Tips Section */}
-        <section className={styles.section}>
-          <div className={styles.container}>
-            <h2>Essential Travel Information</h2>
-            <div className={styles.tipsGrid}>
-              <div className={styles.tipCard}>
-                <div className={styles.iconCircle + ' ' + styles.permit}><span role="img" aria-label="Permit">🛂</span></div>
-                <h3>Special Permits</h3>
-                <p>
-                  Protected Area Permit (PAP) required for all tourists. Inner
-                  Line Permit needed for certain areas. Book through registered
-                  tour operators only.
-                </p>
+            <div className={styles.imageGrid}>
+              <div className={styles.imageContainer}>
+                <img
+                  src={destination.image1}
+                  alt={`${destination.name} view 1`}
+                  className={styles.destinationImage}
+                />
               </div>
-              <div className={styles.tipCard}>
-                <div className={styles.iconCircle + ' ' + styles.altitude}><span role="img" aria-label="Altitude">🩺</span></div>
-                <h3>Altitude Sickness</h3>
-                <p>
-                  Acclimatization essential. Areas above 14,000 ft. Carry oxygen
-                  cylinders, avoid alcohol, and consult doctors for pre-existing
-                  conditions.
-                </p>
-              </div>
-              <div className={styles.tipCard}>
-                <div className={styles.iconCircle + ' ' + styles.transport}><span role="img" aria-label="Transport">🚕</span></div>
-                <h3>Transportation</h3>
-                <p>
-                  Only shared taxis and tourist vehicles allowed. Book through
-                  tour operators. Roads may close due to weather conditions.
-                </p>
-              </div>
-              <div className={styles.tipCard}>
-                <div className={styles.iconCircle + ' ' + styles.accommodation}><span role="img" aria-label="Accommodation">🏡</span></div>
-                <h3>Accommodation</h3>
-                <p>
-                  Limited homestays and guesthouses. Book in advance. Basic
-                  facilities available. Carry sleeping bags for comfort.
-                </p>
-              </div>
-              <div className={styles.tipCard}>
-                <div className={styles.iconCircle + ' ' + styles.essentials}><span role="img" aria-label="Essentials">🎒</span></div>
-                <h3>Essential Items</h3>
-                <p>
-                  Warm clothing, sunscreen, sunglasses, first aid kit, energy
-                  bars, and water bottles. Weather can change rapidly.
-                </p>
-              </div>
-              <div className={styles.tipCard}>
-                <div className={styles.iconCircle + ' ' + styles.connectivity}><span role="img" aria-label="Connectivity">📶</span></div>
-                <h3>Connectivity</h3>
-                <p>
-                  Limited mobile network. BSNL works best. Inform family about
-                  communication gaps. Carry power banks.
-                </p>
-              </div>
-              <div className={styles.tipCard}>
-                <div className={styles.iconCircle + ' ' + styles.health}><span role="img" aria-label="Health">💊</span></div>
-                <h3>Health Precautions</h3>
-                <p>
-                  Carry medicines for altitude sickness, cold, and stomach
-                  issues. Stay hydrated and avoid heavy meals.
-                </p>
-              </div>
-              <div className={styles.tipCard}>
-                <div className={styles.iconCircle + ' ' + styles.environment}><span role="img" aria-label="Environment">🌱</span></div>
-                <h3>Environmental Care</h3>
-                <p>
-                  Maintain cleanliness, don't litter, respect local customs, and
-                  preserve the pristine environment for future generations.
-                </p>
+              <div className={styles.imageContainer}>
+                <img
+                  src={destination.image2}
+                  alt={`${destination.name} view 2`}
+                  className={styles.destinationImage}
+                />
               </div>
             </div>
           </div>
-        </section>
+        ))}
+      </section>
+
+      {/* Chat Button */}
+      <div className={styles.chatButton}>
+        <span className={styles.chatIcon}>💬</span>
+        <span className={styles.chatText}>CHAT</span>
       </div>
     </div>
   );
