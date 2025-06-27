@@ -110,7 +110,7 @@ const WestSikkim = () => {
         </div>
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>West Sikkim</h1>
-          <p className={styles.heroCaption}>Discover the breathtaking beauty of Eastern Himalayas</p>
+          <p className={styles.heroCaption}>Discover the breathtaking beauty of Western Himalayas</p>
         </div>
       </section>
 
