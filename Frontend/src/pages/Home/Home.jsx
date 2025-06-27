@@ -19,7 +19,7 @@ import Slide5 from "../../assets/Slide5.jpg";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-
+ 
 const Home = () => {
   const videoRef = useRef(null);
   const [isMuted, setIsMuted] = useState(true);
@@ -108,89 +108,65 @@ const Home = () => {
 
         {/* Explore Now Button */}
         <div className="explore-button-container">
-            <Link to="/places" className="explore-button">Explore Now</Link>
+          <Link to="/places" className="explore-button">
+            Explore Now
+          </Link>
         </div>
       </div>
 
-      {/* Carousel Section with 5 images */}
-      <div className="carousel-section">
-        <div className="carousel-heading">
-          <h2>Discover Sikkim’s Beauty</h2>
-          <p>
-            Explore breathtaking landscapes, vibrant culture, and unforgettable
-            moments.
-          </p>
+      <div className="unified-bg-section">
+        <div className="carousel-section">
+          <div className="carousel-heading">
+            <h2>Discover Sikkim’s Beauty</h2>
+            <p>
+              Explore breathtaking landscapes, vibrant culture, and
+              unforgettable moments.
+            </p>
+          </div>
+
+          <Carousel
+            autoPlay
+            infiniteLoop
+            showThumbs={false}
+            showStatus={false}
+            interval={4000}
+            transitionTime={800}
+            swipeable={true}
+            emulateTouch={true}
+            useKeyboardArrows={true}
+            showArrows={true}
+            stopOnHover={true}
+            animationHandler="fade"
+          >
+            {[Slide1, Slide2, Slide3, Slide4, Slide5].map((img, i) => (
+              <div className="carousel-slide-modern" key={i}>
+                <img src={img} alt={`Slide ${i + 1}`} loading="eager" />
+              </div>
+            ))}
+          </Carousel>
         </div>
 
-        <Carousel
-          autoPlay
-          infiniteLoop
-          showThumbs={false}
-          showStatus={false}
-          interval={3000}
-          transitionTime={1000}
-          swipeable={true}
-          emulateTouch={true}
-          dynamicHeight={false}
-          centerMode={true}
-          centerSlidePercentage={100}
-          useKeyboardArrows={true}
-          stopOnHover={true}
-          animationHandler="slide"
-          preventMovementUntilSwipeScrollTolerance={true}
-          swipeScrollTolerance={50}
-        >
-          <div className="carousel-slide">
-            <img
-              src={Slide1}
-              alt="Slide 1"
-              loading="eager"
-              width="100%"
-              height="400"
-            />
+        <div className="features-section">
+          <div className="feature-card">
+            <img src={HomestayImage} alt="Homestays" />
+            <h3>Comfortable Homestays</h3>
+            <p>
+              Book cozy stays with locals and experience true Sikkimese
+              hospitality.
+            </p>
           </div>
-          <div className="carousel-slide">
-            <img
-              src={Slide2}
-              alt="Slide 2"
-              loading="eager"
-              width="100%"
-              height="400"
-            />
-          </div>
-          <div className="carousel-slide">
-            <img src={Slide3} alt="Slide 3" width="100%" height="400" />
-          </div>
-          <div className="carousel-slide">
-            <img src={Slide4} alt="Slide 4" width="100%" height="400" />
-          </div>
-          <div className="carousel-slide">
-            <img src={Slide5} alt="Slide 5" width="100%" height="400" />
-          </div>
-        </Carousel>
-      </div>
 
-      {/* Features Section */}
-      <div className="features-section">
-        <div className="feature-card">
-          <img src={HomestayImage} alt="Homestays" />
-          <h3>Comfortable Homestays</h3>
-          <p>
-            Book cozy stays with locals and experience true Sikkimese
-            hospitality.
-          </p>
-        </div>
+          <div className="feature-card">
+            <img src={BikeImage} alt="Bike Rentals" />
+            <h3>Bike Rentals</h3>
+            <p>Rent bikes easily and explore the mountains at your own pace.</p>
+          </div>
 
-        <div className="feature-card">
-          <img src={BikeImage} alt="Bike Rentals" />
-          <h3>Bike Rentals</h3>
-          <p>Rent bikes easily and explore the mountains at your own pace.</p>
-        </div>
-
-        <div className="feature-card">
-          <img src={PlacesImage} alt="Places to Visit" />
-          <h3>Must Visit Places</h3>
-          <p>Get curated guides to top tourist spots in Sikkim.</p>
+          <div className="feature-card">
+            <img src={PlacesImage} alt="Places to Visit" />
+            <h3>Must Visit Places</h3>
+            <p>Get curated guides to top tourist spots in Sikkim.</p>
+          </div>
         </div>
       </div>
     </div>

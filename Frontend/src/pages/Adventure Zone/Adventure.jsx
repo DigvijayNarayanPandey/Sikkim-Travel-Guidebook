@@ -294,7 +294,7 @@ const Adventure = () => {
       {/* Page Title */}
       <div className={styles.titleContainer}>
         <h1 className={styles.pageTitle}>Adventure Zone</h1>
-        <p className={styles.subtitle}>Explore the Magnificent Adventures of Sikkim</p>
+        {/* <p className={styles.subtitle}>Explore the Magnificent Adventures of Sikkim</p> */}
       </div>
 
       {/* Map Container */}

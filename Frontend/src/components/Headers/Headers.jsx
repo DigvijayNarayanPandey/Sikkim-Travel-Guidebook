@@ -4,42 +4,102 @@ import "./Headers.css";
 
 const Headers = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [travelOpen, setTravelOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState("up");
+  const [lastScrollY, setLastScrollY] = useState(0);
 
+  // Enhanced scroll detection with direction
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Set scrolled state
+      setScrolled(currentScrollY > 50);
+      
+      // Determine scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setScrollDirection("down");
+      } else {
+        setScrollDirection("up");
+      }
+      
+      setLastScrollY(currentScrollY);
     };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
-  const toggleMore = () => {
-    setMoreOpen(!moreOpen);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  const handleResizeDropdowns = () => {
+    if (window.innerWidth > 960) {
+      setTravelOpen(false);
+      setMoreOpen(false);
+    }
   };
 
+  useEffect(() => {
+    window.addEventListener("resize", handleResizeDropdowns);
+    return () => window.removeEventListener("resize", handleResizeDropdowns);
+  }, []);
+
+  const isMobile = window.innerWidth <= 960;
+
+  // Combine classes for header
+  const headerClasses = [
+    "header",
+    scrolled ? "scrolled" : "",
+    scrollDirection === "down" && scrolled ? "scrolling-down" : "",
+    scrollDirection === "up" ? "scrolling-up" : ""
+  ].filter(Boolean).join(" ");
+
   return (
-    <header className={`header ${scrolled ? "scrolled" : ""}`}>
+    <header className={headerClasses}>
       <div className="header-content">
         <Link to="/" className="logo">Sikkim Guide</Link>
 
         <nav className="nav-links">
           <Link to="/" className="nav-link">Home</Link>
           <Link to="/about" className="nav-link">About</Link>
-          <Link to="/places" className="nav-link">Travel Destinations</Link>
+
+          <div
+            className="dropdown travel-dropdown"
+            onMouseEnter={() => !isMobile && setTravelOpen(true)}
+            onMouseLeave={() => !isMobile && setTravelOpen(false)}
+            onClick={() => isMobile && setTravelOpen(!travelOpen)}
+          >
+            <span className="nav-link dropdown-trigger">
+              Travel Destinations <span className="arrow">▼</span>
+            </span>
+
+            {(travelOpen || !isMobile) && (
+              <div className="dropdown-content">
+                <Link to="/north-sikkim" className="nav-link" onClick={() => setTravelOpen(false)}>North Sikkim</Link>
+                <Link to="/east-sikkim" className="nav-link" onClick={() => setTravelOpen(false)}>East Sikkim</Link>
+                <Link to="/west-sikkim" className="nav-link" onClick={() => setTravelOpen(false)}>West Sikkim</Link>
+                <Link to="/south-sikkim" className="nav-link" onClick={() => setTravelOpen(false)}>South Sikkim</Link>
+              </div>
+            )}
+          </div>
+
           <Link to="/adventure-zone" className="nav-link">Adventure Zone</Link>
           <Link to="/vlog" className="nav-link">Blogs & Tips</Link>
         </nav>
 
-        <div className="more-menu">
-          <div className="hamburger more-btn" onClick={toggleMore}>
+        <div
+          className="dropdown more-menu left-aligned"
+          onMouseEnter={() => !isMobile && setMoreOpen(true)}
+          onMouseLeave={() => !isMobile && setMoreOpen(false)}
+          onClick={() => isMobile && setMoreOpen(!moreOpen)}
+        >
+          <div className="hamburger more-btn">
             <div className="bar"></div>
             <div className="bar"></div>
             <div className="bar"></div>
           </div>
 
-          {moreOpen && (
-            <div className="dropdown-content desktop-dropdown">
+          {(moreOpen || !isMobile) && (
+            <div className="dropdown-content">
               <Link to="/hotels" className="nav-link" onClick={() => setMoreOpen(false)}>Hotels & Accommodations</Link>
               <Link to="/disaster-alerts" className="nav-link" onClick={() => setMoreOpen(false)}>Disaster Alerts</Link>
               <Link to="/contact" className="nav-link" onClick={() => setMoreOpen(false)}>Contact Us</Link>
