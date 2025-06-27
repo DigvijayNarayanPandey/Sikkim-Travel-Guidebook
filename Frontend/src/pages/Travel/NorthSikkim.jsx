@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./NorthSikkim.module.css";
 import NorthImg from "../../assets/North Sikkim/Gurudongmar Lake.jpg";
+import North1 from "../../assets/North1.jpg"
 
 const NorthSikkim = () => {
   const destinations = [
@@ -25,8 +26,8 @@ const NorthSikkim = () => {
       name: "Gurudongmar Lake",
       description:
         "Gurudongmar Lake, located in North Sikkim at a height of 17,800 feet, is a stunning and peaceful place. Surrounded by tall mountains, the lake is one of the highest in the world. Its clear blue water and beautiful views make it a truly magical spot that amazes everyone who visits.",
-      image1: "https://glacialtravels.com/Travel/eastsikkim/ReshiKhola.jpg",
-      image2: "https://glacialtravels.com/Travel/eastsikkim/Reshikhola.png",
+      image1: NorthImg,
+      image2: North1,
     },
     {
       id: 4,
@@ -123,15 +124,7 @@ const NorthSikkim = () => {
       <section className={styles.overviewSection}>
         <h2 className={styles.overviewTitle}>North Sikkim Overview</h2>
         <p className={styles.overviewText}>
-          East Sikkim, home to the vibrant capital Gangtok, offers a captivating
-          blend of natural beauty, cultural richness, and adventure. Explore the
-          majestic Kanchenjunga, the third-highest peak in the world, and
-          witness breathtaking sunrises over the snow-capped Himalayas. Immerse
-          yourself in the spiritual ambiance of ancient monasteries like Rumtek
-          and Enchey, and delve into the local culture at vibrant markets and
-          handicraft centers. For adventure seekers, East Sikkim offers
-          thrilling opportunities for trekking, hiking, and exploring the scenic
-          landscapes.
+          North Sikkim is a breathtaking region known for its rugged terrain, high-altitude landscapes, and pristine natural beauty. It is the most remote and least populated district of Sikkim, offering a raw and untouched Himalayan experience. The area is perfect for nature lovers, adventure seekers, and those looking to explore Sikkim’s unique biodiversity and culture.
         </p>
       </section>
 
@@ -162,12 +155,6 @@ const NorthSikkim = () => {
           </div>
         ))}
       </section>
-
-      {/* Chat Button */}
-      <div className={styles.chatButton}>
-        <span className={styles.chatIcon}>💬</span>
-        <span className={styles.chatText}>CHAT</span>
-      </div>
     </div>
   );
 };

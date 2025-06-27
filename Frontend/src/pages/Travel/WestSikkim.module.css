@@ -247,7 +247,7 @@
 }
 
 /* Chat Button */
-.chatButton {
+/* .chatButton {
   position: fixed;
   bottom: clamp(20px, 4vw, 30px);
   right: clamp(20px, 4vw, 30px);
@@ -264,7 +264,7 @@
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   border: 2px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
-}
+} */
 
 .chatButton:hover {
   background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
@@ -497,6 +497,60 @@
     animation: none;
   }
 }
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.heroVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.videoOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* optional for dark overlay */
+  z-index: 2;
+}
+
+.heroContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 3;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.heroCaption {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
 
 /* Dark mode support */
 /* @media (prefers-color-scheme: dark) {

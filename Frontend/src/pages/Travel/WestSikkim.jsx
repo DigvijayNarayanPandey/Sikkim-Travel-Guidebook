@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './EastSikkim.module.css';
-import Zuluk1 from "../../assets/East4.jpg"
-import Pelling1 from "../../assets/West Sikkim/Pelling.jpg"
+import styles from './WestSikkim.module.css';
+import Pelling1 from "../../assets/West Sikkim/Pelling.jpg";
+import Yuksom from "../../assets/West Sikkim/Yuksom.webp";
 
-const EastSikkim = () => {
+const WestSikkim = () => {
   const destinations = [
     {
       id: 1,
@@ -17,7 +17,7 @@ const EastSikkim = () => {
       name: "Yuksum",
       description: "Yuksom is known as the \"Gateway to Kanchenjunga\", as it is the starting point for the famous Goecha La Trek. It was also the first capital of Sikkim and has deep historical significance. The Coronation Throne of Norbugang, where the first Chogyal (King) of Sikkim was crowned, is an important historical site.",
       image1: "	https://glacialtravels.com/Travel/westsikkim/Yuksum2.png",
-      image2: "https://media-cdn.tripadvisor.com/media/photo-s/14/66/04/06/dzongri-view-point.jpg"
+      image2: Yuksom,
     },
     {
       id: 3,
@@ -151,4 +151,4 @@ const EastSikkim = () => {
   );
 };
 
-export default EastSikkim;
+export default WestSikkim;

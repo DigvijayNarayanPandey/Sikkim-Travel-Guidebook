@@ -1,296 +1,178 @@
-import React, { useState, useEffect } from 'react';
-import styles from './SouthSikkim.module.css';
-
-// Import your images - you'll need to add these to your assets folder
-import South1 from '../../assets/South1.jpg';
-import South2 from '../../assets/South2.jpg';
-import South3 from '../../assets/South3.jpeg';
-import South4 from '../../assets/South4.jpg';
-
-// Import attraction images
-import Jorethang from '../../assets/South Sikkim/Jorethang.jpg';
-import Namchi from '../../assets/South Sikkim/Namchi.jpg';
-import MaenamHill from '../../assets/South Sikkim/MaenamHill.jpg';
-import TemiTeaGarden from '../../assets/South Sikkim/TemiTeaGarden.jpg';
-import TendongHill from '../../assets/South Sikkim/TendongHill.jpg';
-import Ravangla from '../../assets/South Sikkim/Ravangla.webp';
+import React from "react";
+import styles from "./SouthSikkim.module.css";
+import TemiTeaGarden from "../../assets/South Sikkim/TemiTeaGarden.jpg";
+import Namchi from "../../assets/South Sikkim/Namchi.jpg";
+import South1 from "../../assets/South1.jpg";
+import MaenamHill from "../../assets/South Sikkim/MaenamHill.jpg"
 
 const SouthSikkim = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [flippedCards, setFlippedCards] = useState({});
-
-
-  const verticalSliderImages = [
+  const destinations = [
     {
-      src: South1,
-      alt: "Ravangla",
-      caption: "Ravangla - Tranquil Mountain Retreat"
+      id: 1,
+      name: "Temi Tea Garden",
+      description:
+        "Temi Tea Garden, the only tea estate in Sikkim located in Namchi, is renowned for its lush organic tea plantations set against a backdrop of the Kanchenjunga range. Established in 1969, it offers scenic walks, tea-tasting, and insight into traditional organic tea processing.",
+      image1:
+        "https://glacialtravels.com/Travel/southsikkim/Temi2.png",
+      image2:
+        TemiTeaGarden,
     },
     {
-      src: South2,
-      alt: "Namchi",
-      caption: "Namchi - Spiritual Capital of South Sikkim"
+      id: 2,
+      name: "Char Dham",
+      description:
+        "The Char Dham complex in Solophok near Namchi replicates India's four holy shrines, crowned by an imposing Shiva statue atop the hill. It's a major spiritual and cultural attraction offering panoramic views and a serene atmosphere.",
+      image1: Namchi,
+      image2: "https://glacialtravels.com/Travel/southsikkim/2.png",
     },
     {
-      src: South3,
-      alt: "Temi Tea Garden",
-      caption: "Temi - Only Tea Garden of Sikkim"
+      id: 3,
+      name: "Buddha Park (Tathagata Tsal)",
+      description:
+        "Buddha Park near Ravangla, featuring a 130-ft high statue of Buddha set amidst landscaped gardens and Cho-Djo lake, is a tranquil spiritual spot consecrated by the 14th Dalai Lama.",
+      image1:
+        South1,
+      image2:
+        "https://glacialtravels.com/Travel/southsikkim/Buddha.png",
     },
     {
-      src: South4,
-      alt: "Char Dham",
-      caption: "Char Dham - Replicas of the four sacred Hindu shrines"
-    }
+      id: 4,
+      name: "Samdruptse Hill & Guru Padmasambhava Statue",
+      description:
+        "Samdruptse Hill in Namchi is home to the towering statue of Guru Padmasambhava (135 ft), offering panoramic views of the region and serving as a key pilgrimage and photo point.",
+      image1:
+        "https://glacialtravels.com/Travel/southsikkim/Samdruptse2.png",
+      image2:
+        "https://glacialtravels.com/Travel/southsikkim/Samdruptse.png",
+    },
+    {
+      id: 5,
+      name: "Maenam Hill",
+      description:
+        "Maenam Hill, part of the Maenam Wildlife Sanctuary accessible from Ravangla, is a popular trekking destination offering lush forests, panoramic views, and rich biodiversity.",
+      image1:
+        "https://glacialtravels.com/Travel/southsikkim/Menaam.png",
+      image2: MaenamHill,
+    },
+    {
+      id: 6,
+      name: "Ralong Monastery",
+      description:
+        "Ralong Monastery, an ancient Buddhist monastery near Ravangla, is celebrated for its vivid murals, Tibetan architecture, and serene monastic ambiance amidst pine forests.",
+      image1:
+        "https://glacialtravels.com/Travel/southsikkim/Ralong.png",
+      image2:
+        "https://glacialtravels.com/Travel/southsikkim/Ralong22.png",
+    },
+    {
+      id: 7,
+      name: "Sai Mandir, Namchi",
+      description:
+        "Sai Mandir, located in Namchi near Char Dham, is a well-known temple devoted to Sai Baba, attracting devotees for its peaceful setting and spiritual environment.",
+      image1: "https://glacialtravels.com/Travel/southsikkim/Sai%20mandir%202.png",
+      image2: "https://glacialtravels.com/Travel/southsikkim/Sai%20mandir.png",
+    },
+    {
+      id: 8,
+      name: "Namchi Ropeway",
+      description:
+        "The Namchi Ropeway connects River View Point and Char Dham Complex, offering thrilling aerial views of the Namchi valley, tea gardens, and distant hills.",
+      image1: "https://glacialtravels.com/Travel/southsikkim/Rope.png",
+      image2:
+        "https://glacialtravels.com/Travel/southsikkim/Rope22.png",
+    },
+    {
+      id: 9,
+      name: "Ravangla Rose Garden",
+      description:
+        "Ravangla's Rose Garden is an explosion of rose varieties set in well-maintained gardens, offering vibrant colours against the Himalayan backdrop during the flowering season.",
+      image1: "https://glacialtravels.com/Travel/southsikkim/Rose2.png",
+      image2:
+        "https://glacialtravels.com/Travel/southsikkim/Rose.png",
+    },
+    {
+      id: 10,
+      name: "Ngadak Monastery",
+      description:
+        "Ngadak Monastery, situated close to Ravangla, is a lesser-known but beautiful hilltop monastery known for its peaceful prayer halls and panoramic valley views.",
+      image1:
+        "https://glacialtravels.com/Travel/southsikkim/Ngadak2.png",
+      image2: "https://glacialtravels.com/Travel/southsikkim/Ngadak.png",
+    },
+    {
+      id: 11,
+      name: "Tarey Bhir (Cliff Walk)",
+      description:
+        "Tarey Bhir, located near Ravangla, is a sheer cliff-edge viewpoint offering thrilling cliff walks, adventure paths, and jaw-dropping views of the Ralong Khola valley below.",
+      image1:
+        "https://glacialtravels.com/Travel/southsikkim/Tarey.png",
+      image2: "https://glacialtravels.com/Travel/southsikkim/tarey2.png",
+    },
   ];
-
-  // Auto-carousel functionality for vertical sliding
-  useEffect(() => {
-    const verticalSliderTimer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % verticalSliderImages.length);
-    }, 4500);
-
-    return () => clearInterval(verticalSliderTimer);
-  }, [verticalSliderImages.length]);
-
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const southSikkimAttractions = [
-    {
-      location: "Namchi",
-      description: "The cultural and religious hub of South Sikkim, famous for its massive statues and spiritual significance.",
-      highlights: ["Char Dham", "Samdruptse Hill", "Statue of Guru Padmasambhava", "Rock Garden"],
-      image: Namchi
-    },
-    {
-      location: "Ravangla",
-      description: "A serene hill station known for its Buddha Park and stunning views of Mount Kanchenjunga.",
-      highlights: ["Buddha Park", "Rayong Sunrise Point", "Tathagata Tsal", "Bon Monastery"],
-      image: Ravangla
-    },
-    {
-      location: "Temi Tea Garden",
-      description: "Sikkim's only tea estate offering organic tea cultivation amidst scenic mountain landscapes.",
-      highlights: ["Tea plantation tours", "Organic tea tasting", "Scenic photography", "Tea processing unit"],
-      image: TemiTeaGarden
-    },
-    {
-      location: "Jorethang",
-      description: "Commercial hub and gateway to South Sikkim with vibrant local markets and cultural diversity.",
-      highlights: ["Local markets", "River confluence", "Cultural diversity", "Trade center"],
-      image: Jorethang
-    },
-    {
-      location: "Maenam Hill",
-      description: "Wildlife sanctuary and trekking destination offering rich biodiversity and panoramic views.",
-      highlights: ["Wildlife sanctuary", "Trekking trails", "Bird watching", "Rhododendron forests"],
-      image: MaenamHill
-    },
-    {
-      location: "Tendong Hill",
-      description: "Sacred hill with mythological significance and excellent trekking opportunities for nature lovers.",
-      highlights: ["Mythological significance", "Trekking routes", "Panoramic views", "Sacred forests"],
-      image: TendongHill
-    }
-  ];
-
-  const adventureActivities = [
-    {
-      activity: "Buddha Park Meditation",
-      location: "Ravangla",
-      difficulty: "Easy",
-      description: "Peaceful meditation sessions in the serene environment of the world's largest Buddha statue."
-    },
-    {
-      activity: "Temi Tea Garden Tour",
-      location: "Temi",
-      difficulty: "Easy",
-      description: "Guided tours through Sikkim's only tea plantation with tea tasting and processing demonstrations."
-    },
-    {
-      activity: "Maenam Hill Trek",
-      location: "Ravangla to Maenam",
-      difficulty: "Moderate",
-      description: "Scenic trek through rhododendron forests to Maenam Wildlife Sanctuary with bird watching opportunities."
-    },
-    {
-      activity: "Tendong Hill Expedition",
-      location: "Damthang",
-      difficulty: "Moderate to Challenging",
-      description: "Sacred hill trek offering spiritual significance and panoramic views of the Himalayas."
-    },
-    {
-      activity: "Cultural Village Tours",
-      location: "Multiple villages",
-      difficulty: "Easy",
-      description: "Immersive experiences in traditional Sikkimese villages with homestay options."
-    }
-  ];
-
-  const handleVerticalNavigation = (index) => {
-    setCurrentImageIndex(index);
-  };
-
-  const handleCardFlip = (index) => {
-    setFlippedCards(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
-  };
 
   return (
-    <div className={styles.southSikkimWrapper}>
-      {/* Hero Vertical Image Slider */}
-      <div className={styles.heroVerticalSlider}>
-        <div className={styles.sliderContainer}>
-          {verticalSliderImages.map((image, index) => (
-            <div
-              key={index}
-              className={`${styles.verticalSlide} ${index === currentImageIndex ? styles.activeSlide : ''}`}
-              style={{ backgroundImage: `url(${image.src})` }}
-            >
-              <div className={styles.slideGradientOverlay}>
-                <h2 className={styles.slideCaption}>{image.caption}</h2>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Vertical Navigation Indicators */}
-        <div className={styles.verticalNavigation}>
-          {verticalSliderImages.map((_, index) => (
-            <button
-              key={index}
-              className={`${styles.verticalIndicator} ${index === currentImageIndex ? styles.activeIndicator : ''}`}
-              onClick={() => handleVerticalNavigation(index)}
-              aria-label={`Go to slide ${index + 1}`}
+    <div className={styles.container}>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
+        <div className={styles.videoContainer}>
+          <video className={styles.heroVideo} autoPlay muted loop playsInline>
+            <source
+              src="https://videocdn.cdnpk.net/videos/9e2b3f2b-7ee8-4a8b-9f79-cb650156e93b/horizontal/previews/watermarked/large.mp4"
+              type="video/mp4"
             />
-          ))}
-        </div>
+            Your browser does not support the video tag.
+          </video>
 
-        {/* Main Title Overlay */}
-        <div className={styles.mainTitleOverlay}>
-          <h1>South Sikkim</h1>
-          <p>Spiritual Sanctuaries & Cultural Heritage</p>
+          <div className={styles.videoOverlay}></div>
         </div>
-      </div>
+        <div className={styles.heroContent}>
+          <h1 className={styles.heroTitle}>South Sikkim</h1>
+          <p className={styles.heroCaption}>
+            Where serenity meets spirituality
+          </p>
+        </div>
+      </section>
 
-      {/* Main Content Area */}
-      <div className={styles.mainContentArea}>
-        {/* About South Sikkim Section */}
-        <section className={styles.southAboutSection}>
-          <div className={styles.sectionContainer}>
-            <h2>Experience South Sikkim</h2>
-            <p>
-              South Sikkim stands as the spiritual and cultural heart of the state, where ancient traditions
-              blend seamlessly with natural beauty. This region is home to magnificent religious monuments,
-              including the towering statue of Guru Padmasambhava and the serene Buddha Park in Ravangla.
-              The only tea garden of Sikkim, Temi, spreads across the rolling hills offering visitors a
-              unique tea cultivation experience. From the sacred peaks of Tendong Hill to the biodiversity
-              of Maenam Wildlife Sanctuary, South Sikkim presents a perfect harmony of spiritual enlightenment,
-              cultural richness, and natural splendor that attracts pilgrims, nature enthusiasts, and
-              cultural explorers from around the world.
+      {/* Overview Section */}
+      <section className={styles.overviewSection}>
+        <h2 className={styles.overviewTitle}>South Sikkim Overview</h2>
+        <p className={styles.overviewText}>
+          South Sikkim is a serene and picturesque region known for its lush
+          greenery, gentle hills, and peaceful ambiance. With its pleasant
+          climate and scenic beauty, it offers a perfect blend of spirituality,
+          culture, and nature. The district is home to the popular town of
+          Namchi, the administrative headquarters, which is a major center for
+          religious tourism.
+        </p>
+      </section>
+
+      {/* Destinations Section */}
+      <section className={styles.destinationsSection}>
+        {destinations.map((destination) => (
+          <div key={destination.id} className={styles.destinationCard}>
+            <h3 className={styles.destinationTitle}>{destination.name}</h3>
+            <p className={styles.destinationDescription}>
+              {destination.description}
             </p>
-          </div>
-        </section>
-
-        {/* Attractions Showcase */}
-        <section className={styles.attractionsDisplay}>
-          <div className={styles.sectionContainer}>
-            <h2>Major Attractions</h2>
-            <div className={styles.attractionsLayout}>
-              {southSikkimAttractions.map((attraction, index) => (
-                <div key={index} className={styles.attractionFlipContainer}>
-                  <div
-                    className={`${styles.attractionPanel} ${flippedCards[index] ? styles.flipped : ''}`}
-                    onClick={() => handleCardFlip(index)}
-                  >
-                    {/* Front Side */}
-                    <div className={styles.attractionFront}>
-                      <h3>{attraction.location}</h3>
-                      <p>{attraction.description}</p>
-                      <div className={styles.highlightsSection}>
-                        <h4>Key Highlights:</h4>
-                        <ul>
-                          {attraction.highlights.map((highlight, idx) => (
-                            <li key={idx}>{highlight}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    {/* Back Side */}
-                    <div className={styles.attractionBack}>
-                      <div
-                        className={styles.attractionImage}
-                        style={{ backgroundImage: `url(${attraction.image})` }}
-                      >
-                        <div className={styles.imageCaption}>
-                          <h3>{attraction.location}</h3>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Adventure Activities Section */}
-        <section className={styles.activitiesShowcase}>
-          <div className={styles.sectionContainer}>
-            <h2>Adventure Activities</h2>
-            <div className={styles.activitiesLayout}>
-              {adventureActivities.map((adventure, index) => (
-                <div key={index} className={styles.activityPanel}>
-                  <div className={styles.activityHeader}>
-                    <h3>{adventure.activity}</h3>
-                    <span className={styles.difficultyBadge}>{adventure.difficulty}</span>
-                  </div>
-                  <p className={styles.activityLocation}>📍 {adventure.location}</p>
-                  <p className={styles.activityDescription}>{adventure.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Travel Guidelines Section */}
-        <section className={styles.travelGuidelines}>
-          <div className={styles.sectionContainer}>
-            <h2>Travel Guidelines</h2>
-            <div className={styles.guidelinesLayout}>
-              <div className={styles.guidelineCard}>
-                <h3>🗓️ Best Time to Visit</h3>
-                <p>March to June and September to December offer the best weather conditions. Avoid monsoon season (July-August) for better road accessibility and clear mountain views.</p>
+            <div className={styles.imageGrid}>
+              <div className={styles.imageContainer}>
+                <img
+                  src={destination.image1}
+                  alt={`${destination.name} view 1`}
+                  className={styles.destinationImage}
+                />
               </div>
-              <div className={styles.guidelineCard}>
-                <h3>🚗 Getting Around</h3>
-                <p>Well-connected by road from Gangtok and Siliguri. Local taxis and shared vehicles available. Most attractions accessible by road with good connectivity.</p>
-              </div>
-              <div className={styles.guidelineCard}>
-                <h3>🏠 Accommodation</h3>
-                <p>Range from budget guesthouses to luxury resorts in Namchi and Ravangla. Homestays available in villages for authentic cultural experiences.</p>
-              </div>
-              <div className={styles.guidelineCard}>
-                <h3>🍽️ Local Cuisine</h3>
-                <p>Experience authentic Sikkimese cuisine including gundruk, sinki, and traditional beverages. Tea tasting available at Temi Tea Garden.</p>
-              </div>
-              <div className={styles.guidelineCard}>
-                <h3>📸 Photography Tips</h3>
-                <p>Best shots during golden hours at Buddha Park and Char Dham. Tea gardens offer excellent landscape photography opportunities throughout the day.</p>
-              </div>
-              <div className={styles.guidelineCard}>
-                <h3>⚠️ Travel Tips</h3>
-                <p>Respect religious customs at monasteries and temples. Carry sufficient cash as ATM facilities are limited in remote areas. Pack layers for changing weather conditions.</p>
+              <div className={styles.imageContainer}>
+                <img
+                  src={destination.image2}
+                  alt={`${destination.name} view 2`}
+                  className={styles.destinationImage}
+                />
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        ))}
+      </section>
     </div>
   );
 };
