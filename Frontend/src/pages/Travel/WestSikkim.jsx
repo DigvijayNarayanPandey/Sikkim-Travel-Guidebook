@@ -1,314 +1,154 @@
-import React, { useState, useEffect } from 'react';
-import styles from './WestSikkim.module.css';
+import React from 'react';
+import styles from './EastSikkim.module.css';
+import Zuluk1 from "../../assets/East4.jpg"
+import Pelling1 from "../../assets/West Sikkim/Pelling.jpg"
 
-// Import your images - you'll need to add these to your assets folder
-import West1 from '../../assets/West1.jpg';
-import West2 from '../../assets/West2.jpg';
-import West3 from '../../assets/West3.png';
-import West4 from '../../assets/West4.avif';
-
-// Import destination images from West Sikkim folder
-import KhecheopalriLake from '../../assets/West Sikkim/Khecheopalri Lake.jpg';
-import DarapVillage from '../../assets/West Sikkim/DarapVillage.jpg';
-import Pelling from '../../assets/West Sikkim/Pelling.jpg';
-import RabdentseRuins from '../../assets/West Sikkim/Rabdentse Ruins.jpg';
-import RimbiWaterfall from '../../assets/West Sikkim/RimbiWaterfall.jpg';
-import Yuksom from '../../assets/West Sikkim/Yuksom.webp';
-
-const WestSikkim = () => {
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
-  const [flippedCards, setFlippedCards] = useState([]);
-
-  // Image carousel data for West Sikkim
-  const carouselImages = [
+const EastSikkim = () => {
+  const destinations = [
     {
-      src: West1,
-      alt: "Pelling Monastery",
-      caption: "Pelling - Gateway to Kanchenjunga Views"
+      id: 1,
+      name: "Pelling",
+      description: "Pelling, a scenic hill town in West Sikkim, is renowned for its stunning views of Mount Kanchenjunga. This tranquil destination blends natural beauty, rich history, and thrilling adventure. Visitors flock to explore its picturesque landscapes, ancient monasteries, cascading waterfalls, and enjoy activities like trekking and paragliding.",
+      image1: Pelling1,
+      image2: "https://glacialtravels.com/Travel/westsikkim/pelling%20(1).png"
     },
     {
-      src: West2,
-      alt: "Pemayangtse Monastery",
-      caption: "Pemayangtse Monastery - Historic Buddhist site"
+      id: 2,
+      name: "Yuksum",
+      description: "Yuksom is known as the \"Gateway to Kanchenjunga\", as it is the starting point for the famous Goecha La Trek. It was also the first capital of Sikkim and has deep historical significance. The Coronation Throne of Norbugang, where the first Chogyal (King) of Sikkim was crowned, is an important historical site.",
+      image1: "	https://glacialtravels.com/Travel/westsikkim/Yuksum2.png",
+      image2: "https://media-cdn.tripadvisor.com/media/photo-s/14/66/04/06/dzongri-view-point.jpg"
     },
     {
-      src: West3,
-      alt: "Skywalk",
-      caption: "Skywalk - Offers stunning views of the Himalayas"
+      id: 3,
+      name: "Singhshore Bridge",
+      description: "Singhshore Bridge is one of the highest suspension bridges in Sikkim, offering stunning views of deep valleys, waterfalls, and forests. Located near Uttarey, this bridge is around 200 meters long and is a great spot for adventure lovers and photographers. Walking on the bridge while enjoying the cool mountain air is an unforgettable experience.",
+      image1: "https://glacialtravels.com/Travel/westsikkim/Singshore2.jpg",
+      image2: "	https://glacialtravels.com/Travel/westsikkim/Singshore.jpg"
     },
     {
-      src: West4,
-      alt: "Dubdi Monastery",
-      caption: "Dubdi Monastery - The oldest monastery in Sikkim"
+      id: 4,
+      name: "Robdentse Ruins",
+      description: "Rabdentse was the second capital of Sikkim (1670–1814) and now stands as a historic ruin surrounded by lush greenery. It offers a glimpse into the royal past of Sikkim, with stone chortens, palace remains, and meditation spots. To reach the site, visitors have to walk through a forested trail, making the journey peaceful and scenic.",
+      image1: "https://glacialtravels.com/Travel/westsikkim/Rabdents2.jpg",
+      image2: "https://glacialtravels.com/Travel/westsikkim/Rabdents.jpg"
+    },
+    {
+      id: 5,
+      name: "Kanchanjunga Falls",
+      description: "One of the most famous waterfalls in Sikkim, Kanchenjunga Falls is a massive, multi-tiered waterfall surrounded by dense forests. The water originates from the glaciers of Mount Kanchenjunga, which gives it a powerful and mesmerizing flow. Located near Pelling, it is a popular tourist spot where visitors can take photos, enjoy the sound of cascading water, and even dip their feet in the cold mountain stream.",
+      image1: "https://glacialtravels.com/Travel/westsikkim/KanchanFalls2.jpg",
+      image2: "https://glacialtravels.com/Travel/westsikkim/KanchanFalls.jpg"
+    },
+    {
+      id: 6,
+      name: "Chenrezig Statue",
+      description: "The Chenrezig Statue is one of the largest statues of Chenrezig (Avalokiteshvara), the Buddha of Compassion. It stands atop a hill in Pelling, offering panoramic views of the mountains. The glass Sky Walk, built alongside the statue, is the first of its kind in India.",
+      image1: "https://glacialtravels.com/Travel/westsikkim/ChenzStatue.jpg",
+      image2: "https://glacialtravels.com/Travel/westsikkim/ChenzStatue2.jpg"
+    },
+    {
+      id: 7,
+      name: "Varsey Rhododendron Sanctuary",
+      description: "This sanctuary is a paradise for nature lovers, famous for its colorful rhododendron forests. During spring (March–May), the entire region turns into a vibrant mix of red, pink, and white rhododendron flowers. It is also home to Red Pandas, Himalayan Black Bears, and exotic bird species. Trekkers and photographers love this place for its serene atmosphere and breathtaking views of the Kanchenjunga range.",
+      image1: "https://glacialtravels.com/Travel/westsikkim/RhodePark.jpg",
+      image2: "	https://glacialtravels.com/Travel/westsikkim/RhodePark2.jpg"
+    },
+    {
+      id: 8,
+      name: "Pamayangtse Gompa",
+      description: "One of the oldest and most important monasteries in Sikkim, Pemayangtse Gompa was founded in the 17th century and belongs to the Nyingma sect of Tibetan Buddhism. The monastery is beautifully decorated with ancient Buddhist murals, sculptures, and thangkas. A major attraction inside is the seven-tiered wooden structure called \"Zangdok Palri,\" which depicts Guru Padmasambhava’s heavenly palace.",
+      image1: "https://glacialtravels.com/Travel/westsikkim/PemagystaGompa.jpg",
+      image2: "https://glacialtravels.com/Travel/westsikkim/PemagystaGompa2.jpg"
+    },
+    {
+      id: 9,
+      name: "Sky Walk",
+      description: "The Sky Walk in Pelling is the first glass skywalk in India. Built near the Chenrezig Statue, this attraction offers an exciting experience of walking on a transparent floor while enjoying stunning views of the mountains and valleys below. Tourists love taking photos here, as the backdrop includes snow-capped peaks and a giant golden Buddha statue. It’s a must-visit for adventure seekers and photographers",
+      image1: "https://glacialtravels.com/Travel/westsikkim/SkyWalk2.jpg",
+      image2: "https://glacialtravels.com/Travel/westsikkim/Sky%20walk.jpg"
+    },
+    {
+      id: 10,
+      name: "Dzongri La",
+      description: "Dzongri La is a high-altitude mountain pass and a dream destination for trekkers and adventure lovers. Located at around 4,200 meters above sea level, it offers breathtaking views of Mount Kanchenjunga and other Himalayan peaks. The trek to Dzongri is challenging but rewarding, passing through lush forests, rhododendron trails, and alpine meadows.",
+      image1: "https://glacialtravels.com/Travel/westsikkim/Dzongri.jpg",
+      image2: "	https://glacialtravels.com/Travel/westsikkim/Dzongri2.jpg"
+    },
+    {
+      id: 11,
+      name: "Kirateshwar Mahadev Temple",
+      description: "This is a sacred Hindu temple dedicated to Lord Shiva, located on the banks of the Rangit River. The temple is believed to be a powerful spiritual site, attracting devotees from across Sikkim and nearby regions. It is especially crowded during the Shivratri festival. The peaceful riverside location makes it a great place for prayers and meditation.",
+      image1: "https://glacialtravels.com/Travel/westsikkim/Mahadev%20temple.jpg",
+      image2: "	https://glacialtravels.com/Travel/westsikkim/Mahadev%20temple.png"
+    },
+    {
+      id: 12,
+      name: "Yangthang Farms",
+      description: "Yangthang Farms is a quiet countryside retreat where visitors can experience organic farming and traditional Sikkimese village life. The farm is known for its fresh dairy products, fruits, and vegetables. Tourists can take a relaxing walk, learn about organic farming, and taste homemade Sikkimese food. It’s a great spot for nature lovers and those looking for a peaceful rural experience.",
+      image1: "https://glacialtravels.com/Travel/westsikkim/Yangthang.jpg",
+      image2: "	https://glacialtravels.com/Travel/westsikkim/Yangthang2.jpg"
     }
   ];
-
-  // Auto-carousel functionality
-  useEffect(() => {
-    const carouselTimer = setInterval(() => {
-      setActiveSlideIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
-    }, 5000);
-
-    return () => clearInterval(carouselTimer);
-  }, [carouselImages.length]);
-
-  const westSikkimDestinations = [
-    {
-      place: "Pelling",
-      description: "A charming hill station offering spectacular views of Mount Kanchenjunga and rich Buddhist heritage.",
-      attractions: ["Kanchenjunga Views", "Pemayangtse Monastery", "Skywalk", "Sangachoeling Monastery"],
-      image: Pelling
-    },
-    {
-      place: "Khecheopalri Lake",
-      description: "Sacred lake revered by both Buddhists and Hindus, believed to fulfill wishes of devotees.",
-      attractions: ["Sacred significance", "Crystal clear waters", "Bird watching", "Prayer flags"],
-      image: KhecheopalriLake
-    },
-    {
-      place: "Yuksom",
-      description: "Historic village and the first capital of Sikkim, base camp for Kanchenjunga trek.",
-      attractions: ["Historical importance", "Trekking base", "Norbugang Coronation Throne", "Kathok Lake"],
-      image: Yuksom
-    },
-    {
-      place: "Rabdentse Ruins",
-      description: "Archaeological remains of the second capital of Sikkim kingdom with panoramic mountain views.",
-      attractions: ["Royal heritage", "Archaeological site", "Mountain panorama", "Historical significance"],
-      image: RabdentseRuins
-    },
-    {
-      place: "Darap Village",
-      description: "Traditional Limbu village offering authentic rural experience and organic farming practices.",
-      attractions: ["Cultural immersion", "Organic farming", "Village walks", "Traditional lifestyle"],
-      image: DarapVillage
-    },
-    {
-      place: "Rimbi Waterfall",
-      description: "Picturesque waterfall cascading down rocky cliffs, perfect for nature photography.",
-      attractions: ["Natural beauty", "Photography spot", "Scenic surroundings", "Peaceful environment"],
-      image: RimbiWaterfall
-    }
-  ];
-
-  // Debug: Log image imports to console
-  useEffect(() => {
-    console.log('West Sikkim Images loaded successfully');
-  }, []);
-
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const adventureExperiences = [
-    {
-      experience: "Kanchenjunga Base Camp Trek",
-      region: "Yuksom to Goecha La",
-      level: "Challenging",
-      description: "Epic high-altitude trek offering close encounters with the world's third highest peak."
-    },
-    {
-      experience: "Skywalk Adventure",
-      region: "Pelling",
-      level: "Easy to Moderate",
-      description: "Thrilling glass skywalk suspended 100 feet above ground with Himalayan panorama."
-    },
-    {
-      experience: "Village Homestays",
-      region: "Darap, Yuksom",
-      level: "Easy",
-      description: "Authentic cultural experience staying with local families in traditional villages."
-    },
-    {
-      experience: "Monastery Hopping",
-      region: "Pelling Circuit",
-      level: "Easy",
-      description: "Spiritual journey visiting ancient monasteries with rich Buddhist heritage."
-    },
-    {
-      experience: "Nature Photography",
-      region: "Multiple locations",
-      level: "Easy to Moderate",
-      description: "Capture stunning landscapes, wildlife, and traditional architecture."
-    }
-  ];
-
-  const handleSlideNavigation = (index) => {
-    setActiveSlideIndex(index);
-  };
-
-  const handleCardFlip = (index) => {
-    setFlippedCards(prev =>
-      prev.includes(index)
-        ? prev.filter(i => i !== index)
-        : [...prev, index]
-    );
-  };
 
   return (
-    <div className={styles.westSikkimContainer}>
-      {/* Hero Image Carousel */}
-      <div className={styles.heroCarouselSection}>
-        <div className={styles.carouselWrapper}>
-          {carouselImages.map((image, index) => (
-            <div
-              key={index}
-              className={`${styles.carouselSlide} ${index === activeSlideIndex ? styles.slideActive : ''}`}
-              style={{ backgroundImage: `url(${image.src})` }}
-            >
-              <div className={styles.carouselOverlay}>
-                <h2 className={styles.carouselTitle}>{image.caption}</h2>
-              </div>
-            </div>
-          ))}
+    <div className={styles.container}>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
+        <div className={styles.videoContainer}>
+          <video 
+            className={styles.heroVideo} 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+          >
+            <source src="https://media.istockphoto.com/id/2216220084/video/breathtaking-landscapes-of-the-everest-region-with-snow-capped-peaks-glacial-rivers-and.mp4?s=mp4-640x640-is&k=20&c=OqiD7F0Y4KSeKAw4wPulhWx4MO7g2MF9yNM2TjkMdgU=" type="video/mp4" />
+            {/* Fallback for browsers that don't support video */}
+          </video>
+          <div className={styles.videoOverlay}></div>
         </div>
-
-        {/* Carousel Navigation */}
-        <div className={styles.carouselNavigation}>
-          {carouselImages.map((_, index) => (
-            <button
-              key={index}
-              className={`${styles.navIndicator} ${index === activeSlideIndex ? styles.indicatorActive : ''}`}
-              onClick={() => handleSlideNavigation(index)}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+        <div className={styles.heroContent}>
+          <h1 className={styles.heroTitle}>West Sikkim</h1>
+          <p className={styles.heroCaption}>Discover the breathtaking beauty of Eastern Himalayas</p>
         </div>
+      </section>
 
-        {/* Main Header Overlay */}
-        <div className={styles.heroTitleOverlay}>
-          <h1>West Sikkim</h1>
-          <p>Explore Ancient Heritage & Majestic Peaks</p>
-        </div>
-      </div>
+      {/* Overview Section */}
+      <section className={styles.overviewSection}>
+        <h2 className={styles.overviewTitle}>West Sikkim Overview</h2>
+        <p className={styles.overviewText}>
+          West Sikkim enchants visitors with its stunning natural landscapes, vibrant culture, and peaceful spiritual atmosphere. Discover the picturesque hill station of Pelling, famed for its spectacular views of the Kanchenjunga range.
+        </p>
+      </section>
 
-      {/* Content Wrapper */}
-      <div className={styles.contentWrapper}>
-        {/* About West Sikkim Section */}
-        <section className={`${styles.section} ${styles.aboutWestSection}`}>
-          <div className={styles.contentContainer}>
-            <h2 className={styles.sectionTitle}>Discover West Sikkim</h2>
-            <p>
-              West Sikkim is a treasure trove of ancient monasteries, sacred lakes, and breathtaking mountain vistas.
-              This region serves as the spiritual heart of Sikkim, where centuries-old Buddhist traditions thrive
-              amidst some of the most spectacular Himalayan landscapes. From the historic village of Yuksom,
-              the first capital of Sikkim, to the pristine Khecheopalri Lake considered sacred by locals,
-              West Sikkim offers an authentic glimpse into the cultural and natural heritage of the region.
-              Adventure seekers will find world-class trekking opportunities, while culture enthusiasts can
-              immerse themselves in the rich Buddhist heritage that permeates every aspect of life here.
-            </p>
-          </div>
-        </section>
-
-        {/* Destinations Grid Section */}
-        <section className={styles.section}>
-          <div className={styles.contentContainer}>
-            <h2 className={styles.sectionTitle}>Premier Destinations</h2>
-            <div className={styles.destinationsGrid}>
-              {westSikkimDestinations.map((destination, index) => (
-                <div key={index} className={styles.destinationCardContainer}>
-                  <div
-                    className={`${styles.destinationCard} ${flippedCards.includes(index) ? styles.flipped : ''}`}
-                    onClick={() => handleCardFlip(index)}
-                    tabIndex={0}
-                    onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') handleCardFlip(index); }}
-                  >
-                    <div className={styles.cardFront}>
-                      <h3>{destination.place}</h3>
-                      <p>{destination.description}</p>
-                      <div className={styles.attractionsList}>
-                        <h4>Key Attractions:</h4>
-                        <ul>
-                          {destination.attractions.map((attraction, idx) => (
-                            <li key={idx}>{attraction}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                    <div className={styles.cardBack}>
-                      <img
-                        src={destination.image}
-                        alt={destination.place}
-                        className={styles.cardBackImg}
-                        onError={(e) => {
-                          console.error('Failed to load image for:', destination.place);
-                          e.target.style.display = 'none';
-                        }}
-                      />
-                      <div className={styles.cardBackTitle}>
-                        <h3>{destination.place}</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Adventure Experiences Section */}
-        <section className={styles.section}>
-          <div className={styles.contentContainer}>
-            <h2 className={styles.sectionTitle}>Adventure Experiences</h2>
-            <div className={styles.experiencesGrid}>
-              {adventureExperiences.map((adventure, index) => (
-                <div key={index} className={styles.experienceCard}>
-                  <div className={styles.experienceHeader}>
-                    <h3>{adventure.experience}</h3>
-                    <span className={styles.difficultyLevel}>{adventure.level}</span>
-                  </div>
-                  <p className={styles.experienceLocation}>🏔️ {adventure.region}</p>
-                  <p className={styles.experienceInfo}>{adventure.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Travel Information Section */}
-        <section className={styles.section}>
-          <div className={styles.contentContainer}>
-            <h2 className={styles.sectionTitle}>Essential Travel Information</h2>
-            <div className={styles.infoCardsGrid}>
-              <div className={styles.infoCard}>
-                <h3>🗓️ Best Time to Visit</h3>
-                <p>March to June offers clear mountain views and pleasant weather. September to December provides crisp air and stunning autumn colors. Avoid monsoon (July-August) for better accessibility and photography opportunities.</p>
+      {/* Destinations Section */}
+      <section className={styles.destinationsSection}>
+        {destinations.map((destination) => (
+          <div key={destination.id} className={styles.destinationCard}>
+            <h3 className={styles.destinationTitle}>{destination.name}</h3>
+            <p className={styles.destinationDescription}>{destination.description}</p>
+            <div className={styles.imageGrid}>
+              <div className={styles.imageContainer}>
+                <img 
+                  src={destination.image1} 
+                  alt={`${destination.name} view 1`}
+                  className={styles.destinationImage}
+                />
               </div>
-              <div className={styles.infoCard}>
-                <h3>🌤️ Weather & Climate</h3>
-                <p>Experience four distinct seasons with temperatures ranging from 5°C to 25°C. Winter brings snow to higher altitudes, while spring showcases blooming rhododendrons. Pack layers for changing weather conditions.</p>
-              </div>
-              <div className={styles.infoCard}>
-                <h3>🚌 Getting There & Around</h3>
-                <p>Well-connected by road from Gangtok (4-5 hours) and Siliguri (6-7 hours). Shared taxis and private vehicles available. Some remote areas require 4WD vehicles. Book reliable transport in advance.</p>
-              </div>
-              <div className={styles.infoCard}>
-                <h3>🏨 Accommodation Options</h3>
-                <p>Pelling offers luxury resorts with mountain views. Yuksom has cozy guesthouses and homestays. Darap Village provides authentic rural experiences. Advance booking recommended, especially during peak seasons.</p>
-              </div>
-              <div className={styles.infoCard}>
-                <h3>🍜 Local Cuisine & Culture</h3>
-                <p>Savor traditional Sikkimese dishes like momos, thukpa, and chhurpi. Experience Buddhist culture through monastery visits and local festivals. Don't miss the organic tea from Temi Tea Garden.</p>
-              </div>
-              <div className={styles.infoCard}>
-                <h3>📸 Photography & Activities</h3>
-                <p>Capture stunning landscapes at sunrise/sunset. Visit monasteries for spiritual photography. Trek to viewpoints for panoramic shots. Respect local customs and seek permission before photographing people.</p>
-              </div>
-              <div className={styles.infoCard}>
-                <h3>⚠️ Important Travel Tips</h3>
-                <p>Carry sufficient cash as ATMs are limited in remote areas. Respect religious customs at monasteries and temples. Pack warm clothes for higher altitudes. Carry essential medications and travel insurance.</p>
-              </div>
-              <div className={styles.infoCard}>
-                <h3>🎒 What to Pack</h3>
-                <p>Warm clothing, comfortable walking shoes, rain gear, power bank, camera, and essential documents. Pack light but include layers for temperature changes. Don't forget your permits and identification.</p>
+              <div className={styles.imageContainer}>
+                <img 
+                  src={destination.image2} 
+                  alt={`${destination.name} view 2`}
+                  className={styles.destinationImage}
+                />
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        ))}
+      </section>
     </div>
   );
 };
 
-export default WestSikkim;
+export default EastSikkim;
