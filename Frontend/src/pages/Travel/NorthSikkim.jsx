@@ -115,7 +115,7 @@ const NorthSikkim = () => {
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>North Sikkim</h1>
           <p className={styles.heroCaption}>
-            Discover the breathtaking beauty of Eastern Himalayas
+            Where the Himalayas Awaken
           </p>
         </div>
       </section>

@@ -128,7 +128,7 @@ const SouthSikkim = () => {
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>South Sikkim</h1>
           <p className={styles.heroCaption}>
-            Where serenity meets spirituality
+             Feels like a journey of the soul
           </p>
         </div>
       </section>

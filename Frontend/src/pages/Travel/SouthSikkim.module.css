@@ -76,7 +76,7 @@
   font-size: 3rem;
   font-weight: bold;
   margin: 0;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: 3px 3px 6px rgba(116, 116, 116, 0.5);
   letter-spacing: 3px;
   background: linear-gradient(45deg, #fff, #e0e0e0);
   -webkit-background-clip: text;
@@ -116,7 +116,7 @@
 
 .overviewTitle {
   font-size: clamp(2rem, 6vw, 3rem);
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 2.5rem;
   font-weight: 600;
   position: relative;
@@ -138,7 +138,7 @@
 .overviewText {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   line-height: 1.9;
-  color: #34495e;
+  color: #000000;
   max-width: 1000px;
   margin: 0 auto;
   text-align: justify;
@@ -183,7 +183,7 @@
 
 .destinationTitle {
   font-size: clamp(1.8rem, 5vw, 2.5rem);
-  color: #2c3e50;
+  color: #000000;
   text-align: center;
   margin-bottom: 2rem;
   font-weight: 600;
@@ -193,7 +193,7 @@
 .destinationDescription {
   font-size: clamp(1rem, 2.5vw, 1.15rem);
   line-height: 1.9;
-  color: #34495e;
+  color: #000000;
   text-align: justify;
   margin-bottom: 3rem;
   max-width: 100%;
@@ -248,43 +248,6 @@
 .destinationImage:hover {
   transform: scale(1.08);
 }
-
-/* Chat Button */
-/* .chatButton {
-  position: fixed;
-  bottom: clamp(20px, 4vw, 30px);
-  right: clamp(20px, 4vw, 30px);
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-  color: white;
-  padding: clamp(12px, 3vw, 16px) clamp(20px, 4vw, 24px);
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  gap: clamp(8px, 2vw, 12px);
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-  z-index: 1000;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-}
-
-.chatButton:hover {
-  background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
-}
-
-.chatIcon {
-  font-size: clamp(1.2rem, 3vw, 1.4rem);
-  animation: pulse 2s infinite;
-}
-
-.chatText {
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-} */
 
 /* Animations */
 @keyframes fadeInUp {
@@ -375,9 +338,6 @@
     grid-template-columns: 1fr;
   }
   
-  .chatButton {
-    padding: 12px 18px;
-  }
 }
 
 /* Mobile Large */
