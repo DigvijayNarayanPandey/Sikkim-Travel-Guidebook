@@ -77,7 +77,7 @@ const Contact = () => {
     const marker = new window.google.maps.Marker({
       position: { lat: 27.3389, lng: 88.6065 },
       map: map,
-      title: 'Sikkim Travel GuideBook Office',
+      title: 'SH1ELD Tech GuideBook Office',
       animation: window.google.maps.Animation.DROP
     });
 
@@ -85,9 +85,9 @@ const Contact = () => {
     const infoWindow = new window.google.maps.InfoWindow({
       content: `
         <div style="padding: 10px; font-family: Arial, sans-serif;">
-          <h3 style="margin: 0 0 10px 0; color: #2c5282;">Sikkim Travel GuideBook</h3>
+          <h3 style="margin: 0 0 10px 0; color: #2c5282;">SH1ELD Tech GuideBook</h3>
           <p style="margin: 5px 0; color: #4a5568;">J.N Road, near 2nd petrol pump</p>
-          <p style="margin: 5px 0; color: #4a5568;">Chandmari, Gangtok, Sikkim 737103</p>
+          <p style="margin: 5px 0; color: #4a5568;">Gangtok, Sikkim 737103</p>
           <p style="margin: 5px 0; color: #4a5568;">📞 +917903994710</p>
         </div>
       `
@@ -126,7 +126,7 @@ const Contact = () => {
   };
 
   const openMapInNewTab = () => {
-    const mapUrl = `https://www.google.com/maps/search/?api=1&query=J.N+Road+near+2nd+petrol+pump+Chandmari+Gangtok+Sikkim+737103`;
+    const mapUrl = `https://www.google.com/maps/place/Mahatma+Gandhi+Marg/@27.3253821,88.6093151,837m/data=!3m1!1e3!4m7!3m6!1s0x39e6a51504b9b95b:0xe44eb58d5a699d1!4b1!8m2!3d27.3253821!4d88.61189!16s%2Fg%2F1tp1x6zg?entry=ttu&g_ep=EgoyMDI1MDYyNi4wIKXMDSoASAFQAw%3D%3D`;
     window.open(mapUrl, '_blank');
   };
 
@@ -135,7 +135,7 @@ const Contact = () => {
       <div className="map-preview-content">
         <div className="preview-header">
           <h3>📍 Our Location</h3>
-          <p>Gangtok, Sikkim</p>
+          <p>MG Marg, Gangtok, Sikkim</p>
         </div>
         <div className="preview-image">
           <img 
@@ -146,8 +146,8 @@ const Contact = () => {
         </div>
         <div className="preview-info">
           <div className="location-details">
-            <p><strong>J.N Road, near 2nd petrol pump</strong></p>
-            <p>Chandmari, Gangtok, Sikkim 737103</p>
+            {/* <p><strong>J.N Road, near 2nd petrol pump</strong></p> */}
+            <p>Gangtok, Sikkim 737103</p>
           </div>
           <button className="preview-btn" onClick={openMapInNewTab}>
             🗺️ View on Google Maps
@@ -155,7 +155,7 @@ const Contact = () => {
         </div>
         {!hasApiKey && (
           <div className="api-key-notice">
-            <p>💡 Add Google Maps API key for interactive map</p>
+            {/* <p>💡 Add Google Maps API key for interactive map</p> */}
           </div>
         )}
       </div>
@@ -198,8 +198,8 @@ const Contact = () => {
               <div className="contact-card">
                 <div className="card-icon location-icon">📍</div>
                 <h3>Address</h3>
-                <p>J.N Road, near 2nd petrol pump<br/>Chandmari, Gangtok<br/>Sikkim 737103</p>
-                <span className="card-subtitle">Visit our office</span>
+                <p>Mahatma Gandhi<br/>Marg, Gangtok<br/>Sikkim 737103</p>
+                {/* <span className="card-subtitle">Visit our office</span> */}
               </div>
             </div>
           </div>

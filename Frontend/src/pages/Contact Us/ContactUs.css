@@ -48,7 +48,7 @@
 }
 
 .hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-size: clamp(1rem, 2vw, 1.5rem);
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
   animation: fadeInUp 1s ease-out 0.2s both;
@@ -103,7 +103,7 @@
 .section-title {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #2d3748;
+  color: #000000;
   margin-bottom: 40px;
   position: relative;
   display: inline-block;
@@ -134,7 +134,7 @@
   border-radius: 20px;
   text-align: center;
   transition: all 0.3s ease;
-  border: 1px solid rgba(102, 126, 234, 0.1);
+  border: 2px solid rgba(102, 126, 234, 0.1);
   position: relative;
   overflow: hidden;
 }
@@ -152,7 +152,7 @@
 
 .contact-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+  box-shadow: 0 20px 40px rgba(61, 76, 144, 0.2);
   border-color: #667eea;
 }
 
@@ -171,26 +171,26 @@
   font-size: 1.8rem;
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: white;
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 20px rgba(17, 25, 58, 0.3);
 }
 
 .contact-card h3 {
   font-size: 1.3rem;
   font-weight: 600;
-  color: #2d3748;
+  color: #000000;
   margin-bottom: 10px;
 }
 
 .contact-card p {
   font-size: 1rem;
-  color: #4a5568;
+  color: #000000;
   margin-bottom: 8px;
   line-height: 1.5;
 }
 
 .card-subtitle {
   font-size: 0.9rem;
-  color: #718096;
+  color: #1d2a3d;
   font-style: italic;
 }
 
@@ -220,7 +220,7 @@
 .form-group label {
   display: block;
   font-weight: 600;
-  color: #2d3748;
+  color: #000000;
   margin-bottom: 8px;
   font-size: 1rem;
 }
@@ -251,7 +251,7 @@
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #506ce9 0%, #6e419b 100%);
   color: white;
   padding: 18px 40px;
   border: none;
@@ -265,7 +265,7 @@
   justify-content: center;
   gap: 10px;
   min-width: 160px;
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 20px rgba(75, 95, 182, 0.3);
 }
 
 .submit-btn:hover:not(:disabled) {
@@ -302,7 +302,7 @@
 
 .status-message.success {
   background: #f0fff4;
-  color: #22543d;
+  color: #18784b;
   border: 1px solid #9ae6b4;
 }
 
@@ -366,7 +366,7 @@
   align-items: center;
   gap: 10px;
   font-weight: 600;
-  color: #2d3748;
+  color: #000000;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   transform: translateY(10px);
   transition: transform 0.3s ease;
@@ -405,7 +405,7 @@
 }
 
 .map-loading p {
-  color: #718096;
+  color: #71839d;
   font-weight: 500;
 }
 
@@ -486,20 +486,20 @@
   box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
 }
 
-.api-key-notice {
+/* .api-key-notice {
   margin-top: 15px;
   padding: 10px;
   background: rgba(102, 126, 234, 0.1);
   border-radius: 8px;
   border-left: 4px solid #667eea;
-}
+} */
 
-.api-key-notice p {
+/* .api-key-notice p {
   color: #4c51bf;
   font-size: 0.85rem;
   margin: 0;
   text-align: center;
-}
+} */
 
 /* Responsive Design */
 @media (max-width: 1200px) {
