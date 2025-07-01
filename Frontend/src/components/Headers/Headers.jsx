@@ -56,7 +56,7 @@ const Headers = () => {
   return (
     <header className={headerClasses}>
       <div className="header-content">
-        <Link to="/" className="logo">Sikkim Guide</Link>
+        <Link to="/" className="logo">SH1ELD Tech TravelGuide</Link>
 
         <nav className="nav-links">
           <Link to="/" className="nav-link">Home</Link>
@@ -69,7 +69,7 @@ const Headers = () => {
             onClick={() => isMobile && setTravelOpen(!travelOpen)}
           >
             <span className="nav-link dropdown-trigger">
-              Travel Destinations <span className="arrow">▼</span>
+              Travel Destinations
             </span>
 
             {(travelOpen || !isMobile) && (
