@@ -15,6 +15,7 @@ import Vlog from "./pages/Vlog/Vlog";
 import PlanTravel from "./pages/Vlog/PlanTrip";
 import ContactUs from "./pages/Contact Us/ContactUs";
 import Login from "./pages/Login/Login"
+import DisasterAlert from "./pages/Disaster/DisasterAlert";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           <Route path="/plan-trip" element={<PlanTravel />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/disaster-alerts" element={<DisasterAlert />} />
         </Routes>
         <Footers />
       </div>
