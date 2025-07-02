@@ -25,7 +25,7 @@ const Places = () => {
             <Link to="/north-sikkim" className="region-card north-card">
               <div className="card-icon">🏔️</div>
               <h2>North Sikkim</h2>
-              <p>Known for Gurudongmar Lake, Yumthang Valley, and rugged beauty. Perfect for adventurous travel.</p>
+              <p>Known for Gurudongmar Lake, Yumthang Valley, and rugged beauty. Perfect for adventure.</p>
               <div className="card-shine"></div>
             </Link>
 
