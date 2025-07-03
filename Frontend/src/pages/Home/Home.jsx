@@ -122,6 +122,7 @@ const Home = () => {
               Explore breathtaking landscapes, vibrant culture, and
               unforgettable moments.
             </p>
+            <p>Note:- This is a Tour & Travel guide Website.</p>
           </div>
 
           <Carousel
