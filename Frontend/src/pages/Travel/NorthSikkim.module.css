@@ -60,7 +60,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.4) 0%, rgba(118, 75, 162, 0.4) 100%);
+  /* background: rgba(54, 52, 52, 0.5); */
   z-index: 2;
 }
 
@@ -76,9 +76,9 @@
   font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 700;
   margin: 0;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: 3px 3px 6px rgba(132, 132, 132, 0.5);
   letter-spacing: 3px;
-  background: linear-gradient(45deg, #fff, #e0e0e0);
+  background: linear-gradient(45deg, #ffffff, #ffffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -113,7 +113,7 @@
 
 .overviewTitle {
   font-size: clamp(2rem, 6vw, 3rem);
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 2.5rem;
   font-weight: 600;
   position: relative;
@@ -135,7 +135,7 @@
 .overviewText {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   line-height: 1.9;
-  color: #34495e;
+  color: #000000;
   max-width: 1000px;
   margin: 0 auto;
   text-align: justify;
@@ -180,7 +180,7 @@
 
 .destinationTitle {
   font-size: clamp(1.8rem, 5vw, 2.5rem);
-  color: #2c3e50;
+  color: #000000;
   text-align: center;
   margin-bottom: 2rem;
   font-weight: 600;
@@ -190,7 +190,7 @@
 .destinationDescription {
   font-size: clamp(1rem, 2.5vw, 1.15rem);
   line-height: 1.9;
-  color: #34495e;
+  color: #000000;
   text-align: justify;
   margin-bottom: 3rem;
   max-width: 100%;
@@ -206,27 +206,11 @@
 
 .imageContainer {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.imageContainer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
-}
-
-.imageContainer:hover::before {
-  opacity: 1;
+  perspective: 1000px;
 }
 
 .imageContainer:hover {
@@ -234,54 +218,119 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
-.destinationImage {
+/* Flip Card Styles */
+.flipCard {
+  background-color: transparent;
   width: 100%;
   height: clamp(250px, 40vw, 350px);
-  object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-  cursor: pointer;
+  perspective: 1000px;
 }
 
-.destinationImage:hover {
-  transform: scale(1.08);
+.flipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
 }
 
-/* Chat Button */
-.chatButton {
-  position: fixed;
-  bottom: clamp(20px, 4vw, 30px);
-  right: clamp(20px, 4vw, 30px);
-  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-  color: white;
-  padding: clamp(12px, 3vw, 16px) clamp(20px, 4vw, 24px);
-  border-radius: 50px;
+.imageContainer:hover .flipCardInner {
+  transform: rotateY(180deg);
+}
+
+.flipCardFront, .flipCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.flipCardBack {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   align-items: center;
-  gap: clamp(8px, 2vw, 12px);
+  justify-content: center;
+  padding: 20px;
+}
+
+.destinationImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   cursor: pointer;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-  z-index: 1000;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
 }
 
-.chatButton:hover {
-  background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+/* Highlights Content for both images */
+.highlightsContent {
+  color: white;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  background: linear-gradient(135deg, rgba(102,126,234,0.85) 0%, rgba(118,75,162,0.85) 100%);
 }
 
-.chatIcon {
-  font-size: clamp(1.2rem, 3vw, 1.4rem);
-  animation: pulse 2s infinite;
+.imageContainer:first-child .highlightsContent {
+  background: linear-gradient(135deg, rgba(102,126,234,0.95) 0%, rgba(118,75,162,0.80) 100%);
+}
+.imageContainer:last-child .highlightsContent {
+  /* background: linear-gradient(135deg, rgba(49, 67, 151, 0.8) 0%, rgba(88, 42, 128, 0.95) 100%); */
+  background: linear-gradient(135deg, rgba(102,126,234,0.95) 0%, rgba(118,75,162,0.80) 100%);
 }
 
-.chatText {
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
-  font-weight: 600;
-  letter-spacing: 0.5px;
+/* Highlights Title */
+.highlightsTitle {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
+/* Highlights List */
+.highlightsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Highlight Item */
+.highlightItem {
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+  padding-left: 1.2rem;
+  position: relative;
+  color: #ffffff;
+  font-weight: 450;
+  transition: background 0.2s;
+}
+
+.highlightItem::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.highlightItem:last-child {
+  margin-bottom: 0;
+}
+
 
 /* Animations */
 @keyframes fadeInUp {
@@ -375,6 +424,15 @@
   .chatButton {
     padding: 12px 18px;
   }
+
+  .highlightsContent {
+    padding: 15px;
+  }
+
+  .highlightItem {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+  }
 }
 
 /* Mobile Large */
@@ -398,9 +456,22 @@
     border-radius: 12px;
   }
   
+  .flipCardFront, .flipCardBack {
+    border-radius: 12px;
+  }
+  
   .chatButton {
     bottom: 15px;
     right: 15px;
+  }
+
+  .highlightsContent {
+    padding: 12px;
+  }
+
+  .highlightItem {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -423,6 +494,15 @@
   .imageGrid {
     gap: 1rem;
   }
+
+  .highlightsContent {
+    padding: 10px;
+  }
+
+  .highlightItem {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
 }
 
 /* Ultra-wide screens */
@@ -438,139 +518,4 @@
   .heroCaption {
     font-size: 1.6rem;
   }
-  
-  .overviewTitle {
-    font-size: 3.5rem;
-  }
 }
-
-/* High DPI displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .heroTitle,
-  .overviewTitle,
-  .destinationTitle {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-}
-
-/* Landscape orientation on mobile */
-@media (max-height: 500px) and (orientation: landscape) {
-  .heroSection {
-    height: 100vh;
-  }
-  
-  .heroTitle {
-    font-size: 2.5rem;
-  }
-  
-  .heroCaption {
-    font-size: 1rem;
-  }
-}
-
-/* Print styles */
-@media print {
-  .heroSection {
-    height: 300px;
-  }
-  
-  .destinationCard {
-    break-inside: avoid;
-    margin-bottom: 30px;
-  }
-}
-
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .heroContent,
-  .overviewSection,
-  .destinationCard,
-  .imageContainer,
-  .destinationImage,
-  .chatButton {
-    animation: none;
-    transition: none;
-  }
-  
-  .chatIcon {
-    animation: none;
-  }
-}
-
-.heroSection {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.videoContainer {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.heroVideo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.videoOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3); /* optional for dark overlay */
-  z-index: 2;
-}
-
-.heroContent {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  z-index: 3;
-}
-
-.heroTitle {
-  font-size: 3rem;
-  font-weight: bold;
-}
-
-.heroCaption {
-  font-size: 1.2rem;
-  margin-top: 0.5rem;
-}
-
-
-/* Dark mode support */
-/* @media (prefers-color-scheme: dark) {
-  .container::before {
-    background: rgba(18, 18, 18, 0.95);
-  }
-  
-  .overviewSection,
-  .destinationCard {
-    background: rgba(30, 30, 30, 0.95);
-    color: #e0e0e0;
-  }
-  
-  .overviewTitle,
-  .destinationTitle {
-    color: #ffffff;
-  }
-  
-  .overviewText,
-  .destinationDescription {
-    color: #b0b0b0;
-  }
-} */

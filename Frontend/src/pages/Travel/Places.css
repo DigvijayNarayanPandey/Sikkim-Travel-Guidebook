@@ -143,8 +143,9 @@
 
 .region-card {
   text-decoration: none;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.88));
-  backdrop-filter: blur(15px);
+  /* background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.88)); */
+  background: #fff;
+  backdrop-filter: blur(50px);
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 20px;
   padding: 30px 20px;
@@ -215,7 +216,7 @@
 
 .region-card h2 {
   font-size: 1.6rem;
-  color: #2c3e50;
+  color: #152332;
   margin-bottom: 15px;
   font-weight: 800;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
@@ -232,6 +233,7 @@
 /* Card Color Variations with Gradient Borders */
 .north-card {
   background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(255, 255, 255, 0.95));
+  /* background: linear-gradient(135deg, rgba(52, 152, 219, 0.08), rgba(255, 255, 255, 0.30)); */
 }
 
 .north-card:hover { 
@@ -428,4 +430,11 @@
   .region-card p {
     color: #000;
   }
+}
+
+.north-card,
+.east-card,
+.west-card,
+.south-card {
+  background: #a8a8a8;
 }

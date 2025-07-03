@@ -16,6 +16,20 @@ const SouthSikkim = () => {
         "https://glacialtravels.com/Travel/southsikkim/Temi2.png",
       image2:
         TemiTeaGarden,
+      highlights1: [
+        "Only organic tea garden in Sikkim",
+        "Panoramic views of Kanchenjunga range",
+        "Traditional tea processing methods observed",
+        "Guided tours available for visitors",
+        "Fresh mountain air enhances experience"
+      ],
+      highlights2: [
+        "Tea tasting sessions with local varieties",
+        "Photography opportunities in lush plantations",
+        "Peaceful walking trails through gardens",
+        "Local workers demonstrate plucking techniques",
+        "Best visited during tea harvesting season"
+      ]
     },
     {
       id: 2,
@@ -24,6 +38,20 @@ const SouthSikkim = () => {
         "The Char Dham complex in Solophok near Namchi replicates India's four holy shrines, crowned by an imposing Shiva statue atop the hill. It's a major spiritual and cultural attraction offering panoramic views and a serene atmosphere.",
       image1: Namchi,
       image2: "https://glacialtravels.com/Travel/southsikkim/2.png",
+      highlights1: [
+        "Replica of India's four sacred pilgrimage sites",
+        "108-foot tall statue of Lord Shiva",
+        "360-degree panoramic valley views",
+        "Architectural marvel with intricate details",
+        "Spiritual ambiance for meditation"
+      ],
+      highlights2: [
+        "Cable car access to main complex",
+        "Prayer halls with peaceful atmosphere",
+        "Religious ceremonies held regularly",
+        "Pilgrims from across India visit",
+        "Best views during clear weather days"
+      ]
     },
     {
       id: 3,
@@ -34,6 +62,20 @@ const SouthSikkim = () => {
         South1,
       image2:
         "https://glacialtravels.com/Travel/southsikkim/Buddha.png",
+      highlights1: [
+        "130-feet tall bronze Buddha statue",
+        "Consecrated by 14th Dalai Lama himself",
+        "Beautiful landscaped gardens surrounding",
+        "Cho-Djo lake adds to scenic beauty",
+        "Peaceful meditation spots available"
+      ],
+      highlights2: [
+        "Prayer wheels line the pathway",
+        "Stunning views of Himalayan peaks",
+        "Cultural center with Buddhist artifacts",
+        "Ideal for spiritual retreats",
+        "Photography restricted in certain areas"
+      ]
     },
     {
       id: 4,
@@ -44,6 +86,20 @@ const SouthSikkim = () => {
         "https://glacialtravels.com/Travel/southsikkim/Samdruptse2.png",
       image2:
         "https://glacialtravels.com/Travel/southsikkim/Samdruptse.png",
+      highlights1: [
+        "135-feet tall Guru Padmasambhava statue",
+        "Highest statue of Guru Rinpoche globally",
+        "Panoramic views of entire South Sikkim",
+        "Sacred site for Buddhist pilgrims",
+        "Colorful prayer flags flutter around"
+      ],
+      highlights2: [
+        "Accessible via well-maintained roads",
+        "Small temple complex at base",
+        "Sunrise and sunset views spectacular",
+        "Local vendors sell religious items",
+        "Peaceful environment for prayers"
+      ]
     },
     {
       id: 5,
@@ -53,6 +109,20 @@ const SouthSikkim = () => {
       image1:
         "https://glacialtravels.com/Travel/southsikkim/Menaam.png",
       image2: MaenamHill,
+      highlights1: [
+        "Part of Maenam Wildlife Sanctuary",
+        "Rich biodiversity with rare species",
+        "Trekking trails through dense forests",
+        "Panoramic views from hilltop",
+        "Cool climate throughout the year"
+      ],
+      highlights2: [
+        "Bird watching opportunities abundant",
+        "Rhododendrons bloom in spring season",
+        "Wildlife sightings possible during trek",
+        "Camping spots available for overnight stays",
+        "Local guides provide forest insights"
+      ]
     },
     {
       id: 6,
@@ -63,6 +133,20 @@ const SouthSikkim = () => {
         "https://glacialtravels.com/Travel/southsikkim/Ralong.png",
       image2:
         "https://glacialtravels.com/Travel/southsikkim/Ralong22.png",
+      highlights1: [
+        "Ancient Tibetan Buddhist monastery",
+        "Vivid murals depicting Buddhist stories",
+        "Traditional Tibetan architectural style",
+        "Peaceful pine forest surroundings",
+        "Monks perform daily prayer rituals"
+      ],
+      highlights2: [
+        "Library contains ancient manuscripts",
+        "Meditation halls open to visitors",
+        "Prayer wheels surrounding main building",
+        "Festival celebrations attract crowds",
+        "Offers spiritual learning programs"
+      ]
     },
     {
       id: 7,
@@ -71,6 +155,20 @@ const SouthSikkim = () => {
         "Sai Mandir, located in Namchi near Char Dham, is a well-known temple devoted to Sai Baba, attracting devotees for its peaceful setting and spiritual environment.",
       image1: "https://glacialtravels.com/Travel/southsikkim/Sai%20mandir%202.png",
       image2: "https://glacialtravels.com/Travel/southsikkim/Sai%20mandir.png",
+      highlights1: [
+        "Dedicated to Shirdi Sai Baba",
+        "Peaceful and serene temple atmosphere",
+        "Regular aarti and prayer sessions",
+        "Beautiful temple architecture",
+        "Devotees from various faiths visit"
+      ],
+      highlights2: [
+        "Temple courtyard for group prayers",
+        "Prasadam distributed to visitors",
+        "Thursday special prayers held",
+        "Clean and well-maintained premises",
+        "Located near other pilgrimage sites"
+      ]
     },
     {
       id: 8,
@@ -80,6 +178,20 @@ const SouthSikkim = () => {
       image1: "https://glacialtravels.com/Travel/southsikkim/Rope.png",
       image2:
         "https://glacialtravels.com/Travel/southsikkim/Rope22.png",
+      highlights1: [
+        "Connects River View Point to Char Dham",
+        "Aerial views of Namchi valley",
+        "Thrilling ride through mountains",
+        "Glass cabins for clear visibility",
+        "Safe and well-maintained system"
+      ],
+      highlights2: [
+        "Tea gardens visible from cable cars",
+        "Distant Himalayan peaks in view",
+        "Comfortable seating for all ages",
+        "Operating hours weather dependent",
+        "Photography allowed during ride"
+      ]
     },
     {
       id: 9,
@@ -89,6 +201,20 @@ const SouthSikkim = () => {
       image1: "https://glacialtravels.com/Travel/southsikkim/Rose2.png",
       image2:
         "https://glacialtravels.com/Travel/southsikkim/Rose.png",
+      highlights1: [
+        "Multiple varieties of roses cultivated",
+        "Vibrant colors during blooming season",
+        "Well-maintained garden pathways",
+        "Himalayan backdrop enhances beauty",
+        "Best visited during spring months"
+      ],
+      highlights2: [
+        "Benches placed for peaceful sitting",
+        "Photography enthusiasts love visiting",
+        "Pleasant fragrance fills the air",
+        "Local gardeners maintain flower beds",
+        "Entry fee nominal for maintenance"
+      ]
     },
     {
       id: 10,
@@ -98,6 +224,20 @@ const SouthSikkim = () => {
       image1:
         "https://glacialtravels.com/Travel/southsikkim/Ngadak2.png",
       image2: "https://glacialtravels.com/Travel/southsikkim/Ngadak.png",
+      highlights1: [
+        "Lesser-known hilltop monastery",
+        "Peaceful prayer halls for meditation",
+        "Panoramic valley views from location",
+        "Traditional Buddhist architecture",
+        "Away from tourist crowds"
+      ],
+      highlights2: [
+        "Monks available for spiritual guidance",
+        "Ancient Buddhist scriptures preserved",
+        "Prayer flags create colorful ambiance",
+        "Sunrise views particularly stunning",
+        "Quiet environment for reflection"
+      ]
     },
     {
       id: 11,
@@ -107,6 +247,20 @@ const SouthSikkim = () => {
       image1:
         "https://glacialtravels.com/Travel/southsikkim/Tarey.png",
       image2: "https://glacialtravels.com/Travel/southsikkim/tarey2.png",
+      highlights1: [
+        "Thrilling cliff-edge walking paths",
+        "Jaw-dropping views of valley below",
+        "Adventure activities for thrill seekers",
+        "Safety railings along cliff edges",
+        "Professional guides available"
+      ],
+      highlights2: [
+        "Ralong Khola valley visible far below",
+        "Not suitable for height-phobic visitors",
+        "Best photography spot for landscapes",
+        "Wind can be strong at cliff edge",
+        "Sunrise and sunset views spectacular"
+      ]
     },
   ];
 
@@ -128,7 +282,7 @@ const SouthSikkim = () => {
         <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>South Sikkim</h1>
           <p className={styles.heroCaption}>
-            Where serenity meets spirituality
+             Feels like a journey of the soul
           </p>
         </div>
       </section>
@@ -156,18 +310,50 @@ const SouthSikkim = () => {
             </p>
             <div className={styles.imageGrid}>
               <div className={styles.imageContainer}>
-                <img
-                  src={destination.image1}
-                  alt={`${destination.name} view 1`}
-                  className={styles.destinationImage}
-                />
+                <div className={styles.flipCard}>
+                  <div className={styles.flipCardInner}>
+                    <div className={styles.flipCardFront}>
+                      <img
+                        src={destination.image1}
+                        alt={`${destination.name} view 1`}
+                        className={styles.destinationImage}
+                      />
+                    </div>
+                    <div className={styles.flipCardBack}>
+                      <div className={styles.highlightsContent}>
+                        <h4 className={styles.highlightsTitle}>Highlights</h4>
+                        <ul className={styles.highlightsList}>
+                          {destination.highlights1.map((highlight, index) => (
+                            <li key={index} className={styles.highlightItem}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className={styles.imageContainer}>
-                <img
-                  src={destination.image2}
-                  alt={`${destination.name} view 2`}
-                  className={styles.destinationImage}
-                />
+                <div className={styles.flipCard}>
+                  <div className={styles.flipCardInner}>
+                    <div className={styles.flipCardFront}>
+                      <img
+                        src={destination.image2}
+                        alt={`${destination.name} view 2`}
+                        className={styles.destinationImage}
+                      />
+                    </div>
+                    <div className={styles.flipCardBack}>
+                      <div className={styles.highlightsContent}>
+                        <h4 className={styles.highlightsTitle}>Highlights</h4>
+                        <ul className={styles.highlightsList}>
+                          {destination.highlights2.map((highlight, index) => (
+                            <li key={index} className={styles.highlightItem}>{highlight}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
