@@ -14,7 +14,10 @@ import Adventure from "./pages/Adventure Zone/Adventure"
 import Vlog from "./pages/Vlog/Vlog";
 import PlanTravel from "./pages/Vlog/PlanTrip";
 import ContactUs from "./pages/Contact Us/ContactUs";
-import Login from "./pages/Login/Login"
+import Login from "./pages/Login/Login";
+import Traveler from "./pages/Login/Traveler";
+import Government from "./pages/Login/Government";
+import Business from "./pages/Login/Business"
 
 function App() {
   return (
@@ -34,6 +37,9 @@ function App() {
           <Route path="/plan-trip" element={<PlanTravel />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/traveler-login" element={<Traveler />} />
+          <Route path="/government-login" element={<Government />} />
+          <Route path="/business-login" element={<Business />} />
         </Routes>
         <Footers />
       </div>
