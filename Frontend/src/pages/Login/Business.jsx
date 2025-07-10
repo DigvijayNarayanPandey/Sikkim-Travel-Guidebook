@@ -35,8 +35,9 @@ const Business = () => {
     "Cafes",
     "Bike Rental",
     "Taxi / Cab Services",
-    "Tours & Travels",
+    "Travel & Tourism",
     "Hire Tour Guide",
+    "Media",
     "Adventure Sports"
   ];
 
