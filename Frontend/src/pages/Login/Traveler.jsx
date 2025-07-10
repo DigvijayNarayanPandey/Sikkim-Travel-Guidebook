@@ -48,7 +48,6 @@ const Traveler = () => {
     } else if (!isLogin && !/^\d{10}$/.test(formData.contact.replace(/\D/g, ""))) {
       newErrors.contact = "Contact number must be 10 digits";
     }
-    
     if (!formData.password.trim()) {
       newErrors.password = "Password is required";
     } else if (!isLogin && formData.password.length < 6) {
@@ -209,6 +208,24 @@ const Traveler = () => {
                 {errors.contact && <span className={styles.error}>{errors.contact}</span>}
               </div>
             )}
+
+            {/* DOB Field (Sign Up Only) */}
+{!isLogin && (
+  <div className={styles.inputGroup}>
+    <label className={styles.label}>Date of Birth</label>
+    <input
+      type="date"
+      name="dob"
+      value={formData.dob || ""}
+      onChange={handleInputChange}
+      className={`${styles.input} ${errors.dob ? styles.inputError : ""}`}
+      max={new Date().toISOString().split("T")[0]}  // restrict future dates
+      required
+    />
+    {errors.dob && <span className={styles.error}>{errors.dob}</span>}
+  </div>
+)}
+
 
             {/* Password Field */}
             <div className={styles.inputGroup}>
