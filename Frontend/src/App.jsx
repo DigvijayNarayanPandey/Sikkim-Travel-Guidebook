@@ -18,6 +18,8 @@ import Login from "./pages/Login/Login";
 import Traveler from "./pages/Login/Traveler";
 import Government from "./pages/Login/Government";
 import Business from "./pages/Login/Business"
+import DisasterAlert from "./pages/Disaster/DisasterAlert";
+
 
 function App() {
   return (
@@ -40,6 +42,7 @@ function App() {
           <Route path="/traveler-login" element={<Traveler />} />
           <Route path="/government-login" element={<Government />} />
           <Route path="/business-login" element={<Business />} />
+          <Route path="/disaster-alerts" element={<DisasterAlert />} />
         </Routes>
         <Footers />
       </div>
