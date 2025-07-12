@@ -68,9 +68,11 @@ const Headers = () => {
             onMouseLeave={() => !isMobile && setTravelOpen(false)}
             onClick={() => isMobile && setTravelOpen(!travelOpen)}
           >
+            <Link to="/places" className="nav-link">
             <span className="nav-link dropdown-trigger">
               Travel Destinations
             </span>
+            </Link>
 
             {(travelOpen || !isMobile) && (
               <div className="dropdown-content">
