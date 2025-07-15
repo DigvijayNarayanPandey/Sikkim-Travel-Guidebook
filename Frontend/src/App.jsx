@@ -37,7 +37,7 @@ function App() {
           <Route path="/vlog" element={<Vlog />} />
           <Route path="/plan-trip" element={<PlanTravel />} />
           <Route path="/contact" element={<ContactUs />} />
-          <Route path="/login" element={<Login />}
+          <Route path="/login" element={<Login />} />
           <Route path="/traveler-login" element={<Traveler />} />
           <Route path="/government-login" element={<Government />} />
           <Route path="/business-login" element={<Business />} />
