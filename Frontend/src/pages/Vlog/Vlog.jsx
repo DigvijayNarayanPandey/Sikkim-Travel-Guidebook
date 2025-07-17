@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 const Vlog = () => {
   const [activeVideo, setActiveVideo] = useState(null);
   const [likes, setLikes] = useState({});
-  const [wishlist, setWishlist] = useState([]);
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [expandedCards, setExpandedCards] = useState({});
   const videoRefs = useRef({});
   const navigate = useNavigate();
 
@@ -92,19 +92,6 @@ const Vlog = () => {
     }
   ];
 
-  // Load wishlist from localStorage on component mount
-  useEffect(() => {
-    const savedWishlist = JSON.parse(localStorage.getItem('travelWishlist') || '[]');
-    setWishlist(savedWishlist);
-
-    // Initialize likes based on wishlist
-    const initialLikes = {};
-    savedWishlist.forEach(item => {
-      initialLikes[item.id] = true;
-    });
-    setLikes(initialLikes);
-  }, []);
-
   const toggleVideo = (id) => {
     const video = videoRefs.current[id];
     if (video) {
@@ -133,36 +120,10 @@ const Vlog = () => {
     const vlog = vlogData.find(v => v.id === id);
     if (!vlog) return;
 
-    const isCurrentlyLiked = likes[id];
-
     setLikes(prev => ({
       ...prev,
       [id]: !prev[id]
     }));
-
-    // Update wishlist
-    let updatedWishlist;
-    if (isCurrentlyLiked) {
-      // Remove from wishlist
-      updatedWishlist = wishlist.filter(item => item.id !== id);
-    } else {
-      // Add to wishlist
-      const wishlistItem = {
-        id: vlog.id,
-        title: vlog.title,
-        location: vlog.location,
-        description: vlog.description,
-        thumbnail: vlog.thumbnail,
-        tags: vlog.tags,
-        price: vlog.price,
-        rating: vlog.rating,
-        addedDate: new Date().toISOString()
-      };
-      updatedWishlist = [...wishlist, wishlistItem];
-    }
-
-    setWishlist(updatedWishlist);
-    localStorage.setItem('travelWishlist', JSON.stringify(updatedWishlist));
   };
 
   const handleShare = (vlog) => {
@@ -179,7 +140,70 @@ const Vlog = () => {
   };
 
   const handlePlanTrip = () => {
-    navigate('/plan-trip', { state: { wishlist } });
+    navigate('/articles');
+  };
+
+  // Article content mapping (for demo)
+  const articleContent = {
+    "Gangtok - The Capital's Charm": `Gangtok, the capital of Sikkim, is a vibrant city nestled in the Eastern Himalayas. Known for its clean streets, friendly locals, and a unique blend of tradition and modernity, Gangtok offers visitors a chance to explore monasteries, bustling markets, and scenic viewpoints. Don't miss the MG Marg, Rumtek Monastery, and the cable car ride for panoramic views of the city.`,
+    "Nathula Pass - Indo-China Border": `Nathula Pass, located at 14,140 feet, is a historic mountain pass on the Indo-China border. Once part of the ancient Silk Route, it now offers travelers a glimpse into the high-altitude landscapes and the border gates between India and China. The journey to Nathula is filled with breathtaking views and a sense of adventure.`,
+    "Yumthang Valley - Valley of Flowers": `Yumthang Valley, often called the 'Valley of Flowers', is a paradise for nature lovers. In spring, the valley is carpeted with rhododendrons and alpine flowers. The Shingba Rhododendron Sanctuary and the hot springs are must-visit spots in this serene valley.`,
+    "Pelling - Kanchenjunga Views": `Pelling is famous for its stunning views of Mount Kanchenjunga, the world's third-highest peak. The town is a base for exploring monasteries, waterfalls, and the Sky Walk. Early mornings offer the best chance to witness the golden sunrise over the Himalayas.`,
+    "Rumtek Monastery": `Rumtek Monastery is one of the most important centers of Tibetan Buddhism in Sikkim. The monastery's architecture, murals, and peaceful ambiance attract visitors seeking spirituality and tranquility. Attend the prayer sessions for a truly immersive experience.`,
+    "Namchi - Heart of South Sikkim": `Namchi, meaning 'Sky High', is the cultural and spiritual heart of South Sikkim. The town is known for its giant statues, including the 135-feet tall Guru Padmasambhava, and the Char Dham complex. The surrounding tea gardens and monasteries add to its charm.`
+  };
+
+  // Add article points for each topic
+  const articlePoints = {
+    "Gangtok - The Capital's Charm": [
+      "Stroll along MG Marg, the heart of Gangtok's social life.",
+      "Visit Enchey Monastery for a spiritual experience.",
+      "Enjoy panoramic views from the Gangtok Ropeway.",
+      "Sample local Sikkimese cuisine at authentic cafes.",
+      "Shop for handicrafts and souvenirs at Lal Bazaar."
+    ],
+    "Nathula Pass - Indo-China Border": [
+      "Carry valid permits and warm clothing due to high altitude.",
+      "Spot the Indo-China border gates and army posts.",
+      "Visit Baba Harbhajan Singh Temple en route.",
+      "Experience snow and dramatic Himalayan landscapes.",
+      "Photography is restricted in certain areas—follow guidelines."
+    ],
+    "Yumthang Valley - Valley of Flowers": [
+      "Best visited during spring for blooming rhododendrons.",
+      "Relax in the natural Yumthang hot springs.",
+      "Explore the Shingba Rhododendron Sanctuary.",
+      "Ideal for nature walks and landscape photography.",
+      "Spot grazing yaks and serene riverside meadows."
+    ],
+    "Pelling - Kanchenjunga Views": [
+      "Wake up early for sunrise views of Kanchenjunga.",
+      "Walk the glass Sky Walk for a thrilling experience.",
+      "Visit Pemayangtse Monastery, one of Sikkim's oldest.",
+      "Explore Rabdentse Ruins for a glimpse of Sikkim's history.",
+      "Enjoy local hospitality at boutique mountain resorts."
+    ],
+    "Rumtek Monastery": [
+      "Attend the morning prayer session for a peaceful start.",
+      "Admire the monastery's intricate murals and architecture.",
+      "Learn about Tibetan Buddhism at the monastery museum.",
+      "Walk the tranquil paths around the monastery complex.",
+      "Respect the customs and maintain silence inside prayer halls."
+    ],
+    "Namchi - Heart of South Sikkim": [
+      "Visit the towering Guru Padmasambhava statue at Samdruptse.",
+      "Explore the Char Dham complex with replicas of India's holy shrines.",
+      "Stroll through lush tea gardens and sample local teas.",
+      "Discover the peaceful Ngadak and Tendong Hill monasteries.",
+      "Enjoy panoramic views of the Himalayas and valleys."
+    ]
+  };
+
+  const toggleExpand = (id) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
   };
 
   return (
@@ -191,7 +215,7 @@ const Vlog = () => {
           <div className="hero-icon">
             <Camera className="camera-icon animated-camera" />
           </div>
-          <h1 className="hero-title">Sikkim Travel Blogs</h1>
+          <h1 className="hero-title">Sikkim Blogs & Articles</h1>
           <p className="hero-description">
             Journey through the mystical lands of Sikkim with our immersive video blogs.
             Experience the breathtaking beauty, rich culture, and serene spirituality of the Himalayas.
@@ -216,7 +240,7 @@ const Vlog = () => {
       {/* Vlog Grid */}
       <div className="vlog-content">
         <div className="section-header">
-          <h2 className="section-title">Latest Blog Episodes</h2>
+          <h2 className="section-title"> Blogs and Articles Episodes</h2>
           <p className="section-description">
             Explore Sikkim through our curated collection of short video stories,
             each capturing the essence of this magical Himalayan state.
@@ -271,20 +295,10 @@ const Vlog = () => {
                 )}
               </div>
 
-              {/* Duration Badge */}
-              <div className="duration-badge">
-                {vlog.duration}
-              </div>
-
               {/* Location Badge */}
               <div className="location-badge">
                 <MapPin className="location-icon" />
                 {vlog.location}
-              </div>
-
-              {/* Price Badge */}
-              <div className="price-badge">
-                {vlog.price}
               </div>
 
               {/* Content */}
@@ -293,14 +307,35 @@ const Vlog = () => {
                   <h3 className="card-title">
                     {vlog.title}
                   </h3>
-                  <div className="rating">
-                    ⭐ {vlog.rating}
+                  <div className="card-header-actions">
+                    <div className="rating">
+                      ⭐ {vlog.rating}
+                    </div>
+                    <button
+                      className="readmore-btn"
+                      onClick={() => toggleExpand(vlog.id)}
+                    >
+                      {expandedCards[vlog.id] ? 'Show Less' : 'Read More'}
+                    </button>
                   </div>
                 </div>
 
                 <p className="card-description">
                   {vlog.description}
                 </p>
+                {/* Expanded Article Content */}
+                {expandedCards[vlog.id] && (
+                  <div className="article-description" style={{ marginTop: '1rem', background: '#f9fafb', padding: '1rem', borderRadius: '8px', color: '#000000' }}>
+                    {articleContent[vlog.title] || 'No detailed article available.'}
+                    {articlePoints[vlog.title] && (
+                      <ul style={{ marginTop: '1.2rem', paddingLeft: '1.2rem', color: '#000000', fontSize: '1.05em', lineHeight: '1.7', listStyle: 'disc inside' }}>
+                        {articlePoints[vlog.title].map((point, idx) => (
+                          <li key={idx}>{point}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                )}
 
                 {/* Tags */}
                 <div className="tags-container">
@@ -322,7 +357,7 @@ const Vlog = () => {
                     <button
                       onClick={() => toggleLike(vlog.id)}
                       className={`like-button ${likes[vlog.id] ? 'liked' : ''}`}
-                      title={likes[vlog.id] ? 'Remove from wishlist' : 'Add to wishlist'}
+                      title={likes[vlog.id]}
                     >
                       <Heart className={`heart-icon ${likes[vlog.id] ? 'filled' : ''}`} />
                       <span className="like-count">
@@ -342,21 +377,6 @@ const Vlog = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="cta-section">
-          <div className="cta-card">
-            <h3 className="cta-title">Ready to Explore Sikkim?</h3>
-            <p className="cta-description">
-              Let these blogs inspire your next adventure to the mystical Himalayas
-              {wishlist.length > 0 && ` • ${wishlist.length} destination${wishlist.length > 1 ? 's' : ''} in your wishlist`}
-            </p>
-            <button className="cta-button" onClick={handlePlanTrip}>
-              Plan Your Trip
-              {wishlist.length > 0 && <span className="wishlist-count">{wishlist.length}</span>}
-            </button>
-          </div>
         </div>
       </div>
     </div>

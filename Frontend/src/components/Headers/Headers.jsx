@@ -85,7 +85,7 @@ const Headers = () => {
           </div>
 
           <Link to="/adventure-zone" className="nav-link">Adventure Zone</Link>
-          <Link to="/vlog" className="nav-link">Blogs & Tips</Link>
+          <Link to="/vlog" className="nav-link">Blogs & Articles</Link>
         </nav>
 
         <div
