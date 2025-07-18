@@ -20,6 +20,7 @@ import Government from "./pages/Login/Government";
 import Business from "./pages/Login/Business"
 import DisasterAlert from "./pages/Disaster/DisasterAlert";
 import SikkimTourDashboard from "./pages/Login/Dashboard/Dashboard";
+import Article from "./pages/Vlog/Article";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/business-login" element={<Business />} />
           <Route path="/disaster-alerts" element={<DisasterAlert />} />
           <Route path="/government-dashboard" element={<SikkimTourDashboard />} />
+          <Route path="/article" element={<Article />} />
         </Routes>
         <Footers />
       </div>
